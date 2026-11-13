@@ -244,10 +244,10 @@
       clearTimeout(this.arriveTimer);
       if (!restore) {
         // The arrival screen stays up until BOTH the 3 s animation has played AND the dashboard is ready
-        // (data loaded, pictures decoded) underneath it — at most 12 s, and "Bỏ qua" always ends it.
+        // (data loaded, pictures decoded) underneath it — at most 30 s, and "Bỏ qua" always ends it.
         this.arriveWait = { min: false, data: false };
         this.arriveTimer = setTimeout(function () { self.arriveWait.min = true; self.endArrive(); }, 3000);
-        this.arriveCap = setTimeout(function () { self.endArrive(true); }, 12000);
+        this.arriveCap = setTimeout(function () { self.endArrive(true); }, 30000);
         this.go('#/dashboard', true);
       } else {
         this.applyRoute();
