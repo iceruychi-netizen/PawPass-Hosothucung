@@ -321,6 +321,7 @@ test('Configuration: connection string fallbacks used by Vercel integrations', (
     process.env.POSTGRES_URL = 'postgres://a@b/c';
     assert.equal(db.connectionString(), 'postgres://a@b/c');
     delete process.env.POSTGRES_URL;
+    delete process.env.TEST_DATABASE_URL; // also ends in _DATABASE_URL and would be picked first
     process.env.STORAGE_DATABASE_URL = 'postgresql://d@e/f';
     assert.equal(db.connectionString(), 'postgresql://d@e/f');
   } finally {
