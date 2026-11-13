@@ -252,7 +252,7 @@ r('GET', '/documents/:id/download', async ({ user, params, query }) => {
       'Content-Type': storage.MIME[doc.file_type] || 'application/octet-stream',
       'Content-Length': buf.length,
       'Content-Disposition': `${disposition}; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(doc.file_name)}`,
-      'Cache-Control': 'private, no-store',
+      'Cache-Control': 'private, max-age=3600', // a document's file never changes; lets the browser reuse previews for an hour
       'X-Content-Type-Options': 'nosniff',
       'Content-Security-Policy': "default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; sandbox"
     }

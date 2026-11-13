@@ -460,6 +460,8 @@
             <sc-for list="{{dl}}" as="d" hint-placeholder-count="2">
               <article class="polaroid">
                 <sc-if value="{{d.showImg}}" hint-placeholder-val="{{ false }}"><img src="{{d.url}}" alt="{{d.file_name}}" style="width:100%;height:130px;object-fit:cover;border-radius:4px;border:2px solid #3A2E28;background:#FBF1DF"></sc-if>
+                <sc-if value="{{d.imgWait}}" hint-placeholder-val="{{ false }}"><div class="doc-ph" role="status">Đang tải ảnh…</div></sc-if>
+                <sc-if value="{{d.imgBad}}" hint-placeholder-val="{{ false }}"><div class="doc-ph">Chưa tải được ảnh<button type="button" class="btn btn-sm btn-flat" onClick="{{d.retry}}">Thử lại</button></div></sc-if>
                 <sc-if value="{{d.isPdf}}" hint-placeholder-val="{{ true }}">
                   <div style="height:130px;border-radius:4px;border:2px solid #3A2E28;background:#FCE3E0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
                     <svg width="38" height="38" viewBox="0 0 24 24" fill="#FFFCF5" stroke="#3A2E28" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"></path><path d="M14 3v4h4"></path></svg>

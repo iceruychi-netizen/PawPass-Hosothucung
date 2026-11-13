@@ -75,6 +75,7 @@
       this.token = null;
       this.files = {};        // document id → object URL (fetched through the authorised download endpoint)
       this.filePending = {};
+      this.fileQueue = []; this.fileActive = 0; this.fileTries = {};
       this.toastSeq = 0;
       this.pending = 0;       // requests in flight (drives the top loading bar)
       this.cachedRef = {};
@@ -170,17 +171,36 @@
 
     /* ---------------- documents: fetch file bytes with the token ---------------- */
     docUrl(id) {
+      // Previews are fetched through the authorised download endpoint, at most 3 at a time,
+      // and retried (up to 3 tries) instead of leaving an empty card when a request fails.
       var self = this;
       if (this.files[id] || this.filePending[id]) return this.files[id] || null;
+      if ((this.fileTries[id] || 0) >= 3) return null;
       this.filePending[id] = true;
-      setTimeout(function () {
-        fetch('/api/documents/' + id + '/download?inline=1', { headers: { Authorization: 'Bearer ' + self.token } })
-          .then(function (res) { if (!res.ok) throw new Error(String(res.status)); return res.blob(); })
-          .then(function (b) { self.files[id] = URL.createObjectURL(b); self.forceUpdate(); })
-          .catch(function () { /* stays pending: the card shows without preview */ });
-      }, 0);
+      this.fileQueue.push(id);
+      setTimeout(function () { self.pumpFiles(); }, 0);
       return null;
     }
+    pumpFiles() {
+      var self = this;
+      while (this.fileActive < 3 && this.fileQueue.length) {
+        var id = this.fileQueue.shift();
+        if (!this.filePending[id] || !this.token) continue;
+        this.fileActive++;
+        (function (id) {
+          fetch('/api/documents/' + id + '/download?inline=1', { headers: { Authorization: 'Bearer ' + self.token } })
+            .then(function (res) { if (!res.ok) throw new Error(String(res.status)); return res.blob(); })
+            .then(function (b) { if (self.filePending[id]) { self.files[id] = URL.createObjectURL(b); delete self.filePending[id]; } })
+            .catch(function () {
+              self.fileTries[id] = (self.fileTries[id] || 0) + 1;
+              setTimeout(function () { delete self.filePending[id]; self.forceUpdate(); }, 1500 * self.fileTries[id]);
+            })
+            .then(function () { self.fileActive--; self.forceUpdate(); self.pumpFiles(); });
+        })(id);
+      }
+    }
+    fileFailed(id) { return (this.fileTries[id] || 0) >= 3 && !this.files[id]; }
+    retryFile(id) { delete this.fileTries[id]; delete this.filePending[id]; this.forceUpdate(); }
     dropFile(id) { if (this.files[id]) URL.revokeObjectURL(this.files[id]); delete this.files[id]; delete this.filePending[id]; }
 
     /* ---------------- the yard ---------------- */
@@ -281,7 +301,7 @@
       var self = this;
       this.token = null; storeSet(null);
       Object.keys(this.files).forEach(function (id) { self.dropFile(id); });
-      this.filePending = {};
+      this.filePending = {}; this.fileQueue = []; this.fileTries = {};
       clearTimeout(this.arriveTimer);
       if (location.hash) history.replaceState(null, '', location.pathname);
       this.setState({ screen: 'login', page: 'dashboard', me: null, pets: [], health: [], vacc: [], docs: [], loaded: false, modal: null, form: {}, errors: {}, formError: '', petQuery: '', petSpecies: '', searchQuery: '', tabQuery: '', arriving: false, booting: false });
@@ -527,7 +547,7 @@
             view:function(){ self.openView('vacc',v.id); }, edit:function(){ self.openModal('vacc',v.id); }, del:function(){ self.askDelete('vacc',v.id); }}); });
         dl=s.docs.filter(function(d){ var t=s.docType; return d.pet_id===cp.id && (!t || (t==='img'?d.file_type!=='pdf':d.file_type==='pdf')) && ppMatch(q,[d.file_name,d.description]); })
           .sort(function(a,b){ return a.uploaded_at<b.uploaded_at?1:-1; })
-          .map(function(d){ var url=s.tab==='docs'?self.docUrl(d.id):null; return Object.assign({},d,{url:url, hasUrl:!!url, showImg:d.file_type!=='pdf' && !!url, isPdf:d.file_type==='pdf', typeLabel:d.file_type.toUpperCase(), dateText:ppFmt(d.uploaded_at), hasDesc:!!d.description,
+          .map(function(d){ var url=s.tab==='docs'?self.docUrl(d.id):null; var bad=!url && self.fileFailed(d.id); return Object.assign({},d,{url:url, hasUrl:!!url, showImg:d.file_type!=='pdf' && !!url, imgWait:d.file_type!=='pdf' && !url && !bad, imgBad:d.file_type!=='pdf' && bad, retry:function(){ self.retryFile(d.id); }, isPdf:d.file_type==='pdf', typeLabel:d.file_type.toUpperCase(), dateText:ppFmt(d.uploaded_at), hasDesc:!!d.description,
             view:function(){ self.openView('doc',d.id); }, del:function(){ self.askDelete('doc',d.id); }}); });
       }
       var tabFlag={health:s.tab==='health', vacc:s.tab==='vacc', docs:s.tab==='docs'};
