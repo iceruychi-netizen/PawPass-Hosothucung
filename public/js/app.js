@@ -243,12 +243,35 @@
       this.setState({ booting: false, arriving: !restore, screen: 'app', page: 'dashboard', me: data.user, form: {}, errors: {}, formError: '', pets: c.pets || [], health: c.health || [], vacc: c.vacc || [], docs: c.docs || [], loaded: !!c.pets, modal: null });
       clearTimeout(this.arriveTimer);
       if (!restore) {
-        this.arriveTimer = setTimeout(function () { self.setState({ arriving: false }); self.toast('ok', 'Xin chào, ' + data.user.name + '!'); }, 3000);
+        // The arrival screen stays up until BOTH the 3 s animation has played AND the dashboard is ready
+        // (data loaded, pictures decoded) underneath it — at most 12 s, and "Bỏ qua" always ends it.
+        this.arriveWait = { min: false, data: false };
+        this.arriveTimer = setTimeout(function () { self.arriveWait.min = true; self.endArrive(); }, 3000);
+        this.arriveCap = setTimeout(function () { self.endArrive(true); }, 12000);
         this.go('#/dashboard', true);
       } else {
         this.applyRoute();
       }
-      this.loadAll();
+      this.loadAll().then(function () { return self.preloadPictures(); }, function () {}).then(function () {
+        if (self.arriveWait) { self.arriveWait.data = true; self.endArrive(); }
+      });
+    }
+    endArrive(force) {
+      var w = this.arriveWait;
+      if (!w || !this.state.arriving) return;
+      if (!force && !(w.min && w.data)) return;
+      this.arriveWait = null; clearTimeout(this.arriveTimer); clearTimeout(this.arriveCap);
+      this.setState({ arriving: false });
+      this.toast('ok', 'Xin chào, ' + ((this.state.me || {}).name || '') + '!');
+    }
+    /** Download and decode pet photos / avatar while the arrival screen is still showing (max 4 s). */
+    preloadPictures() {
+      var s = this.state, urls = s.pets.map(function (p) { return p.photo; }).concat([s.me && s.me.avatar]).filter(Boolean);
+      var all = Promise.all(urls.map(function (u) {
+        var i = new Image(); i.src = u;
+        return (i.decode ? i.decode() : new Promise(function (ok) { i.onload = i.onerror = ok; })).catch(function () {});
+      }));
+      return Promise.race([all, new Promise(function (ok) { setTimeout(ok, 4000); })]);
     }
     loadAll() {
       var self = this;
@@ -302,7 +325,7 @@
       this.token = null; storeSet(null);
       Object.keys(this.files).forEach(function (id) { self.dropFile(id); });
       this.filePending = {}; this.fileQueue = []; this.fileTries = {};
-      clearTimeout(this.arriveTimer);
+      clearTimeout(this.arriveTimer); clearTimeout(this.arriveCap); this.arriveWait = null;
       if (location.hash) history.replaceState(null, '', location.pathname);
       this.setState({ screen: 'login', page: 'dashboard', me: null, pets: [], health: [], vacc: [], docs: [], loaded: false, modal: null, form: {}, errors: {}, formError: '', petQuery: '', petSpecies: '', searchQuery: '', tabQuery: '', arriving: false, booting: false });
     }
@@ -476,7 +499,7 @@
         pokeSleeper:function(){ self.pokeSleeper(); },
         quickPhoto:function(e){ self.quickPhoto(e); },
         removePhoto:function(){ self.savePetPhoto('','Đã gỡ ảnh, bé dùng hình minh hoạ.'); },
-        skipArrive:function(){ clearTimeout(self.arriveTimer); self.setState({arriving:false}); self.toast('ok','Xin chào, '+((self.state.me||{}).name||'')+'!'); }
+        skipArrive:function(){ self.endArrive(true); }
       };
       return this._h;
     }

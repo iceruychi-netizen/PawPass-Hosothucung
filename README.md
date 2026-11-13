@@ -143,6 +143,7 @@ Test giao diện kiểm tra toàn bộ luồng chính, không có lỗi console 
 | Đăng nhập chậm, màn hình chờ giật; F5 hiện trang đăng nhập vài giây | `public/js/app.js` (nhớ dữ liệu lần trước để F5 hiện ngay, ít vẽ lại màn hình hơn), `public/css/app.css` + `public/index.html` (màn hình chờ dùng `transform`, rút từ 5 giây còn 3 giây) |
 | Web chậm, tải ảnh lâu, màn hình chờ vẫn giật | `public/js/app.js` (thu nhỏ ảnh còn tối đa 800px trước khi gửi), `server/app.js` (kiểm tra quyền và lấy danh sách chạy song song), `server/db.js` (tăng số kết nối), `vercel.json` (trình duyệt nhớ hình và CSS/JS), `public/css/app.css` (con vật dừng hẳn khi về nhà, ẩn trang bên dưới lúc chờ) |
 | Thẻ tài liệu đôi khi trống, không có ảnh xem trước | `public/js/app.js` (tải tối đa 3 ảnh cùng lúc, tự thử lại 3 lần, có nút Thử lại), `public/index.html` + `public/css/app.css` (khung "Đang tải ảnh…"), `server/app.js` (trình duyệt nhớ tệp 1 giờ) |
+| Sau màn hình chờ, trang chính còn phải chờ tải | `public/js/app.js`: màn hình chờ chỉ tắt khi dữ liệu và ảnh đã tải xong bên dưới (tối thiểu 3 giây, tối đa 12 giây, có nút Bỏ qua); `public/css/app.css`: trang chính được vẽ sẵn phía sau |
 
 Kiểm thử bản cuối: 39 test API và toàn bộ test giao diện đều qua.
 

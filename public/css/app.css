@@ -505,7 +505,7 @@ html,body{overflow-x:clip}
 .r2 .scat.srun{animation-iteration-count:12}.r2 .scat.srun .sp{animation-iteration-count:10}
 .r3 .scat.srun{animation-iteration-count:16}.r3 .scat.srun .sp{animation-iteration-count:12}
 .arrive{contain:layout paint}
-body:has(.arrive) .game,body:has(.arrive) .yard{visibility:hidden}
+body:has(.arrive) .yard{visibility:hidden}
 body:has(.arrive) .game *,body:has(.arrive) .yard *{animation-play-state:paused}
 
 /* Document card while its preview is loading, or when it could not be loaded */
