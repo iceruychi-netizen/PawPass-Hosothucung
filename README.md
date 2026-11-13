@@ -145,6 +145,7 @@ Test giao diện kiểm tra toàn bộ luồng chính, không có lỗi console 
 | Thẻ tài liệu đôi khi trống, không có ảnh xem trước | `public/js/app.js` (tải tối đa 3 ảnh cùng lúc, tự thử lại 3 lần, có nút Thử lại), `public/index.html` + `public/css/app.css` (khung "Đang tải ảnh…"), `server/app.js` (trình duyệt nhớ tệp 1 giờ) |
 | Sau màn hình chờ, trang chính còn phải chờ tải | `public/js/app.js`: màn hình chờ chỉ tắt khi dữ liệu và ảnh đã tải xong bên dưới (tối thiểu 3 giây, tối đa 30 giây, có nút Bỏ qua; chó mèo chạy vào nhà liên tục cho đến khi tải xong); `public/css/app.css`: trang chính được vẽ sẵn phía sau |
 | Trang chính tải chậm vì phải gọi máy chủ 1 + 3 lần cho mỗi bé | Thêm `GET /api/overview` (`server/app.js`): cả trang chính trong **1 lần gọi**. Đây là endpoint **bổ sung** so với tài liệu Step 2 (các endpoint cũ giữ nguyên). `public/js/app.js`: dùng endpoint này, quá 20 giây thì hiện nút **Thử lại**; `vercel.json`: bỏ nhớ tạm CSS/JS để bản mới hiện ngay sau deploy |
+| Lighthouse: "Yêu cầu chặn hiển thị" (app.css) | `public/index.html`: tải `app.css` không chặn hiển thị, giữ màu nền trong lúc chờ; `public/css/app.css`: hiện giao diện khi CSS đã tải |
 
 Kiểm thử bản cuối: 40 test API và toàn bộ test giao diện đều qua.
 

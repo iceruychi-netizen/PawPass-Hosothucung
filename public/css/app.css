@@ -526,3 +526,6 @@ body:has(.arrive) .game *,body:has(.arrive) .yard *{animation-play-state:paused}
 .runner .scat.srun{animation:pp-runbob .3s ease-in-out infinite alternate}
 @keyframes pp-runbob{from{transform:translateY(0)}to{transform:translateY(-2px)}}
 .runner{will-change:transform,opacity}
+
+/* index.html hides #app until this stylesheet has loaded (it is loaded without blocking rendering) */
+#app{visibility:visible}
