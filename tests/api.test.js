@@ -15,6 +15,7 @@ process.env.DATABASE_URL = process.env.TEST_DATABASE_URL || 'postgres://pawpass:
 process.env.JWT_SECRET = process.env.JWT_SECRET || 'test-secret-test-secret-test-secret-123456';
 process.env.UPLOAD_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'pawpass-uploads-'));
 delete process.env.BLOB_READ_WRITE_TOKEN;
+delete process.env.BLOB_STORE_ID;
 
 const db = require('../server/db');
 const handle = require('../server/app');

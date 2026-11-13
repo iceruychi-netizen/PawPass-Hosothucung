@@ -54,7 +54,7 @@ pawpass/
 | --- | --- | --- |
 | `DATABASE_URL` | Có | Chuỗi kết nối PostgreSQL |
 | `JWT_SECRET` | Có | Khóa ký token đăng nhập, tối thiểu 32 ký tự ngẫu nhiên |
-| `BLOB_READ_WRITE_TOKEN` | Trên Vercel | Tự có khi gắn Vercel Blob store. Để trống khi chạy local thì file lưu vào `./uploads` |
+| `BLOB_STORE_ID` hoặc `BLOB_READ_WRITE_TOKEN` | Trên Vercel | Tự có khi gắn Vercel Blob store (kho mới dùng `BLOB_STORE_ID`, kho cũ dùng token; code nhận cả hai). Để trống khi chạy local thì file lưu vào `./uploads` |
 | `PORT`, `UPLOAD_DIR`, `PG_POOL_MAX` | Không | Cổng local, thư mục upload local, số kết nối DB |
 
 Tạo `JWT_SECRET`:
