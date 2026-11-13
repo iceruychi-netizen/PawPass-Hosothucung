@@ -186,6 +186,9 @@
     <sc-if value="{{loading}}" hint-placeholder-val="{{ false }}">
       <div class="card empty" role="status"><span class="hand" style="font-size:20px">Đang gọi các bé về…</span></div>
     </sc-if>
+    <sc-if value="{{loadErr}}" hint-placeholder-val="{{ false }}">
+      <div class="card empty" role="alert" style="display:flex;flex-direction:column;align-items:center;gap:10px"><span class="hand" style="font-size:20px">Máy chủ đang chậm, chưa tải được dữ liệu.</span><button type="button" class="btn btn-sm btn-p" onClick="{{H.reload}}">Thử lại</button></div>
+    </sc-if>
 
     <sc-if value="{{loaded}}" hint-placeholder-val="{{ true }}">
     <div class="home">

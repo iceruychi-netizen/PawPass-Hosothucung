@@ -23,7 +23,7 @@ Việc cần làm tiếp và quy trình làm việc nhóm: xem [PHAN-CONG.md](PH
 pawpass/
 ├── api/index.js            # Vercel Function: mọi request /api/* vào đây
 ├── server/
-│   ├── app.js              # 25 endpoint REST + xác thực + kiểm tra sở hữu + xử lý lỗi
+│   ├── app.js              # 26 endpoint REST + xác thực + kiểm tra sở hữu + xử lý lỗi
 │   ├── http.js             # router, đọc JSON / multipart, lỗi HTTP
 │   ├── db.js               # kết nối PostgreSQL (pg), chuẩn hóa dữ liệu trả về
 │   ├── security.js         # băm mật khẩu scrypt, JWT HS256
@@ -42,7 +42,7 @@ pawpass/
 ├── scripts/migrate.js      # tạo bảng thủ công (tùy chọn)
 ├── scripts/seed.js         # (tùy chọn) tài khoản demo
 ├── scripts/psql-driver.js  # chỉ dùng khi test offline, không dùng production
-├── tests/api.test.js       # 39 test API trên PostgreSQL thật
+├── tests/api.test.js       # 40 test API trên PostgreSQL thật
 ├── tests/ui/run-ui.js      # test giao diện end-to-end bằng Playwright
 ├── vercel.json
 └── .env.example
@@ -103,7 +103,7 @@ Frontend là file tĩnh nên không có lệnh riêng: `npm run dev` phục vụ
 
 ```bash
 createdb pawpass_test
-TEST_DATABASE_URL=postgres://user:pass@localhost:5432/pawpass_test npm test   # 39 test API
+TEST_DATABASE_URL=postgres://user:pass@localhost:5432/pawpass_test npm test   # 40 test API
 
 npm i -D playwright && npx playwright install chromium
 npm run dev &                                                              # cần tài khoản demo (npm run db:seed)
@@ -144,6 +144,7 @@ Test giao diện kiểm tra toàn bộ luồng chính, không có lỗi console 
 | Web chậm, tải ảnh lâu, màn hình chờ vẫn giật | `public/js/app.js` (thu nhỏ ảnh còn tối đa 800px trước khi gửi), `server/app.js` (kiểm tra quyền và lấy danh sách chạy song song), `server/db.js` (tăng số kết nối), `vercel.json` (trình duyệt nhớ hình và CSS/JS), `public/css/app.css` (con vật dừng hẳn khi về nhà, ẩn trang bên dưới lúc chờ) |
 | Thẻ tài liệu đôi khi trống, không có ảnh xem trước | `public/js/app.js` (tải tối đa 3 ảnh cùng lúc, tự thử lại 3 lần, có nút Thử lại), `public/index.html` + `public/css/app.css` (khung "Đang tải ảnh…"), `server/app.js` (trình duyệt nhớ tệp 1 giờ) |
 | Sau màn hình chờ, trang chính còn phải chờ tải | `public/js/app.js`: màn hình chờ chỉ tắt khi dữ liệu và ảnh đã tải xong bên dưới (tối thiểu 3 giây, tối đa 30 giây, có nút Bỏ qua; chó mèo chạy vào nhà liên tục cho đến khi tải xong); `public/css/app.css`: trang chính được vẽ sẵn phía sau |
+| Trang chính tải chậm vì phải gọi máy chủ 1 + 3 lần cho mỗi bé | Thêm `GET /api/overview` (`server/app.js`): cả trang chính trong **1 lần gọi**. Đây là endpoint **bổ sung** so với tài liệu Step 2 (các endpoint cũ giữ nguyên). `public/js/app.js`: dùng endpoint này, quá 20 giây thì hiện nút **Thử lại**; `vercel.json`: bỏ nhớ tạm CSS/JS để bản mới hiện ngay sau deploy |
 
-Kiểm thử bản cuối: 39 test API và toàn bộ test giao diện đều qua.
+Kiểm thử bản cuối: 40 test API và toàn bộ test giao diện đều qua.
 

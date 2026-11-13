@@ -115,7 +115,7 @@
     }
 
     /* ---------------- REST API client (/api) ---------------- */
-    api(method, path, body) {
+    api(method, path, body, timeoutMs) {
       var self = this;
       // Only re-render when the loading bar actually appears or disappears, not on every request.
       if (++self.pending === 1) self.setState({ busy: 1 });
@@ -124,7 +124,9 @@
       var payload;
       if (body instanceof FormData) payload = body;
       else if (body !== undefined && method !== 'GET' && method !== 'DELETE') { headers['Content-Type'] = 'application/json'; payload = JSON.stringify(body); }
-      return fetch('/api' + path, { method: method, headers: headers, body: payload })
+      var ctl = timeoutMs && window.AbortController ? new AbortController() : null;
+      var tm = ctl ? setTimeout(function () { ctl.abort(); }, timeoutMs) : null;
+      return fetch('/api' + path, { method: method, headers: headers, body: payload, signal: ctl ? ctl.signal : undefined })
         .then(function (res) {
           if (res.status === 204) return { status: 204 };
           return res.json().catch(function () { return {}; }).then(function (j) {
@@ -135,7 +137,7 @@
           });
         })
         .catch(function () { return { status: 0, error: 'Không kết nối được máy chủ. Kiểm tra mạng và thử lại.', errors: {} }; })
-        .then(function (r) { self.pending = Math.max(0, self.pending - 1); if (self.pending === 0) self.setState({ busy: 0 }); return r; });
+        .then(function (r) { clearTimeout(tm); self.pending = Math.max(0, self.pending - 1); if (self.pending === 0) self.setState({ busy: 0 }); return r; });
     }
 
     /* ---------------- routing (hash URLs: #/pets/3/vaccinations …) ---------------- */
@@ -274,6 +276,22 @@
       return Promise.race([all, new Promise(function (ok) { setTimeout(ok, 4000); })]);
     }
     loadAll() {
+      // One request for the whole dashboard; falls back to the per-pet endpoints if the server is older.
+      var self = this;
+      this.setState({ loadErr: false });
+      return this.api('GET', '/overview', undefined, 20000).then(function (r) {
+        if (r.status === 200) {
+          var o = r.data;
+          self.setState({ pets: o.pets, health: o.health_records, vacc: o.vaccinations, docs: o.documents, loaded: true });
+          self.saveCache();
+          return;
+        }
+        if (r.status === 404) return self.loadAllPerPet();
+        if (!self.state.loaded) self.setState({ loadErr: true }); // show "Thử lại" instead of loading forever
+        self.failed(r);
+      });
+    }
+    loadAllPerPet() {
       var self = this;
       return this.api('GET', '/pets').then(function (r) {
         if (r.status !== 200) { self.failed(r); return; }
@@ -499,6 +517,7 @@
         pokeSleeper:function(){ self.pokeSleeper(); },
         quickPhoto:function(e){ self.quickPhoto(e); },
         removePhoto:function(){ self.savePetPhoto('','Đã gỡ ảnh, bé dùng hình minh hoạ.'); },
+        reload:function(){ self.loadAll(); },
         skipArrive:function(){ self.endArrive(true); }
       };
       return this._h;
@@ -613,7 +632,7 @@
         pg:{dashboard:s.page==='dashboard', pets:s.page==='pets', pet:s.page==='pet' && !!cp, search:s.page==='search', account:s.page==='account'},
         nav:{dashboard:s.page==='dashboard'?'tnav on':'tnav', pets:(s.page==='pets'||s.page==='pet')?'tnav on':'tnav', search:s.page==='search'?'tnav on':'tnav', account:s.page==='account'?'tnav on':'tnav'},
         me:me, meInitials:meInitials, meHasAvatar:!!me.avatar, meNoAvatar:!me.avatar, meSince:ppFmt(me.created_at),
-        greeting:greet+', '+first+'!', loading:!s.loaded, loaded:s.loaded,
+        greeting:greet+', '+first+'!', loading:!s.loaded && !s.loadErr, loadErr:!s.loaded && !!s.loadErr, loaded:s.loaded,
         summary:s.pets.length+' bé · '+s.health.length+' lần khám · '+s.vacc.length+' mũi tiêm · '+s.docs.length+' tài liệu',
         tally:{pets:s.pets.length, health:s.health.length, vacc:s.vacc.length, docs:s.docs.length},
         pv:pv, watchGroups:groups, noWatch:watch.length===0, acts:acts, noActs:acts.length===0,

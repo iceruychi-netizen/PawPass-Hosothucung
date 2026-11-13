@@ -268,6 +268,27 @@ test('Authorization: user B cannot touch user A data', async () => {
   assert.equal((await call('GET', pet, { token: S.tokenA })).data.name, 'Mochi');
 });
 
+test('Overview: whole dashboard in one request, only the caller\'s own data', async () => {
+  assert.equal((await call('GET', '/overview')).status, 401);
+  const A_ = { token: S.tokenA }, B_ = { token: S.tokenB };
+  const o = (await call('GET', '/overview', A_)).data;
+  const pets = (await call('GET', '/pets', A_)).data;
+  assert.deepEqual(o.pets, pets);
+  let h = [], v = [], d = [];
+  for (const p of pets) {
+    h = h.concat((await call('GET', '/pets/' + p.id + '/health-records', A_)).data);
+    v = v.concat((await call('GET', '/pets/' + p.id + '/vaccinations', A_)).data);
+    d = d.concat((await call('GET', '/pets/' + p.id + '/documents', A_)).data);
+  }
+  assert.deepEqual(o.health_records, h);
+  assert.deepEqual(o.vaccinations, v);
+  assert.deepEqual(o.documents, d);
+  assert.ok(o.health_records.length && o.documents.length, 'fixture has data');
+  const ob = (await call('GET', '/overview', B_)).data;
+  assert.deepEqual(ob.pets.map((p) => p.name), ['Lucky']);
+  assert.ok(ob.health_records.concat(ob.vaccinations, ob.documents).every((x) => ob.pets.some((p) => p.id === x.pet_id)), 'B sees none of A\'s records');
+});
+
 test('Account settings', async (t) => {
   await t.test('update name, email, avatar', async () => {
     const r = await call('PUT', '/auth/me', { token: S.tokenA, body: { name: 'An Nguyễn', email: 'an2@example.com', avatar: pngDataUrl } });

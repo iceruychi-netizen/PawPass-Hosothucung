@@ -217,6 +217,20 @@ r('GET', '/pets/:id/documents', async ({ user, params }) => {
   return { data: (await ownedList(params.id, user.id, 'SELECT * FROM documents WHERE pet_id = $1 ORDER BY uploaded_at DESC, id DESC')).map(docPublic) };
 });
 
+/* Dashboard in one request: every pet of the user with all their health records, vaccinations and documents.
+ * Same data and ordering as GET /pets + GET /pets/:id/{health-records,vaccinations,documents},
+ * but one HTTP request and 4 parallel queries instead of 1 + 3 per pet. */
+r('GET', '/overview', async ({ user }) => {
+  const own = 'JOIN pets p ON p.id = x.pet_id WHERE p.user_id = $1 ORDER BY p.created_at, p.id, ';
+  const [pets, health, vaccinations, documents] = await Promise.all([
+    db.query('SELECT * FROM pets WHERE user_id = $1 ORDER BY created_at, id', [user.id]),
+    db.query('SELECT x.* FROM health_records x ' + own + 'x.examination_date DESC, x.id DESC', [user.id]),
+    db.query('SELECT x.* FROM vaccinations x ' + own + 'x.vaccination_date DESC, x.id DESC', [user.id]),
+    db.query('SELECT x.* FROM documents x ' + own + 'x.uploaded_at DESC, x.id DESC', [user.id])
+  ]);
+  return { data: { pets, health_records: health, vaccinations, documents: documents.map(docPublic) } };
+});
+
 r('POST', '/pets/:id/documents', async ({ user, params, req }) => {
   const pet = await ownedPet(params.id, user.id);
   const form = await readMultipart(req, UPLOAD_LIMIT);
