@@ -52,6 +52,15 @@ async function resolveImage(value, current, keyPrefix, field) {
   return { value: url, replaced: current || null };
 }
 
+/** Ownership check and the list query run at the same time (one database round trip instead of two);
+ *  the rows are only returned after ownership is confirmed. */
+async function ownedList(id, uid, sql) {
+  const [pet, rows] = await Promise.all([ownedPet(id, uid).catch((e) => e), db.query(sql, [id]).catch((e) => e)]);
+  if (pet instanceof Error) throw pet;
+  if (rows instanceof Error) throw rows;
+  return rows;
+}
+
 async function ownedPet(id, uid) {
   const pet = await db.one('SELECT * FROM pets WHERE id = $1', [id]);
   if (!pet) throw fail(404, 'Không tìm thấy thú cưng.');
@@ -176,8 +185,7 @@ Object.keys(RECORDS).forEach((seg) => {
   const T = RECORDS[seg];
   const cols = T.fields.join(', ');
   r('GET', '/pets/:id/' + seg, async ({ user, params }) => {
-    const pet = await ownedPet(params.id, user.id);
-    return { data: await db.query(`SELECT * FROM ${T.table} WHERE pet_id = $1 ORDER BY ${T.order}`, [pet.id]) };
+    return { data: await ownedList(params.id, user.id, `SELECT * FROM ${T.table} WHERE pet_id = $1 ORDER BY ${T.order}`) };
   });
   r('POST', '/pets/:id/' + seg, async ({ user, params, body }) => {
     const pet = await ownedPet(params.id, user.id);
@@ -206,8 +214,7 @@ const DOCS = { table: 'documents', notFound: 'Không tìm thấy tài liệu.' }
 const docPublic = (d) => ({ id: d.id, pet_id: d.pet_id, file_name: d.file_name, file_type: d.file_type, file_path: d.file_path, description: d.description || '', uploaded_at: d.uploaded_at });
 
 r('GET', '/pets/:id/documents', async ({ user, params }) => {
-  const pet = await ownedPet(params.id, user.id);
-  return { data: (await db.query('SELECT * FROM documents WHERE pet_id = $1 ORDER BY uploaded_at DESC, id DESC', [pet.id])).map(docPublic) };
+  return { data: (await ownedList(params.id, user.id, 'SELECT * FROM documents WHERE pet_id = $1 ORDER BY uploaded_at DESC, id DESC')).map(docPublic) };
 });
 
 r('POST', '/pets/:id/documents', async ({ user, params, req }) => {

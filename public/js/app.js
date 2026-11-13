@@ -47,6 +47,28 @@
   function cacheGet() { try { var c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); return c && c.user ? c : null; } catch (e) { return null; } }
   function cacheSet(c) { try { localStorage.setItem(CACHE_KEY, JSON.stringify(c)); } catch (e) { /* quota or private mode: just no cache */ } }
 
+  /* Shrink a photo before upload (max 800px, JPEG): a 2 MB phone photo becomes ~100 KB,
+     so uploads are fast and pages don't decode huge images. Falls back to the original file. */
+  function ppShrink(file, done) {
+    var rd = new FileReader();
+    rd.onload = function () {
+      var orig = rd.result, img = new Image();
+      img.onload = function () {
+        try {
+          var max = 800, k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+          var w = Math.round(img.naturalWidth * k), h = Math.round(img.naturalHeight * k);
+          var c = document.createElement('canvas'); c.width = w; c.height = h;
+          var g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, w, h); g.drawImage(img, 0, 0, w, h);
+          var out = c.toDataURL('image/jpeg', 0.82);
+          done(out.length < orig.length ? out : orig);
+        } catch (e) { done(orig); }
+      };
+      img.onerror = function () { done(orig); };
+      img.src = orig;
+    };
+    rd.readAsDataURL(file);
+  }
+
   class Component extends window.PawPassRuntime.DCLogic {
     constructor(props) {
       super(props);
@@ -72,6 +94,8 @@
     componentDidMount() {
       var self = this;
       window.addEventListener('popstate', function () { self.applyRoute(); });
+      // Warm up the arrival-screen pictures while the user is on the login form, so they don't pop in and stutter after login.
+      try { var tpl = document.getElementById('pp-template'); if (tpl) tpl.content.querySelectorAll('.arrive img').forEach(function (im) { var i = new Image(); i.src = im.getAttribute('src'); if (i.decode) i.decode().catch(function () {}); }); } catch (e) { /* decor only */ }
       var saved = storeGet();
       if (!saved) { this.setState({ booting: false }); return; }
       this.token = saved;
@@ -279,7 +303,7 @@
       var self = this, file = e.target.files && e.target.files[0]; if (!file) return;
       var err = VAL.image(file);
       if (err) { this.setState({ photoErr: err }); e.target.value = ''; return; }
-      var rd = new FileReader(); rd.onload = function () { self.savePetPhoto(rd.result, 'Đã đổi ảnh của bé.'); e.target.value = ''; }; rd.readAsDataURL(file);
+      ppShrink(file, function (data) { self.savePetPhoto(data, 'Đã đổi ảnh của bé.'); e.target.value = ''; });
     }
 
     openModal(type, id) {
@@ -302,7 +326,7 @@
       var self = this, file = e.target.files && e.target.files[0]; if (!file) return;
       var err = VAL.image(file);
       if (err) { this.setErr(key, err); e.target.value = ''; return; }
-      var rd = new FileReader(); rd.onload = function () { self.setField(key, rd.result); }; rd.readAsDataURL(file);
+      ppShrink(file, function (data) { self.setField(key, data); });
     }
     pickDoc(e) {
       var file = e.target.files && e.target.files[0];

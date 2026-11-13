@@ -494,3 +494,16 @@ html,body{overflow-x:clip}
 @media (max-width:760px),(pointer:coarse){.pp input,.pp select,.pp textarea,.pp .inp{font-size:16px}}
 /* Desktop: keep the vertical scrollbar always present so it can never flicker on and off. */
 @media (hover:hover) and (pointer:fine){html{overflow-y:scroll}}
+
+/* ---- Arrival screen smoothness (after login) ----
+   Runners bob more gently and stop once they reach the house instead of vibrating in place;
+   the page underneath is hidden and its animations paused while the arrival screen is up. */
+.scat.srun{animation-duration:.16s}
+.scat.srun .sp-fl,.scat.srun .sp-br,.scat.srun .sp-fr,.scat.srun .sp-bl{animation-duration:.22s}
+.scat.srun .sp-tail{animation-duration:.5s}
+.r1 .scat.srun{animation-iteration-count:10}.r1 .scat.srun .sp{animation-iteration-count:8}
+.r2 .scat.srun{animation-iteration-count:12}.r2 .scat.srun .sp{animation-iteration-count:10}
+.r3 .scat.srun{animation-iteration-count:16}.r3 .scat.srun .sp{animation-iteration-count:12}
+.arrive{contain:layout paint}
+body:has(.arrive) .game,body:has(.arrive) .yard{visibility:hidden}
+body:has(.arrive) .game *,body:has(.arrive) .yard *{animation-play-state:paused}
