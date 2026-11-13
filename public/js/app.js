@@ -41,7 +41,11 @@
   function ppMatch(q, arr) { if (!q) return true; for (var i = 0; i < arr.length; i++) { if (arr[i] && String(arr[i]).toLowerCase().indexOf(q) >= 0) return true; } return false; }
   function ppClone(o) { return JSON.parse(JSON.stringify(o)); }
   function storeGet() { try { return localStorage.getItem(TOKEN_KEY); } catch (e) { return null; } }
-  function storeSet(v) { try { if (v) localStorage.setItem(TOKEN_KEY, v); else localStorage.removeItem(TOKEN_KEY); } catch (e) { /* private mode: session-only */ } }
+  function storeSet(v) { try { if (v) localStorage.setItem(TOKEN_KEY, v); else { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem(CACHE_KEY); } } catch (e) { /* private mode: session-only */ } }
+  /* Last loaded data of the signed-in user, so a page reload shows the dashboard at once and refreshes it in the background. Cleared on logout. */
+  var CACHE_KEY = 'pawpass.cache';
+  function cacheGet() { try { var c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); return c && c.user ? c : null; } catch (e) { return null; } }
+  function cacheSet(c) { try { localStorage.setItem(CACHE_KEY, JSON.stringify(c)); } catch (e) { /* quota or private mode: just no cache */ } }
 
   class Component extends window.PawPassRuntime.DCLogic {
     constructor(props) {
@@ -50,6 +54,8 @@
       this.files = {};        // document id → object URL (fetched through the authorised download endpoint)
       this.filePending = {};
       this.toastSeq = 0;
+      this.pending = 0;       // requests in flight (drives the top loading bar)
+      this.cachedRef = {};
       this.pokeIdx = { c1: 0, c2: 0, d1: 0 };
       this.pokeTimers = {};
       this.state = {
@@ -69,16 +75,25 @@
       var saved = storeGet();
       if (!saved) { this.setState({ booting: false }); return; }
       this.token = saved;
+      var cached = cacheGet();
+      // Reload with a cached session: show the app immediately, then confirm the token and refresh the data in the background.
+      if (cached) this.enter({ user: cached.user, token: saved }, { restore: true, cached: cached });
       this.api('GET', '/auth/me').then(function (r) {
-        if (r.status === 200) self.enter({ user: r.data, token: saved }, { restore: true });
-        else { self.token = null; storeSet(null); self.setState({ booting: false }); }
+        if (r.status === 200) {
+          if (cached) { self.setState({ me: r.data }); self.saveCache({ user: r.data }); }
+          else self.enter({ user: r.data, token: saved }, { restore: true });
+        } else if (r.status === 401 || !cached) {
+          if (cached) { self.resetSession(); self.toast('err', 'Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.'); }
+          else { self.token = null; storeSet(null); self.setState({ booting: false }); }
+        }
       });
     }
 
     /* ---------------- REST API client (/api) ---------------- */
     api(method, path, body) {
       var self = this;
-      self.setState(function (s) { return { busy: s.busy + 1 }; });
+      // Only re-render when the loading bar actually appears or disappears, not on every request.
+      if (++self.pending === 1) self.setState({ busy: 1 });
       var headers = {};
       if (this.token) headers.Authorization = 'Bearer ' + this.token;
       var payload;
@@ -95,7 +110,7 @@
           });
         })
         .catch(function () { return { status: 0, error: 'Không kết nối được máy chủ. Kiểm tra mạng và thử lại.', errors: {} }; })
-        .then(function (r) { self.setState(function (s) { return { busy: Math.max(0, s.busy - 1) }; }); return r; });
+        .then(function (r) { self.pending = Math.max(0, self.pending - 1); if (self.pending === 0) self.setState({ busy: 0 }); return r; });
     }
 
     /* ---------------- routing (hash URLs: #/pets/3/vaccinations …) ---------------- */
@@ -178,12 +193,13 @@
     }
 
     enter(data, opts) {
-      var self = this, restore = opts && opts.restore;
+      var self = this, restore = opts && opts.restore, c = (opts && opts.cached) || {};
       this.token = data.token; storeSet(data.token);
-      this.setState({ booting: false, arriving: !restore, screen: 'app', page: 'dashboard', me: data.user, form: {}, errors: {}, formError: '', pets: [], health: [], vacc: [], docs: [], loaded: false, modal: null });
+      if (!restore) cacheSet({ user: data.user });
+      this.setState({ booting: false, arriving: !restore, screen: 'app', page: 'dashboard', me: data.user, form: {}, errors: {}, formError: '', pets: c.pets || [], health: c.health || [], vacc: c.vacc || [], docs: c.docs || [], loaded: !!c.pets, modal: null });
       clearTimeout(this.arriveTimer);
       if (!restore) {
-        this.arriveTimer = setTimeout(function () { self.setState({ arriving: false }); self.toast('ok', 'Xin chào, ' + data.user.name + '!'); }, 5000);
+        this.arriveTimer = setTimeout(function () { self.setState({ arriving: false }); self.toast('ok', 'Xin chào, ' + data.user.name + '!'); }, 3000);
         this.go('#/dashboard', true);
       } else {
         this.applyRoute();
@@ -201,9 +217,23 @@
           var h = [], v = [], d = [], bad = null;
           rs.forEach(function (x) { x.forEach(function (y) { if (y.status !== 200) bad = bad || y; }); h = h.concat(x[0].data || []); v = v.concat(x[1].data || []); d = d.concat(x[2].data || []); });
           self.setState({ health: h, vacc: v, docs: d, loaded: true });
-          if (bad) self.failed(bad);
+          if (bad) self.failed(bad); else self.saveCache();
         });
       });
+    }
+    componentDidUpdate() {
+      // Keep the reload cache in step with edits (add/edit/delete), at most once per second.
+      var s = this.state, self = this;
+      if (!s.loaded || s.screen !== 'app') return;
+      if (s.pets === this.cachedRef.p && s.health === this.cachedRef.h && s.vacc === this.cachedRef.v && s.docs === this.cachedRef.d && s.me === this.cachedRef.m) return;
+      this.cachedRef = { p: s.pets, h: s.health, v: s.vacc, d: s.docs, m: s.me };
+      clearTimeout(this.cacheTimer);
+      this.cacheTimer = setTimeout(function () { self.saveCache(); }, 1000);
+    }
+    saveCache(extra) {
+      if (!this.token) return;
+      var s = this.state;
+      cacheSet(Object.assign({ user: s.me, pets: s.pets, health: s.health, vacc: s.vacc, docs: s.docs }, extra || {}));
     }
     doLogin() {
       var self = this, f = this.state.form, body = { email: (f.email || '').trim(), password: f.password || '' };
@@ -512,7 +542,7 @@
         H:H, f:f, err:err, noErr:noErr, cls:cls, formError:s.formError, busy:s.busy>0, saving:s.saving,
         loginLabel:s.saving?'Đang đăng nhập…':'Đăng nhập', registerLabel:s.saving?'Đang tạo tài khoản…':'Tạo tài khoản',
         saveLabel:s.saving?'Đang lưu…':(md.doc?'Tải lên':'Lưu'), deleteLabel:s.saving?'Đang xóa…':'Xóa',
-        scr:{auth:s.screen!=='app', login:s.screen==='login', register:s.screen==='register', app:s.screen==='app'},
+        scr:{auth:s.screen!=='app' && !s.booting, login:s.screen==='login', register:s.screen==='register', app:s.screen==='app'},
         pg:{dashboard:s.page==='dashboard', pets:s.page==='pets', pet:s.page==='pet' && !!cp, search:s.page==='search', account:s.page==='account'},
         nav:{dashboard:s.page==='dashboard'?'tnav on':'tnav', pets:(s.page==='pets'||s.page==='pet')?'tnav on':'tnav', search:s.page==='search'?'tnav on':'tnav', account:s.page==='account'?'tnav on':'tnav'},
         me:me, meInitials:meInitials, meHasAvatar:!!me.avatar, meNoAvatar:!me.avatar, meSince:ppFmt(me.created_at),
