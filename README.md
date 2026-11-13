@@ -42,11 +42,21 @@ pawpass/
 ├── scripts/migrate.js      # tạo bảng thủ công (tùy chọn)
 ├── scripts/seed.js         # (tùy chọn) tài khoản demo
 ├── scripts/psql-driver.js  # chỉ dùng khi test offline, không dùng production
-├── tests/api.test.js       # 40 test API trên PostgreSQL thật
+├── tests/unit/             # 12 unit test (quy tắc dữ liệu, bảo mật), không cần database
+├── tests/api.test.js       # 40 integration test API trên PostgreSQL thật
 ├── tests/ui/run-ui.js      # test giao diện end-to-end bằng Playwright
 ├── vercel.json
 └── .env.example
 ```
+
+## Quy trình làm việc
+
+Dự án theo quy trình **Step 1 Prototype → Step 2 PRD / Kiến trúc / ERD / API Docs → Step 3 Planning → Review Plan → Code → Test**.
+
+- [`PLAN.md`](PLAN.md): kế hoạch triển khai theo phase (Phase 0 là test)
+- [`CLAUDE.md`](CLAUDE.md): rule và context cho AI Coding Agent
+- [`PHAN-CONG.md`](PHAN-CONG.md): phân công và quy trình làm nhóm
+- Kiểm thử 3 tầng: **unit** (`tests/unit/`), **integration** (`tests/api.test.js`), **E2E** (`tests/ui/run-ui.js`)
 
 ## Biến môi trường
 
@@ -103,7 +113,8 @@ Frontend là file tĩnh nên không có lệnh riêng: `npm run dev` phục vụ
 
 ```bash
 createdb pawpass_test
-TEST_DATABASE_URL=postgres://user:pass@localhost:5432/pawpass_test npm test   # 40 test API
+npm run test:unit                                                              # 12 unit test, không cần database
+TEST_DATABASE_URL=postgres://user:pass@localhost:5432/pawpass_test npm test   # unit + 40 integration test
 
 npm i -D playwright && npx playwright install chromium
 npm run dev &                                                              # cần tài khoản demo (npm run db:seed)
@@ -147,5 +158,5 @@ Test giao diện kiểm tra toàn bộ luồng chính, không có lỗi console 
 | Trang chính tải chậm vì phải gọi máy chủ 1 + 3 lần cho mỗi bé | Thêm `GET /api/overview` (`server/app.js`): cả trang chính trong **1 lần gọi**. Đây là endpoint **bổ sung** so với tài liệu Step 2 (các endpoint cũ giữ nguyên). `public/js/app.js`: dùng endpoint này, quá 20 giây thì hiện nút **Thử lại**; `vercel.json`: bỏ nhớ tạm CSS/JS để bản mới hiện ngay sau deploy |
 | Lighthouse: "Yêu cầu chặn hiển thị" (app.css) | `public/index.html`: tải `app.css` không chặn hiển thị, giữ màu nền trong lúc chờ; `public/css/app.css`: hiện giao diện khi CSS đã tải |
 
-Kiểm thử bản cuối: 40 test API và toàn bộ test giao diện đều qua.
+Kiểm thử bản cuối: 12 unit test, 40 integration test API và toàn bộ test giao diện (E2E) đều qua.
 
