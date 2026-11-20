@@ -50,7 +50,7 @@
 
 **Khó khăn gặp phải:**
 
-Lần đầu upload bị lồng cả thư mục zip (`2-phong-cach-cau-hinh-test-giao-dien_1/`) vào repo, phải xóa rồi upload lại đúng vị trí.
+Lần đầu upload là bị lồng cả thư mục zip (`2-phong-cach-cau-hinh-test-giao-dien_1/`) vào repo, phải xóa rồi upload lại đúng vị trí.
 
 **Đánh giá bản thân:** 8/10
 
