@@ -15,7 +15,7 @@
 | **Tên dự án** | PawPass — Sổ hộ chiếu thú cưng |
 | **GitHub Repository** | https://github.com/iceruychi-netizen/PawPass-Hosothucung |
 | **Web đang chạy** | https://pawpass-hosothucung-web.vercel.app/ |
-| **Video Demo** | *(link YouTube)* |
+| **Video Demo** | https://www.youtube.com/watch?v=W2zrzrErFAk |
 | **Ngày nộp** | *(DD/MM/YYYY)* |
 
 ### Thành viên nhóm
@@ -153,7 +153,7 @@ Nhóm làm theo quy trình 3 bước: **Step 1 Prototype → Step 2 tài liệu 
 | Setup GitHub & database schema | *(DD/MM)* | ERD và API Docs trong tài liệu Step 2: **12/11/2026** · Repo GitHub chung của nhóm: **13/11/2026** |
 | Hoàn thành UI cơ bản | *(DD/MM)* | Hoàn thành **12/11/2026** (code Step 3, chạy được trên Vercel) |
 | Tích hợp database xong | *(DD/MM)* | Hoàn thành **12/11/2026** (Vercel + Neon + Vercel Blob, đăng ký / lưu thú cưng / tải ảnh chạy được) |
-| Optimization & peer review | *(DD/MM)* | Tối ưu: hoàn thành **13/11/2026** (Lighthouse, sửa giật, tăng tốc), bổ sung **20/11/2026** (Tailwind, Giới thiệu / Liên hệ, Google Analytics, Sentry) · Peer review: chưa làm |
+| Optimization & peer review | *(DD/MM)* | Tối ưu: hoàn thành **13/11/2026** (Lighthouse, sửa giật, tăng tốc), bổ sung **20/11/2026** (Tailwind, Giới thiệu / Liên hệ, Google Analytics, Sentry) · Peer review: hoàn thành (review nhóm 2 và nhóm 5, xử lý 3 góp ý của nhóm 2) |
 | Nộp bài | *(DD/MM)* | *(trạng thái)* |
 
 Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi deploy và lịch sử commit. Cột Deadline do nhóm điền theo lịch của môn.
@@ -185,7 +185,9 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 
 **Tự đánh giá và rút kinh nghiệm:** tên commit chưa theo quy ước (nhiều commit chỉ là "Add files via upload" hay "fix lỗi bla bla"), và code được đưa lên dồn trong một buổi tối thay vì đều đặn. Lần sau nhóm sẽ: tạo Issue cho từng việc, mỗi người làm trên nhánh riêng, mở Pull Request để người khác review trước khi gộp, và đặt tên commit theo quy ước `feat:` / `fix:` / `docs:` kèm số issue.
 
-*(Chèn ảnh danh sách commit)*
+| Commit ngày 20/11 và cuối ngày 13/11 | Commit ngày 13/11 — mỗi thành viên đưa phần của mình lên |
+|---|---|
+| ![Danh sách commit 1](docs/images/github-commits-1.jpg) | ![Danh sách commit 2](docs/images/github-commits-2.jpg) |
 
 ---
 
@@ -412,21 +414,26 @@ Cả hai đều bật bằng **biến môi trường trên Vercel** (Settings �
 #### Google Analytics
 
 - [x] Đã tích hợp (Hữu Triết, đợt bổ sung 20/11) — [`public/js/monitoring.js`](public/js/monitoring.js)
-- **Measurement ID:** *(G-XXXXXXXXXX — đặt vào biến `GA_MEASUREMENT_ID`)*
+- **Measurement ID:** `G-JJL147Q4LV` (property **PawPass**, luồng **PawPass web**), đặt trong biến `GA_MEASUREMENT_ID` trên Vercel từ 20/11/2026
+- Đã tắt *"thay đổi trang dựa trên sự kiện nhật ký duyệt web"* trong Tính năng đo lường nâng cao, vì code đã tự gửi `page_view` khi đổi trang (tránh đếm trùng)
 - **Cách tích hợp:** tải `gtag.js` sau khi trang hiện xong; vì ứng dụng là SPA nên tự gửi `page_view` mỗi khi đổi trang (số id trong đường dẫn được thay bằng `:id`, ví dụ `/#/pets/:id/health`). Sự kiện riêng: `login`, `sign_up`, `create_pet`, `create_health`, `create_vacc`, `create_doc`, `update_*`, `form_invalid`, `contact_submit`, `faq_open`. Không gửi tên, email hay nội dung hồ sơ.
 
-*(Chèn ảnh dashboard Google Analytics)*
+**Kiểm tra:** ngày 20/11/2026, sau khi đặt mã trên Vercel, Google Analytics ghi nhận **2 người dùng đang hoạt động** (Việt Nam) trong báo cáo thời gian thực.
+
+![Google Analytics — người dùng đang hoạt động](docs/images/ga-realtime.png)
 
 #### Sentry
 
 - [x] Đã tích hợp
 - **Công cụ:** Sentry
-- **DSN / Config:** biến `SENTRY_DSN` trên Vercel *(ghi tên project Sentry)*
+- **DSN / Config:** project Sentry **javascript** (nền tảng Browser JavaScript, chỉ bật Error monitoring), DSN đặt trong biến `SENTRY_DSN` trên Vercel từ 20/11/2026; trình duyệt nhận DSN qua `GET /api/config`
 - **Các loại lỗi được theo dõi:**
   - **Trình duyệt** ([`public/js/monitoring.js`](public/js/monitoring.js)): lỗi JavaScript và Promise bị từ chối, kể cả lỗi xảy ra trước khi Sentry kịp tải
   - **Máy chủ** ([`server/monitor.js`](server/monitor.js)): mọi lỗi 5xx của API (mất kết nối database, lỗi lưu tệp lên Blob, lỗi không lường trước), kèm phương thức, đường dẫn đã ẩn id và stack trace. Lỗi do người dùng nhập sai (4xx) không gửi. Có unit test với máy chủ Sentry giả ([`tests/unit/monitor.test.js`](tests/unit/monitor.test.js))
 
-*(Chèn ảnh dashboard Sentry hoặc error log)*
+**Kiểm tra:** ngày 20/11/2026 nhóm gửi một lỗi thử từ trang Giới thiệu trên web thật; Sentry nhận được (`JAVASCRIPT-2`, ảnh dưới). `JAVASCRIPT-1` là lỗi mẫu Sentry tự tạo khi lập project.
+
+![Sentry — danh sách lỗi](docs/images/sentry-issues.png)
 
 ---
 
@@ -434,33 +441,44 @@ Cả hai đều bật bằng **biến môi trường trên Vercel** (Settings �
 
 ### (a) Feedback cho các nhóm khác
 
+Người review: Nguyễn Hữu Triết.
+
 #### Nhóm được review #1
 
-- **Tên nhóm / dự án:** *(…)*
-- **Link project:** *(…)*
+- **Tên nhóm / dự án:** Nhóm 2 — Focus Space
+- **Link project:** https://focuspace-iota.vercel.app/
+- **Cách review:** dùng thử web, thử tương tác với chú mèo và các vật thể trong phòng, rồi góp ý trực tiếp với nhóm.
 
 | Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
 |---|---|---|
-| Usability | | |
-| Aesthetics | | |
-| User-Friendliness | | |
+| Usability | Trang đầu nói rõ web dùng để làm gì, nút **Vào phòng** nổi bật nên bắt đầu rất nhanh | Xem lại số lượng vật thể trong phòng cho vừa phải, để người dùng dễ tập trung và dễ thao tác |
+| Aesthetics | Phong cách pixel art ấm áp, tông màu tối dịu mắt, hợp không khí học tập kiểu lo-fi | — |
+| User-Friendliness | Cho tự chọn phòng (học, ngủ, sân vườn), âm thanh, thời tiết và đồ vật, có gợi ý đeo tai nghe | Tương tác với chú mèo nên sống động hơn (phản hồi rõ hơn khi người dùng bấm hoặc rê chuột vào) |
 
 #### Nhóm được review #2
 
-- **Tên nhóm / dự án:** *(…)*
-- **Link project:** *(…)*
+- **Tên nhóm / dự án:** Nhóm 5 — Web bán quần áo
+- **Link project:** *(nhóm 5 chưa đưa web lên mạng; nhóm góp ý trên bản nhóm 5 đang làm)*
 
 | Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
 |---|---|---|
-| Usability | | |
-| Aesthetics | | |
-| User-Friendliness | | |
+| Usability | *(điểm mạnh)* | Trình bày lại bố cục cho dễ theo dõi, dễ tìm sản phẩm |
+| Aesthetics | *(điểm mạnh)* | Góp ý về giao diện và thiết kế tổng thể cho hài hòa, hợp mắt hơn |
+| User-Friendliness | *(điểm mạnh)* | — |
 
 ### (b) Xử lý feedback nhận được
 
 | Feedback | Nguồn (nhóm nào) | Quyết định | Lý do / Commit |
 |---|---|---|---|
-| | | Đã implement / Không implement | |
+| Sau màn hình chờ, trang chính vẫn phải đợi một lúc mới hiện thông tin | Nhóm 2 | Đã implement | Cho trang chính tải dữ liệu và ảnh **ở nền, bên dưới màn hình chờ**; màn hình chờ chỉ tắt khi đã tải xong, nên người dùng không phải đợi thêm — [`c5c5461`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/c5c5461), [`6058e8a`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/6058e8a) |
+| Bấm F5 ở một trang thì giao diện bị giật: nhảy qua trang đăng ký / đăng nhập rồi mới về trang đang xem | Nhóm 2 | Đã implement | Ghi nhớ trang người dùng đang ở và phiên đăng nhập, F5 mở lại đúng trang đó ngay — [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) |
+| Chú mèo quá to, ảnh lớn khi chuyển động làm giảm điểm Lighthouse | Nhóm 2 | Không implement | Chú mèo là **linh vật** của PawPass, được nhóm tổng hợp từ nhiều bản thiết kế để tạo cảm giác gần gũi với người dùng, nên nhóm giữ nguyên kích thước. Nhóm giảm ảnh hưởng tới tốc độ theo cách khác: ảnh WebP, chuyển động bằng `transform` (Lighthouse hiện đạt 100 ở cả 4 mục) |
+
+**Trước / sau khi sửa góp ý về màn hình chờ:**
+
+| Trước (13/11): hết màn hình chờ, trang chủ vẫn còn "Đang gọi các bé về…" | Sau: hết màn hình chờ là trang chủ đã có đủ thông tin |
+|---|---|
+| ![Trước khi sửa](docs/images/gop-y-truoc-man-hinh-cho.png) | ![Sau khi sửa](docs/images/trang-chu.png) |
 
 ---
 
@@ -468,7 +486,7 @@ Cả hai đều bật bằng **biến môi trường trên Vercel** (Settings �
 
 - [x] Source code trên GitHub (repository public)
 - [x] README.md đầy đủ: hướng dẫn cài đặt, tổng quan, tính năng kèm ảnh, ERD
-- [ ] Video demo trên YouTube (tối đa 10 phút, tối thiểu 720p, không để riêng tư)
+- [x] Video demo trên YouTube (tối đa 10 phút, tối thiểu 720p, không để riêng tư)
 - [ ] Self-report: mỗi thành viên đã commit file vào `docs/self-reports/`
 
 ---

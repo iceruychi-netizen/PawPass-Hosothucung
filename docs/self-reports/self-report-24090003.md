@@ -1,7 +1,5 @@
 # Self-Report — Final Project
 
-> Bản điền sẵn từ phân công và lịch sử commit. **Nguyễn Hữu Triết kiểm tra lại cho đúng sự thật**, điền các chỗ *(…)*, xóa các dòng `>` rồi commit.
-
 ---
 
 ## Thông tin cá nhân
@@ -108,7 +106,7 @@ Web báo "không kết nối được cơ sở dữ liệu", rồi thiếu `JWT_
 - [`3553678`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/3553678) — Google Analytics, Sentry (`public/js/monitoring.js`, `server/monitor.js`)
 - Ảnh WebP và thẻ `<main>` đã có từ lần đưa lên đầu tiên [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d)
 - Ảnh Lighthouse trước (13/11): `docs/images/lighthouse-truoc-van-de.png`, `lighthouse-truoc-con-lai.png` · sau (20/11, 100/100/100/100): `docs/images/lighthouse-sau-desktop.jpg`, `lighthouse-sau-mobile.jpg`
-- *(ảnh dashboard GA / Sentry)*
+- Google Analytics nhận người dùng thật: `docs/images/ga-realtime.png` · Sentry nhận lỗi thử: `docs/images/sentry-issues.png`
 
 **Khó khăn gặp phải:**
 
@@ -120,27 +118,29 @@ Lighthouse vẫn báo mục đỏ sau khi sửa; phải phân biệt mục bị 
 
 ## Task 5 — Peer Review
 
-**Tuần:** *(VD: Tuần 3, ngày DD/MM – DD/MM)*
+**Tuần:** Tuần 2, ngày 13/11 – 20/11
 
 **Công việc đã làm:**
 
-*(Nhóm nào đã review, feedback đã gửi, feedback nhận được và cách xử lý)*
+- Review web **nhóm 2 (Focus Space)**: dùng thử, góp ý tương tác với chú mèo cho sống động hơn và số lượng vật thể trong phòng.
+- Góp ý cho **nhóm 5 (web bán quần áo)** về giao diện, thiết kế tổng thể và cách trình bày cho hợp mắt.
+- Nhận 3 góp ý từ nhóm 2 cho PawPass: sửa 2 góp ý (màn hình chờ tải nền trang chính, F5 không còn nhảy qua trang đăng nhập), giữ nguyên 1 góp ý (kích thước chú mèo — linh vật của nhóm) và giải thích lý do.
 
 **Bằng chứng đóng góp:**
 
-*(Link feedback, commit xử lý feedback)*
+- Bảng góp ý và cách xử lý: mục Task 5 trong `README.md`
+- [`c5c5461`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/c5c5461), [`6058e8a`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/6058e8a) — màn hình chờ tải nền trang chính
+- [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) — F5 giữ đúng trang đang xem
 
 **Khó khăn gặp phải:**
 
-*(Mô tả ngắn)*
+Web nhóm 5 chưa đưa lên mạng nên chỉ góp ý được trên bản đang làm. Với góp ý "mèo quá to làm giảm điểm Lighthouse" của nhóm 2, phải cân nhắc giữa tốc độ và linh vật của nhóm; cuối cùng giữ nguyên chú mèo và tối ưu bằng cách khác (ảnh WebP, chuyển động bằng `transform`).
 
-**Đánh giá bản thân:** *(1–10)*
+**Đánh giá bản thân:** 9/10
 
 ---
 
 ## Khai báo sử dụng AI
-
-> Dự án dùng Claude (Anthropic) làm AI Coding Agent (xem `CLAUDE.md`, `PLAN.md`). Ghi trung thực phần mình nhờ AI và phần mình tự làm; thầy sẽ hỏi để kiểm tra mức độ hiểu.
 
 | Phần / file | Công cụ AI | AI làm gì | Tôi đã làm gì với phần đó |
 |---|---|---|---|
