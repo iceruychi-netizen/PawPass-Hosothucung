@@ -14,7 +14,7 @@ Nhóm chia dự án thành 5 phần theo lớp của ứng dụng. Mỗi ngườ
 | # | Thành viên | MSSV | Phần phụ trách | File chính | Commit đưa lên (13/11/2026) |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Nguyễn Hữu Triết (Leader) | 24090003 | Giao diện: các màn hình & hình ảnh | `public/index.html`, `public/assets/` | [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d) |
-| 2 | Đinh Phùng Duy Huy | 24090016 | Phong cách CSS, cấu hình deploy & test giao diện | `public/css/app.css`, `tests/ui/run-ui.js`, `vercel.json`, `package.json`, `.gitignore`, `.env.example` | [`7cc1796`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/7cc1796), [`9328c46`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9328c46), [`5d98e0f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/5d98e0f) |
+| 2 | Đinh Phùng Duy Huy | 24090016 | Phong cách CSS, cấu hình deploy & test giao diện | `public/css/app.css`, `tests/ui/run-ui.js`, `vercel.json`, `package.json`, `.gitignore`, `.env.example` | [`7cc1796`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/7cc1796), [`9328c46`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9328c46), [`5d98e0f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/5d98e0f) — `app.css`, `run-ui.js` do Hữu Triết đưa vào đúng chỗ ([`9621df1`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9621df1)) |
 | 3 | Nguyễn Thế Dũng | 24090007 | Logic frontend | `public/js/app.js`, `public/js/runtime.js` | [`e5c84fa`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/e5c84fa) |
 | 4 | Nguyễn Phước Thành Đạt | 24090026 | Backend API & bảo mật | `server/app.js`, `server/http.js`, `server/security.js`, `server/storage.js`, `server/local.js`, `api/index.js` | [`14d7456`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/14d7456) |
 | 5 | Đào Duy Quang | 24090005 | Database, kiểm tra dữ liệu & test API | `db/schema.sql`, `server/schema.js`, `server/db.js`, `server/env.js`, `scripts/`, `public/js/validators.js`, `tests/api.test.js` | [`d98340c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/d98340c) |
@@ -39,3 +39,4 @@ Ngoài phần 1, Hữu Triết:
 - Mỗi người đưa phần của mình lên bằng "Add files via upload" trên giao diện web GitHub, tối 13/11/2026 (19:49 – 19:58).
 - Các bản sửa sau đó do Hữu Triết đưa lên bằng GitHub Desktop.
 
+**Rút kinh nghiệm cho lần sau:** tạo Issue cho từng việc, mỗi người làm trên nhánh riêng, mở Pull Request để người khác review trước khi gộp, đặt tên commit rõ ràng theo quy ước `feat:` / `fix:` / `docs:`, và commit đều trong suốt dự án thay vì dồn vào một buổi.

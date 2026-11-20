@@ -10,14 +10,14 @@
 |---|---|
 | **Họ tên** | Nguyễn Phước Thành Đạt |
 | **MSSV** | 24090026 |
-| **Nhóm** | *(tên nhóm)* |
+| **Nhóm** | PawPass |
 | **Vai trò trong nhóm** | Backend — phần 4: API, bảo mật, lưu tệp |
 
 ---
 
 ## Task 1 — Planning & Setup
 
-**Tuần:** Tuần 1, ngày 11/11 – 13/11
+**Tuần:** Tuần 1, ngày 13/11
 
 **Công việc đã làm:**
 
@@ -51,7 +51,7 @@
 
 *(Mô tả ngắn — có thể để trống nếu không có)*
 
-**Đánh giá bản thân:** 8/10
+**Đánh giá bản thân:** *(không tham gia task này — để trống hoặc tự chấm)*
 
 ---
 

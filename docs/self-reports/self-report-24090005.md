@@ -10,14 +10,14 @@
 |---|---|
 | **Họ tên** | Đào Duy Quang |
 | **MSSV** | 24090005 |
-| **Nhóm** | *(tên nhóm)* |
+| **Nhóm** | PawPass |
 | **Vai trò trong nhóm** | Backend — phần 5: database, kiểm tra dữ liệu, test API |
 
 ---
 
 ## Task 1 — Planning & Setup
 
-**Tuần:** Tuần 1, ngày 11/11 – 13/11
+**Tuần:** Tuần 1, ngày 13/11
 
 **Công việc đã làm:**
 

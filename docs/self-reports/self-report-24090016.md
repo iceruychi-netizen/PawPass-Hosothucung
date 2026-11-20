@@ -10,14 +10,14 @@
 |---|---|
 | **Họ tên** | Đinh Phùng Duy Huy |
 | **MSSV** | 24090016 |
-| **Nhóm** | *(tên nhóm)* |
+| **Nhóm** | PawPass |
 | **Vai trò trong nhóm** | Frontend — phần 2: CSS, cấu hình deploy, test giao diện |
 
 ---
 
 ## Task 1 — Planning & Setup
 
-**Tuần:** Tuần 1, ngày 11/11 – 13/11
+**Tuần:** Tuần 1, ngày 13/11
 
 **Công việc đã làm:**
 
@@ -41,12 +41,12 @@
 
 **Công việc đã làm:**
 
-- Đưa phần 2 lên repo: `public/css/app.css`, `tests/ui/run-ui.js`, `package.json`, `vercel.json`, `.gitignore`, `.env.example`.
+- Đưa phần 2 lên repo: lần đầu upload `public/css/app.css`, `tests/ui/run-ui.js`, `package.json`, `vercel.json` nhưng bị lồng trong thư mục zip, nên đã xóa và upload lại `package.json`, `vercel.json`, `.gitignore`, `.env.example` vào đúng chỗ. Hai file `app.css` và `run-ui.js` sau đó được Hữu Triết đưa vào đúng vị trí ([`9621df1`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9621df1)).
 - Đọc hiểu CSS responsive (3 khổ màn hình) và test giao diện bằng Playwright để trình bày.
 
 **Bằng chứng đóng góp:**
 
-- [`7cc1796`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/7cc1796) — upload phần 2
+- [`7cc1796`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/7cc1796) — upload phần 2 (bị lồng trong thư mục `2-phong-cach-cau-hinh-test-giao-dien_1/`)
 - [`9328c46`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9328c46) — xóa thư mục upload nhầm
 - [`5d98e0f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/5d98e0f) — upload lại cấu hình đúng chỗ
 

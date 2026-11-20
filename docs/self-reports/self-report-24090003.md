@@ -10,7 +10,7 @@
 |---|---|
 | **Họ tên** | Nguyễn Hữu Triết |
 | **MSSV** | 24090003 |
-| **Nhóm** | *(tên nhóm)* |
+| **Nhóm** | PawPass |
 | **Vai trò trong nhóm** | Leader — điều phối nhóm, làm việc với AI Coding Agent, deploy Vercel; phụ trách phần 1 (giao diện, hình ảnh, trang Giới thiệu / Liên hệ) |
 
 ---
@@ -21,7 +21,7 @@
 
 **Công việc đã làm:**
 
-- Chốt prototype Step 1 và viết tài liệu Step 2 (PRD, kiến trúc, ERD, API Docs) cùng AI, cả nhóm xem lại.
+- Chốt prototype Step 1 và viết tài liệu Step 2 (PRD, kiến trúc, ERD, API Docs) cùng AI.
 - Lập kế hoạch Step 3, chia dự án thành 5 phần và phân công (`PHAN-CONG.md`, `PLAN.md`), soạn tài liệu đọc hiểu cho từng phần.
 - Tạo repo GitHub, đưa phần giao diện lên đầu tiên; xử lý xung đột khi gộp code (merge conflict) trên GitHub Desktop. Nhóm làm trực tiếp trên `main`, chưa dùng nhánh riêng hay Pull Request.
 
@@ -57,7 +57,9 @@ Lần đầu dùng GitHub theo nhóm: các bạn upload song song nên bị xung
 - [`24daa6e`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/24daa6e) — sửa thẻ tài liệu trống (tải lại ảnh xem trước)
 - [`c5c5461`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/c5c5461) — màn hình chờ đợi dữ liệu tải xong
 - [`6058e8a`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/6058e8a) — màn hình chờ chạy mượt, không giật
-- *(thêm link commit đợt bổ sung Tailwind / Giới thiệu / Liên hệ)*
+- [`9621df1`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9621df1) — đưa `app.css` và `run-ui.js` của phần 2 vào đúng vị trí
+- [`3553678`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/3553678) — đợt bổ sung 20/11: Tailwind CSS, trang Giới thiệu / Liên hệ, Google Analytics, Sentry, báo cáo README, self-report
+- [`84b843c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/84b843c) — sửa báo cáo và phân công cho đúng thực tế
 
 **Khó khăn gặp phải:**
 
@@ -103,6 +105,8 @@ Web báo "không kết nối được cơ sở dữ liệu", rồi thiếu `JWT_
 
 - [`ab67f70`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/ab67f70) — trang chủ tải trong 1 lần gọi (`/api/overview`), nút Thử lại
 - [`15b8a0e`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/15b8a0e) — tải CSS không chặn hiển thị (Lighthouse)
+- [`3553678`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/3553678) — Google Analytics, Sentry (`public/js/monitoring.js`, `server/monitor.js`)
+- Ảnh WebP và thẻ `<main>` đã có từ lần đưa lên đầu tiên [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d)
 - *(ảnh Lighthouse trước / sau, ảnh dashboard GA / Sentry)*
 
 **Khó khăn gặp phải:**

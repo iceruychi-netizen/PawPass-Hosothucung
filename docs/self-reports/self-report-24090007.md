@@ -10,14 +10,14 @@
 |---|---|
 | **Họ tên** | Nguyễn Thế Dũng |
 | **MSSV** | 24090007 |
-| **Nhóm** | *(tên nhóm)* |
+| **Nhóm** | PawPass |
 | **Vai trò trong nhóm** | Frontend — phần 3: logic JavaScript |
 
 ---
 
 ## Task 1 — Planning & Setup
 
-**Tuần:** Tuần 1, ngày 11/11 – 13/11
+**Tuần:** Tuần 1, ngày 13/11
 
 **Công việc đã làm:**
 
