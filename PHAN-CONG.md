@@ -39,4 +39,3 @@ Ngoài phần 1, Hữu Triết:
 - Mỗi người đưa phần của mình lên bằng "Add files via upload" trên giao diện web GitHub, tối 13/11/2026 (19:49 – 19:58).
 - Các bản sửa sau đó do Hữu Triết đưa lên bằng GitHub Desktop.
 
-**Rút kinh nghiệm cho lần sau:** tạo Issue cho từng việc, mỗi người làm trên nhánh riêng, mở Pull Request để người khác review trước khi gộp, đặt tên commit rõ ràng theo quy ước `feat:` / `fix:` / `docs:`, và commit đều trong suốt dự án thay vì dồn vào một buổi.
