@@ -16,7 +16,7 @@
 | **GitHub Repository** | https://github.com/iceruychi-netizen/PawPass-Hosothucung |
 | **Web đang chạy** | https://pawpass-hosothucung-web.vercel.app/ |
 | **Video Demo** | https://www.youtube.com/watch?v=W2zrzrErFAk |
-| **Ngày nộp** | *(DD/MM/YYYY)* |
+| **Ngày nộp** | 21/11/2026 |
 
 ### Thành viên nhóm
 
@@ -149,14 +149,14 @@ Nhóm làm theo quy trình 3 bước: **Step 1 Prototype → Step 2 tài liệu 
 
 | Milestone | Deadline | Trạng thái |
 |---|---|---|
-| Hoàn thành wireframe (prototype Step 1) | *(DD/MM)* | Hoàn thành **11/11/2026** (bắt đầu 09/11) |
-| Setup GitHub & database schema | *(DD/MM)* | ERD và API Docs trong tài liệu Step 2: **12/11/2026** · Repo GitHub chung của nhóm: **13/11/2026** |
-| Hoàn thành UI cơ bản | *(DD/MM)* | Hoàn thành **12/11/2026** (code Step 3, chạy được trên Vercel) |
-| Tích hợp database xong | *(DD/MM)* | Hoàn thành **12/11/2026** (Vercel + Neon + Vercel Blob, đăng ký / lưu thú cưng / tải ảnh chạy được) |
-| Optimization & peer review | *(DD/MM)* | Tối ưu: hoàn thành **13/11/2026** (Lighthouse, sửa giật, tăng tốc), bổ sung **20/11/2026** (Tailwind, Giới thiệu / Liên hệ, Google Analytics, Sentry) · Peer review: hoàn thành (review nhóm 2 và nhóm 5, xử lý 3 góp ý của nhóm 2) |
-| Nộp bài | *(DD/MM)* | *(trạng thái)* |
+| Hoàn thành wireframe (prototype Step 1) | 21/11/2026 | Đúng hạn — hoàn thành **11/11/2026** (bắt đầu 09/11) |
+| Setup GitHub & database schema | 21/11/2026 | Đúng hạn — ERD và API Docs trong tài liệu Step 2: **12/11/2026** · Repo GitHub chung của nhóm: **13/11/2026** |
+| Hoàn thành UI cơ bản | 21/11/2026 | Đúng hạn — hoàn thành **12/11/2026** (code Step 3, chạy được trên Vercel) |
+| Tích hợp database xong | 21/11/2026 | Đúng hạn — hoàn thành **12/11/2026** (Vercel + Neon + Vercel Blob, đăng ký / lưu thú cưng / tải ảnh chạy được) |
+| Optimization & peer review | 21/11/2026 | Đúng hạn — tối ưu: hoàn thành **13/11/2026** (Lighthouse, sửa giật, tăng tốc), bổ sung **20/11/2026** (Tailwind, Giới thiệu / Liên hệ, Google Analytics, Sentry) · Peer review: hoàn thành (review nhóm 2 và nhóm 5, xử lý 3 góp ý của nhóm 2) |
+| Nộp bài | 21/11/2026 | Đúng hạn — báo cáo, self-report và video hoàn thành ngày 20/11/2026 |
 
-Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi deploy và lịch sử commit. Cột Deadline do nhóm điền theo lịch của môn.
+Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi deploy và lịch sử commit. Hạn nộp của môn là 21/11/2026, nhóm không có hạn riêng cho từng milestone nên cột Deadline dùng ngày nộp.
 
 ### (d) GitHub Repository
 
@@ -462,9 +462,9 @@ Người review: Nguyễn Hữu Triết.
 
 | Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
 |---|---|---|
-| Usability | *(điểm mạnh)* | Trình bày lại bố cục cho dễ theo dõi, dễ tìm sản phẩm |
-| Aesthetics | *(điểm mạnh)* | Góp ý về giao diện và thiết kế tổng thể cho hài hòa, hợp mắt hơn |
-| User-Friendliness | *(điểm mạnh)* | — |
+| Usability | — | Trình bày lại bố cục cho dễ theo dõi, dễ tìm sản phẩm |
+| Aesthetics | — | Góp ý về giao diện và thiết kế tổng thể cho hài hòa, hợp mắt hơn |
+| User-Friendliness | Có cơ chế **phối đồ và đề xuất quần áo**, giúp người dùng chọn trang phục dễ hơn | — |
 
 ### (b) Xử lý feedback nhận được
 
@@ -487,7 +487,7 @@ Người review: Nguyễn Hữu Triết.
 - [x] Source code trên GitHub (repository public)
 - [x] README.md đầy đủ: hướng dẫn cài đặt, tổng quan, tính năng kèm ảnh, ERD
 - [x] Video demo trên YouTube (tối đa 10 phút, tối thiểu 720p, không để riêng tư)
-- [ ] Self-report: mỗi thành viên đã commit file vào `docs/self-reports/`
+- [x] Self-report: đủ 5 file trong `docs/self-reports/`
 
 ---
 
