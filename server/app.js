@@ -7,6 +7,7 @@
 const db = require('./db');
 const storage = require('./storage');
 const { hashPassword, verifyPassword, signToken, verifyToken, assertConfigured } = require('./security');
+const monitor = require('./monitor');
 const { HttpError, fail, invalid, send, readJson, readMultipart, createRouter } = require('./http');
 const VAL = require('../public/js/validators');
 
@@ -67,6 +68,10 @@ async function ownedPet(id, uid) {
   if (pet.user_id !== uid) throw fail(403, 'Bạn không có quyền truy cập thú cưng này.');
   return pet;
 }
+
+/* ---------- monitoring config (public) ---------- */
+// Mã Google Analytics và DSN Sentry cho trình duyệt, lấy từ biến môi trường để không phải ghi cứng vào mã nguồn.
+r('GET', '/config', async () => ({ data: monitor.publicConfig() }), { public: true });
 
 /* ---------- auth ---------- */
 r('POST', '/auth/register', async ({ body }) => {
@@ -308,6 +313,7 @@ async function handle(req, res) {
     send(res, out.status || 200, out.status === 204 ? undefined : out.data);
   } catch (err) {
     if (err instanceof HttpError) {
+      if (err.status >= 500) await monitor.captureException(err, { method: req.method, path, status: err.status });
       const payload = { error: err.message };
       if (err.errors) payload.errors = err.errors;
       send(res, err.status, payload);
@@ -315,6 +321,7 @@ async function handle(req, res) {
     }
     if (err && err.code === '23505') { send(res, 409, { error: EMAIL_USED, errors: { email: EMAIL_USED } }); return; }
     console.error('[api]', req.method, path, (err && err.code) || '', err);
+    await monitor.captureException(err, { method: req.method, path, status: 500 });
     let message = 'Lỗi máy chủ. Vui lòng thử lại.';
     if (err && err.code === 'PAWPASS_NO_DB_URL') message = 'Máy chủ chưa được cấu hình cơ sở dữ liệu (thiếu DATABASE_URL).';
     else if (err && err.code === 'PAWPASS_NO_JWT') message = 'Máy chủ chưa được cấu hình JWT_SECRET.';

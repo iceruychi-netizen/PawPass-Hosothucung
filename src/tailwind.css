@@ -1,0 +1,11 @@
+/* Nguồn Tailwind: build ra public/css/tailwind.css bằng `npm run build:css` */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Thẻ và nút dùng lại nhiều lần trên trang giới thiệu / liên hệ */
+  .pp-card { @apply rounded-2xl border-2.5 border-ink bg-paper shadow-chunky; }
+  .pp-btn { @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border-2.5 border-ink px-5 font-display text-base font-bold text-ink shadow-chunky-sm transition active:translate-y-[2px] active:shadow-none focus:outline-none focus-visible:ring-4 focus-visible:ring-orange/50; }
+  .pp-input { @apply w-full rounded-xl border-2.5 border-ink bg-white px-4 py-3 text-base text-ink placeholder:text-muted/70 focus:outline-none focus:ring-4 focus:ring-orange/40; }
+}

@@ -289,6 +289,13 @@ test('Overview: whole dashboard in one request, only the caller\'s own data', as
   assert.ok(ob.health_records.concat(ob.vaccinations, ob.documents).every((x) => ob.pets.some((p) => p.id === x.pet_id)), 'B sees none of A\'s records');
 });
 
+test('Config: public monitoring settings, no login needed, nothing secret', async () => {
+  const r = await call('GET', '/config');
+  assert.equal(r.status, 200);
+  assert.deepEqual(Object.keys(r.data).sort(), ['environment', 'gaId', 'sentryDsn']);
+  assert.ok(!JSON.stringify(r.data).includes(process.env.JWT_SECRET), 'JWT secret never exposed');
+});
+
 test('Account settings', async (t) => {
   await t.test('update name, email, avatar', async () => {
     const r = await call('PUT', '/auth/me', { token: S.tokenA, body: { name: 'An Nguyễn', email: 'an2@example.com', avatar: pngDataUrl } });

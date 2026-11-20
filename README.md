@@ -1,162 +1,466 @@
-# PawPass — Sổ hộ chiếu thú cưng
+# Final Project Report — Web Design and Development
 
-Ứng dụng web quản lý hồ sơ, sức khỏe, tiêm phòng và giấy tờ cho nhiều thú cưng của một người dùng.
-Giao diện giữ nguyên prototype Step 1. API, database và quy tắc đúng tài liệu Step 2 (bản đã đồng bộ cho Vercel).
+**PawPass — Sổ hộ chiếu thú cưng**
 
-**Web đang chạy:** https://pawpass-hosothucung-web.vercel.app/
+> Báo cáo nhóm theo [template của môn học](https://basic.web-programming.io.vn/final-project-report-template/).
+> Tài liệu kỹ thuật chi tiết (cấu trúc thư mục, biến môi trường, deploy, xử lý lỗi, bảo mật): [`docs/KY-THUAT.md`](docs/KY-THUAT.md).
 
-## Phân chia công việc
+---
 
-| Phần | Thành viên | Nội dung | Thư mục / file chính |
-| --- | --- | --- | --- |
-| 1 | Hữu Triết | Giao diện: các màn hình & hình ảnh | `public/index.html`, `public/assets/` |
-| 2 | Duy Huy | Phong cách CSS, cấu hình deploy & test giao diện | `public/css/app.css`, `tests/ui/run-ui.js`, `vercel.json`, `package.json`, `.gitignore`, `.env.example` |
-| 3 | Thế Dũng | Logic frontend | `public/js/app.js`, `public/js/runtime.js` |
-| 4 | Thành Đạt | Backend API, bảo mật & README | `server/app.js`, `server/http.js`, `server/security.js`, `server/storage.js`, `server/local.js`, `api/index.js`, `README.md` |
-| 5 | Duy Quang | Database, kiểm tra dữ liệu & test API | `db/schema.sql`, `server/schema.js`, `server/db.js`, `server/env.js`, `scripts/`, `public/js/validators.js`, `tests/api.test.js` |
+## Thông Tin Nhóm
 
-Việc cần làm tiếp và quy trình làm việc nhóm: xem [PHAN-CONG.md](PHAN-CONG.md).
+| | |
+|---|---|
+| **Tên nhóm** | *(tên nhóm)* |
+| **Tên dự án** | PawPass — Sổ hộ chiếu thú cưng |
+| **GitHub Repository** | https://github.com/iceruychi-netizen/PawPass-Hosothucung |
+| **Web đang chạy** | https://pawpass-hosothucung-web.vercel.app/ |
+| **Video Demo** | *(link YouTube)* |
+| **Ngày nộp** | *(DD/MM/YYYY)* |
 
-## Cấu trúc dự án
+### Thành viên nhóm
 
-```
-pawpass/
-├── api/index.js            # Vercel Function: mọi request /api/* vào đây
-├── server/
-│   ├── app.js              # 26 endpoint REST + xác thực + kiểm tra sở hữu + xử lý lỗi
-│   ├── http.js             # router, đọc JSON / multipart, lỗi HTTP
-│   ├── db.js               # kết nối PostgreSQL (pg), chuẩn hóa dữ liệu trả về
-│   ├── security.js         # băm mật khẩu scrypt, JWT HS256
-│   ├── storage.js          # Vercel Blob (production) hoặc ./uploads (local), kiểm tra chữ ký tệp
-│   ├── env.js              # đọc .env khi chạy local
-│   └── local.js            # server chạy local: frontend + API
-├── public/                 # frontend tĩnh (Vercel phục vụ thư mục này)
-│   ├── index.html          # template giao diện từ prototype
-│   ├── css/app.css
-│   ├── js/runtime.js       # bộ render template (sc-if, sc-for, {{...}})
-│   ├── js/app.js           # trạng thái + luồng màn hình, gọi API thật
-│   ├── js/validators.js    # quy tắc validation dùng chung client + server
-│   └── assets/             # hình minh họa chó mèo
-├── db/schema.sql           # 5 bảng theo ERD
-├── server/schema.js        # cùng SQL, API tự áp dụng khi chạy lần đầu
-├── scripts/migrate.js      # tạo bảng thủ công (tùy chọn)
-├── scripts/seed.js         # (tùy chọn) tài khoản demo
-├── scripts/psql-driver.js  # chỉ dùng khi test offline, không dùng production
-├── tests/unit/             # 12 unit test (quy tắc dữ liệu, bảo mật), không cần database
-├── tests/api.test.js       # 40 integration test API trên PostgreSQL thật
-├── tests/ui/run-ui.js      # test giao diện end-to-end bằng Playwright
-├── vercel.json
-└── .env.example
-```
+| Họ tên | MSSV | Vai trò |
+|---|---|---|
+| Nguyễn Hữu Triết | 24090003 | **Leader** — điều phối, làm việc với AI Coding Agent, deploy Vercel; Frontend: các màn hình, hình ảnh, trang Giới thiệu / Liên hệ |
+| Đinh Phùng Duy Huy | 24090016 | Frontend — CSS, Tailwind CSS, cấu hình deploy, test giao diện |
+| Nguyễn Thế Dũng | 24090007 | Frontend — logic JavaScript, gọi API, Google Analytics & Sentry phía trình duyệt |
+| Nguyễn Phước Thành Đạt | 24090026 | Backend — API, bảo mật, lưu tệp, Sentry phía máy chủ |
+| Đào Duy Quang | 24090005 | Backend — database, quy tắc kiểm tra dữ liệu, test API |
 
-## Quy trình làm việc
+---
 
-Dự án theo quy trình **Step 1 Prototype → Step 2 PRD / Kiến trúc / ERD / API Docs → Step 3 Planning → Review Plan → Code → Test**.
+## Tổng Quan Project và Công Nghệ Sử Dụng
 
-- [`PLAN.md`](PLAN.md): kế hoạch triển khai theo phase (Phase 0 là test)
-- [`CLAUDE.md`](CLAUDE.md): rule và context cho AI Coding Agent
-- [`PHAN-CONG.md`](PHAN-CONG.md): phân công và quy trình làm nhóm
-- Kiểm thử 3 tầng: **unit** (`tests/unit/`), **integration** (`tests/api.test.js`), **E2E** (`tests/ui/run-ui.js`)
+### Mô tả ứng dụng
 
-## Biến môi trường
+PawPass là ứng dụng web giúp chủ nuôi lưu **hồ sơ, các lần khám, mũi tiêm và giấy tờ** của từng bé thú cưng ở một nơi, mở được trên cả máy tính lẫn điện thoại. Người dùng mục tiêu là chủ nuôi cá nhân có một hoặc nhiều bé, cần tra cứu nhanh khi đi khám, gửi khách sạn thú cưng hay đi tiêm. Mỗi người chỉ xem và sửa được dữ liệu của chính mình.
 
-| Biến | Bắt buộc | Ý nghĩa |
-| --- | --- | --- |
-| `DATABASE_URL` | Có | Chuỗi kết nối PostgreSQL |
-| `JWT_SECRET` | Có | Khóa ký token đăng nhập, tối thiểu 32 ký tự ngẫu nhiên |
-| `BLOB_STORE_ID` hoặc `BLOB_READ_WRITE_TOKEN` | Trên Vercel | Tự có khi gắn Vercel Blob store (kho mới dùng `BLOB_STORE_ID`, kho cũ dùng token; code nhận cả hai). Để trống khi chạy local thì file lưu vào `./uploads` |
-| `PORT`, `UPLOAD_DIR`, `PG_POOL_MAX` | Không | Cổng local, thư mục upload local, số kết nối DB |
+### Tech Stack
 
-Tạo `JWT_SECRET`:
+| Thành phần | Công nghệ |
+|---|---|
+| **Frontend** | HTML, CSS (prototype Step 1), **Tailwind CSS** (trang Giới thiệu / Liên hệ), JavaScript thuần — ứng dụng một trang (SPA) điều hướng bằng `#/...` |
+| **Backend** | Node.js 20 (module `http`, không framework), RESTful API, chạy dưới dạng Vercel Function |
+| **Database** | PostgreSQL (Neon), thư viện `pg` |
+| **Lưu tệp** | Vercel Blob (ảnh thú cưng, giấy tờ) |
+| **Theo dõi** | Google Analytics 4, Sentry |
+| **Deploy** | Vercel |
+| **Kiểm thử** | `node:test` (unit + integration), Playwright (E2E) |
 
-```bash
-node -e "console.log(require('crypto').randomBytes(48).toString('base64'))"
-```
+### Tính năng chính
 
-## Deploy lên Vercel
+- Đăng ký, đăng nhập, đăng xuất; sửa tài khoản, ảnh đại diện, đổi mật khẩu
+- Quản lý nhiều thú cưng: thêm, sửa, xóa (xóa kèm toàn bộ hồ sơ), đổi ảnh nhanh, lọc theo loài
+- Hồ sơ sức khỏe từng lần khám, hiển thị dạng dòng thời gian
+- Tiêm phòng, mỗi mũi hiển thị như một con dấu trong hộ chiếu
+- Tải lên, xem trước, tải về giấy tờ JPG / PNG / PDF (tối đa 4 MB, kiểm tra cả nội dung tệp)
+- Tìm kiếm toàn bộ dữ liệu, lọc theo loại kết quả
+- Trang chủ tổng quan: thẻ hộ chiếu từng bé, số liệu tổng, mục "Cần để ý", "Gần đây"
+- Trang Giới thiệu và trang Liên hệ (form gửi góp ý, câu hỏi thường gặp)
+- Giao diện responsive cho điện thoại, máy tính bảng, máy tính
 
-1. Import repo GitHub vào Vercel (**Add New → Project**). Framework Preset để **Other**, không cần Build Command.
-2. **Storage → Create Database → Neon (Postgres)** → **Connect Project**: chọn project của bạn (ví dụ `pawpass-hosothucung-web`), **All Environments**, ô **Custom Prefix** gõ `DATABASE` (để có biến `DATABASE_URL`), không tích "Create database branch".
-3. **Storage → Create → Blob**: chọn quyền truy cập **Public** (bắt buộc: ảnh thú cưng hiển thị trực tiếp; kho Private sẽ báo lỗi `access must be "public"`).
-   Khi **Connect Project**: prefix để trống và **tích "Add a read-write token env var to this connection"** để có biến `BLOB_READ_WRITE_TOKEN`.
-4. Thêm `JWT_SECRET` (chuỗi ngẫu nhiên tối thiểu 32 ký tự, All Environments). Có thể thêm ở **Settings → Environment Variables** của project, hoặc ở trang Environment Variables của team → tab **Shared** (nhớ chọn project ở ô **Link to Projects**).
-5. Deploy lại: biến môi trường chỉ có hiệu lực ở lần deploy *sau* khi thêm. Nếu nút **Redeploy** treo, sửa một chữ trong `README.md` trên GitHub rồi commit — Vercel tự deploy.
+| Trang chủ | Chi tiết thú cưng — Sức khỏe |
+|---|---|
+| ![Trang chủ](docs/images/trang-chu.png) | ![Chi tiết thú cưng](docs/images/chi-tiet-health.png) |
+| **Tiêm phòng** | **Tìm kiếm** |
+| ![Tiêm phòng](docs/images/chi-tiet-vaccinations.png) | ![Tìm kiếm](docs/images/tim-kiem.png) |
 
-Không cần tự tạo bảng: API tạo bảng (`CREATE TABLE IF NOT EXISTS`) ở request đầu tiên.
-Muốn tạo tài khoản demo thì chạy `DATABASE_URL="postgres://..." npm run db:seed` từ máy bạn.
+---
 
-### Khi gặp lỗi
+## Hướng Dẫn Cài Đặt và Chạy Ứng Dụng
 
-| Thông báo trên web | Nguyên nhân | Cách sửa |
-| --- | --- | --- |
-| Máy chủ chưa được cấu hình cơ sở dữ liệu | Không có `DATABASE_URL` | Làm lại bước 2, rồi Redeploy |
-| Máy chủ chưa được cấu hình JWT_SECRET | Thiếu hoặc ngắn hơn 32 ký tự | Làm lại bước 4, rồi Redeploy |
-| Không lưu được ảnh/tài liệu lên Vercel Blob: … | Thiếu token hoặc kho Blob để Private | Làm lại bước 3 (kho **Public**, tích ô token), rồi deploy lại |
-| Không kết nối được cơ sở dữ liệu | Sai chuỗi kết nối, DB bị xóa/tạm dừng | Kiểm tra Neon dashboard; xem log ở **Deployments → Functions/Logs** (dòng `[api] … `) |
+### Yêu cầu hệ thống
 
-## Chạy local
+| Công cụ | Phiên bản |
+|---|---|
+| Node.js | >= 20.x |
+| PostgreSQL | >= 14 (hoặc một database Neon miễn phí) |
 
-Cần Node.js 20+ và PostgreSQL 14+.
+### Các bước cài đặt
 
 ```bash
+# 1. Clone repository
+git clone https://github.com/iceruychi-netizen/PawPass-Hosothucung.git
+cd PawPass-Hosothucung
+
+# 2. Cài dependencies
 npm install
-cp .env.example .env            # sửa DATABASE_URL và JWT_SECRET
-createdb pawpass                # hoặc tạo database bằng công cụ bạn dùng
-npm run db:migrate              # tùy chọn: API cũng tự tạo bảng
-npm run db:seed                 # tùy chọn
-npm run dev                     # http://localhost:3000 (frontend + backend cùng một lệnh)
+
+# 3. Cấu hình môi trường
+cp .env.example .env
+# Sửa .env: DATABASE_URL và JWT_SECRET (tối thiểu 32 ký tự).
+# GA_MEASUREMENT_ID và SENTRY_DSN không bắt buộc.
+
+# 4. Khởi tạo database (API cũng tự tạo bảng ở lần chạy đầu)
+createdb pawpass
+npm run db:migrate
+npm run db:seed          # tạo tài khoản demo: demo@pawpass.vn / 123456
+
+# 5. Chạy ứng dụng
+npm run build:css        # chỉ cần khi sửa class Tailwind
+npm run dev              # http://localhost:3000 — cùng lúc giao diện và API
 ```
 
-Frontend là file tĩnh nên không có lệnh riêng: `npm run dev` phục vụ cả giao diện lẫn API.
+**Lưu ý:**
+- Chạy trên máy cá nhân, ảnh và giấy tờ được lưu vào thư mục `uploads/`. Trên Vercel thì lưu vào Vercel Blob.
+- Deploy lên Vercel (gắn Neon, Blob, đặt `JWT_SECRET`, chọn vùng máy chủ) và bảng xử lý lỗi thường gặp: xem [`docs/KY-THUAT.md`](docs/KY-THUAT.md#deploy-lên-vercel).
+- Chạy test: `npm run test:unit` (không cần database) · `TEST_DATABASE_URL=postgres://... npm test` · `npm run test:ui`.
 
-## Kiểm thử
+---
 
-```bash
-createdb pawpass_test
-npm run test:unit                                                              # 12 unit test, không cần database
-TEST_DATABASE_URL=postgres://user:pass@localhost:5432/pawpass_test npm test   # unit + 40 integration test
+## Task 1 — Project Planning & Teamwork
 
-npm i -D playwright && npx playwright install chromium
-npm run dev &                                                              # cần tài khoản demo (npm run db:seed)
-npm run test:ui                                                            # luồng giao diện + responsive
+### (a) Phân công vai trò
+
+Nhóm chia dự án thành 5 phần theo lớp của ứng dụng, mỗi người phụ trách một phần: hiểu rõ, trình bày được và review mọi thay đổi chạm vào phần đó. Chi tiết từng file và việc cần làm: [`PHAN-CONG.md`](PHAN-CONG.md).
+
+| Phần | Thành viên | Trách nhiệm | File chính |
+|---|---|---|---|
+| 1 | Hữu Triết (Leader) | Điều phối nhóm, làm việc với AI, deploy; các màn hình, hình ảnh, trang Giới thiệu / Liên hệ | `public/index.html`, `public/assets/`, `public/gioi-thieu.html`, `public/lien-he.html` |
+| 2 | Duy Huy | CSS, Tailwind, cấu hình deploy, test giao diện, Lighthouse | `public/css/app.css`, `tailwind.config.js`, `src/tailwind.css`, `vercel.json`, `package.json`, `tests/ui/run-ui.js` |
+| 3 | Thế Dũng | Logic frontend, gọi API, tương tác JavaScript, Google Analytics / Sentry trình duyệt | `public/js/app.js`, `public/js/runtime.js`, `public/js/site.js`, `public/js/monitoring.js` |
+| 4 | Thành Đạt | API, xác thực, phân quyền, lưu tệp, Sentry máy chủ, báo cáo | `server/app.js`, `server/http.js`, `server/security.js`, `server/storage.js`, `server/monitor.js`, `README.md`, `CLAUDE.md` |
+| 5 | Duy Quang | Database, quy tắc kiểm tra dữ liệu, test API | `db/schema.sql`, `server/schema.js`, `server/db.js`, `scripts/`, `public/js/validators.js`, `tests/` |
+
+### (b) Wireframe
+
+- **Công cụ sử dụng:** Claude Design (prototype có thể bấm thử — Step 1 của quy trình nhóm)
+- **Các trang đã thiết kế:**
+  - [x] Homepage (trang chủ tổng quan)
+  - [x] Đăng nhập / Đăng ký
+  - [x] Danh sách thú cưng, chi tiết thú cưng (3 tab Sức khỏe / Tiêm phòng / Tài liệu)
+  - [x] Tìm kiếm, Tài khoản
+  - [ ] Giới thiệu / Liên hệ (thêm sau, dựa trên phong cách của prototype)
+
+*(Chèn ảnh xuất từ prototype vào `docs/images/wireframe-*.png` nếu có)*
+
+### (c) Project Plan
+
+Nhóm làm theo quy trình 3 bước: **Step 1 Prototype → Step 2 tài liệu đặc tả (PRD, kiến trúc, ERD, API) → Step 3 Planning → Review Plan → Code → Test**. Kế hoạch chi tiết theo phase, mỗi việc có người phụ trách và test chứng minh: [`PLAN.md`](PLAN.md).
+
+| Milestone | Deadline | Trạng thái |
+|---|---|---|
+| Hoàn thành wireframe (prototype Step 1) | *(DD/MM)* | Hoàn thành *(Đúng hạn / Trễ X ngày)* |
+| Setup GitHub & database schema (tài liệu Step 2: PRD, ERD, API) | *(DD/MM)* | Hoàn thành 12/11/2026 *(Đúng hạn / Trễ X ngày)* |
+| Hoàn thành UI cơ bản | *(DD/MM)* | Hoàn thành 13/11/2026 *(Đúng hạn / Trễ X ngày)* |
+| Tích hợp database xong (deploy Vercel + Neon + Blob) | *(DD/MM)* | Hoàn thành 13/11/2026 *(Đúng hạn / Trễ X ngày)* |
+| Optimization & peer review | *(DD/MM)* | Tối ưu: hoàn thành · Peer review: *(trạng thái)* |
+| Nộp bài | *(DD/MM)* | *(trạng thái)* |
+
+### (d) GitHub Repository
+
+- **Repository link:** https://github.com/iceruychi-netizen/PawPass-Hosothucung
+
+### (e) GitHub workflow
+
+**Quy ước commit** (áp dụng từ đợt bổ sung Tailwind / Giới thiệu / Liên hệ / Analytics):
+
+```
+<loại>: <việc đã làm, tiếng Việt, bắt đầu bằng động từ> (#<số issue>)
+
+feat:  thêm trang Giới thiệu bằng Tailwind CSS (#2)
+fix:   sửa màn hình chờ bị giật sau khi đăng nhập (#5)
+docs:  viết báo cáo README theo template môn học (#6)
+test:  thêm unit test cho module theo dõi lỗi Sentry (#4)
+chore: cấu hình Tailwind và lệnh build:css (#1)
 ```
 
-Test API bao gồm đăng ký, đăng nhập, đăng xuất, token giả và hết hạn, CRUD thú cưng, sức khỏe, tiêm phòng, tài liệu. Test cũng kiểm tra file sai định dạng, file giả đuôi, file rỗng, file lớn hơn 4 MB (413), tải xuống đúng từng byte, xóa dây chuyền, và người dùng B không truy cập được dữ liệu của người dùng A (403).
+**Pull Request workflow:** mỗi việc là một **Issue** → mỗi người tạo **nhánh riêng** (`phan-<số>-<việc>`) → commit nhỏ theo quy ước trên → mở **Pull Request** ghi `Closes #<issue>` → người phụ trách phần bị sửa review (Vercel tạo link xem thử cho mỗi PR) → merge vào `main`. Chi tiết: [`PHAN-CONG.md`](PHAN-CONG.md#3-quy-trình-làm-việc).
 
-Test giao diện kiểm tra toàn bộ luồng chính, không có lỗi console và không bị cuộn ngang ở 3 khổ: desktop 1366px, tablet 820px, mobile 390px. Ảnh chụp lưu ở `tests/ui/output/`.
+**Ghi chú trung thực:** đợt code đầu tiên (13/11/2026) được đưa lên bằng "Add files via upload" trên giao diện web của GitHub, chưa theo quy ước trên. Các thay đổi sau đó đi qua Issue và Pull Request.
 
-## Bảo mật
+*(Chèn ảnh danh sách commit hoặc một Pull Request)*
 
-- Mật khẩu băm bằng scrypt, có salt riêng cho từng tài khoản. API không bao giờ trả về `password_hash`.
-- Mọi endpoint, trừ đăng ký và đăng nhập, đều cần JWT hợp lệ. Mọi tài nguyên đều kiểm tra `pets.user_id` ở backend: không phải chủ thì trả 403.
-- Validation chạy ở cả client và server. File tải lên được kiểm tra đuôi, MIME, kích thước và chữ ký nội dung.
-- Tài liệu chỉ tải được qua `/api/documents/:id/download`, có kiểm tra quyền sở hữu.
-- Mọi secret lấy từ biến môi trường, không có secret nào trong mã nguồn.
+---
 
-## Giới hạn đã biết
+## Task 2 — Implement User Interface
 
-- Đăng xuất chỉ xóa token ở trình duyệt. JWT đã cấp vẫn hợp lệ đến khi hết hạn (7 ngày) vì ERD không có bảng phiên.
-- Tài liệu tối đa 4 MB do Vercel giới hạn request ở 4,5 MB.
-- Ảnh thú cưng và ảnh đại diện nằm ở URL Blob công khai nhưng khó đoán. Tài liệu thì luôn đi qua API có kiểm tra quyền.
-- Tìm kiếm lọc phía client trên dữ liệu đã tải, phù hợp quy mô dữ liệu của một người dùng.
+### (a) Các trang đã xây dựng
 
-## Lịch sử chỉnh sửa sau bản đầu tiên
+Ứng dụng chính là SPA trong `public/index.html` (điều hướng bằng `#/...`, xử lý trong `public/js/app.js`). Trang Giới thiệu và Liên hệ là hai trang HTML riêng.
 
-| Vấn đề | Đã sửa ở file |
-| --- | --- |
-| Web báo "Không kết nối được cơ sở dữ liệu" khi biến DB có tên khác | `server/db.js` nhận `DATABASE_URL`, `POSTGRES_URL` và biến có tiền tố riêng; tự tạo bảng ở lần chạy đầu (`server/schema.js`) |
-| Lỗi cấu hình hiện chung chung "Lỗi máy chủ" | `server/app.js`, `server/security.js`: báo rõ thiếu `DATABASE_URL` / `JWT_SECRET` |
-| Không lưu được ảnh, tài liệu trên Vercel | `server/storage.js`: báo rõ thiếu Blob hoặc lỗi Blob; thử chế độ private; `package.json` dùng `@vercel/blob` bản mới |
-| Màn hình giật liên tục (chó mèo đi dạo) | `public/css/app.css`: chuyển hiệu ứng đi bộ sang `transform` |
-| Thẻ, nút nhảy lên khi rê chuột / chạm | `public/css/app.css`: bỏ hiệu ứng nhảy khi hover |
-| Thanh cuộn hiện/ẩn làm trang co giãn; iPhone tự phóng to khi chạm ô nhập | `public/css/app.css`: giữ chỗ thanh cuộn, chữ ô nhập 16px trên điện thoại |
-| Lighthouse: thiếu điểm mốc `<main>`, ảnh nặng, phông chữ và script chặn hiển thị | `public/index.html` (thẻ `<main>`, tải phông chữ song song, script `defer`), `public/assets/` (ảnh WebP, 1.040 KB → 196 KB) |
-| Đăng nhập chậm, màn hình chờ giật; F5 hiện trang đăng nhập vài giây | `public/js/app.js` (nhớ dữ liệu lần trước để F5 hiện ngay, ít vẽ lại màn hình hơn), `public/css/app.css` + `public/index.html` (màn hình chờ dùng `transform`, rút từ 5 giây còn 3 giây) |
-| Web chậm, tải ảnh lâu, màn hình chờ vẫn giật | `public/js/app.js` (thu nhỏ ảnh còn tối đa 800px trước khi gửi), `server/app.js` (kiểm tra quyền và lấy danh sách chạy song song), `server/db.js` (tăng số kết nối), `vercel.json` (trình duyệt nhớ hình và CSS/JS), `public/css/app.css` (con vật dừng hẳn khi về nhà, ẩn trang bên dưới lúc chờ) |
-| Thẻ tài liệu đôi khi trống, không có ảnh xem trước | `public/js/app.js` (tải tối đa 3 ảnh cùng lúc, tự thử lại 3 lần, có nút Thử lại), `public/index.html` + `public/css/app.css` (khung "Đang tải ảnh…"), `server/app.js` (trình duyệt nhớ tệp 1 giờ) |
-| Sau màn hình chờ, trang chính còn phải chờ tải | `public/js/app.js`: màn hình chờ chỉ tắt khi dữ liệu và ảnh đã tải xong bên dưới (tối thiểu 3 giây, tối đa 30 giây, có nút Bỏ qua; chó mèo chạy vào nhà liên tục cho đến khi tải xong); `public/css/app.css`: trang chính được vẽ sẵn phía sau |
-| Trang chính tải chậm vì phải gọi máy chủ 1 + 3 lần cho mỗi bé | Thêm `GET /api/overview` (`server/app.js`): cả trang chính trong **1 lần gọi**. Đây là endpoint **bổ sung** so với tài liệu Step 2 (các endpoint cũ giữ nguyên). `public/js/app.js`: dùng endpoint này, quá 20 giây thì hiện nút **Thử lại**; `vercel.json`: bỏ nhớ tạm CSS/JS để bản mới hiện ngay sau deploy |
-| Lighthouse: "Yêu cầu chặn hiển thị" (app.css) | `public/index.html`: tải `app.css` không chặn hiển thị, giữ màu nền trong lúc chờ; `public/css/app.css`: hiện giao diện khi CSS đã tải |
+| Trang | URL / Route | Mô tả | Người thực hiện |
+|---|---|---|---|
+| Homepage (Trang chủ) | `/#/dashboard` | Lời chào, số liệu tổng, thẻ hộ chiếu từng bé, "Cần để ý", "Gần đây" | Hữu Triết, Thế Dũng |
+| Đăng nhập / Đăng ký | `/` | Form đăng nhập và đăng ký, có kiểm tra dữ liệu | Hữu Triết, Thế Dũng |
+| Thú cưng | `/#/pets` | Danh sách các bé, tìm và lọc theo loài, thêm / sửa / xóa | Hữu Triết, Thế Dũng |
+| Chi tiết thú cưng | `/#/pets/:id/health` · `/vaccinations` · `/documents` | Hộ chiếu của bé với 3 tab: sức khỏe, tiêm phòng, tài liệu | Hữu Triết, Thế Dũng |
+| Tìm kiếm | `/#/search` | Tìm trên toàn bộ dữ liệu, lọc theo loại | Hữu Triết, Thế Dũng |
+| Tài khoản | `/#/account` | Sửa thông tin, ảnh đại diện, đổi mật khẩu, đăng xuất | Hữu Triết, Thế Dũng |
+| **About** (Giới thiệu) | `/gioi-thieu.html` | Vấn đề, tính năng, cách dùng, nhóm thực hiện | Hữu Triết, Duy Huy |
+| **Contact** (Liên hệ) | `/lien-he.html` | Form góp ý / báo lỗi, thông tin nhóm, câu hỏi thường gặp | Hữu Triết, Thế Dũng |
 
-Kiểm thử bản cuối: 12 unit test, 40 integration test API và toàn bộ test giao diện (E2E) đều qua.
+| Đăng nhập | Giới thiệu | Liên hệ |
+|---|---|---|
+| ![Đăng nhập](docs/images/dang-nhap.png) | ![Giới thiệu](docs/images/gioi-thieu.png) | ![Liên hệ](docs/images/lien-he.png) |
 
+### (b) Sử dụng Tailwind CSS
+
+- **Cài đặt:** `tailwindcss` trong `devDependencies` của `package.json`; cấu hình ở [`tailwind.config.js`](tailwind.config.js); nguồn ở [`src/tailwind.css`](src/tailwind.css); lệnh `npm run build:css` sinh ra `public/css/tailwind.css` (đã nén). Vercel tự chạy lệnh này khi deploy (`buildCommand` trong `vercel.json`).
+- **Phạm vi:** Tailwind dùng cho trang Giới thiệu và Liên hệ. Ứng dụng chính giữ CSS viết tay trong `public/css/app.css` vì đã làm xong từ prototype Step 1; `content` của Tailwind chỉ quét các trang mới để hai bộ CSS không đè nhau.
+- **Màu và phông riêng:** khai báo trong `theme.extend` cho giống ứng dụng chính: `bg-cream`, `bg-paper`, `text-ink`, `bg-orange`, `bg-mint`, `bg-sky`, `bg-rose`, phông `font-display` (Baloo 2), `font-body` (Nunito), `font-hand` (Patrick Hand), bóng `shadow-chunky`.
+- **Component tự định nghĩa** bằng `@layer components` + `@apply`: `.pp-card`, `.pp-btn`, `.pp-input`.
+- **Ví dụ utility classes đã dùng:**
+  - Lưới responsive: `grid gap-5 sm:grid-cols-2 lg:grid-cols-4`, `md:grid-cols-2`, `lg:grid-cols-5` + `lg:col-span-3`
+  - Menu điện thoại: `hidden md:flex`, `md:hidden`, `absolute top-full md:static`
+  - Trạng thái form: `focus:ring-4 focus:ring-orange/40`, `peer-checked:bg-orange` (nút chọn chủ đề), báo lỗi bằng `border-red-700` / `text-red-700`
+  - Khác: `sticky top-0`, `max-w-6xl mx-auto`, `rotate-12`, `divide-y-2 divide-dashed`
+
+### (c) Các tính năng tương tác
+
+| Tính năng | Mô tả | File / Component | Người thực hiện |
+|---|---|---|---|
+| Modal thêm / sửa | Form thêm và sửa thú cưng, lần khám, mũi tiêm, tài liệu, tài khoản trong hộp thoại | `public/js/app.js` (`openModal`, `submitModal`) | Thế Dũng |
+| Form validation | Kiểm tra ngay trên trình duyệt (email, mật khẩu, cân nặng, ngày không ở tương lai, loại và dung lượng tệp); cùng bộ quy tắc với máy chủ | `public/js/validators.js`, `public/js/app.js` | Duy Quang, Thế Dũng |
+| Form liên hệ | Báo lỗi ngay dưới ô, đếm ký tự, gửi thành Issue trên GitHub | `public/js/site.js` | Thế Dũng |
+| Accordion câu hỏi thường gặp | Bấm để mở / đóng câu trả lời, hỗ trợ bàn phím (`aria-expanded`) | `public/js/site.js` | Thế Dũng |
+| Menu điện thoại | Nút ☰ mở / đóng menu, phím Esc để đóng | `public/js/site.js` | Thế Dũng |
+| Tìm kiếm & lọc | Gõ là lọc ngay, không tải lại trang | `public/js/app.js` | Thế Dũng |
+| Tải ảnh & tài liệu | Thu nhỏ ảnh trước khi gửi, xem trước ảnh / PDF, tải về | `public/js/app.js` (`ppShrink`, `docUrl`) | Thế Dũng |
+| Màn hình chờ & hoạt cảnh | Chó mèo chạy vào nhà cho đến khi dữ liệu tải xong; thú cưng đi dạo cuối trang, bấm vào thì nhảy | `public/index.html`, `public/css/app.css`, `public/js/app.js` | Hữu Triết, Duy Huy, Thế Dũng |
+
+**Cách kiểm tra:** test E2E bằng Playwright ([`tests/ui/run-ui.js`](tests/ui/run-ui.js)) tự bấm qua toàn bộ luồng: đăng ký, thêm thú cưng, nhập sai form, tải tệp, tìm kiếm, người khác mở link bị chặn, xóa, đăng xuất.
+
+![Form báo lỗi khi nhập thiếu](docs/images/kiem-tra-form.png)
+
+### (d) Giao diện trên nhiều thiết bị
+
+- [x] Mobile (< 768px) — kiểm tra ở 390px
+- [x] Tablet (768px – 1024px) — kiểm tra ở 820px
+- [x] Desktop (> 1024px) — kiểm tra ở 1366px
+
+Test E2E kiểm tra **không có cuộn ngang** trên mọi trang ở cả 3 khổ. Ô nhập trên điện thoại dùng chữ 16px để iPhone không tự phóng to.
+
+| Mobile (390px) | Tablet (820px) | Desktop (1366px) |
+|---|---|---|
+| ![Mobile](docs/images/responsive-mobile.png) | ![Tablet](docs/images/responsive-tablet.png) | ![Desktop](docs/images/responsive-desktop.png) |
+
+---
+
+## Task 3 — Database Integration & Dynamic Content
+
+### (a) Thiết kế cơ sở dữ liệu
+
+- **Hệ quản trị CSDL:** PostgreSQL (Neon)
+- **Số bảng:** 5 — định nghĩa ở [`db/schema.sql`](db/schema.sql)
+
+| Bảng | Mô tả | Các cột chính |
+|---|---|---|
+| `users` | Tài khoản người dùng | `id`, `name`, `email` (duy nhất), `password_hash`, `avatar` |
+| `pets` | Thú cưng, mỗi bé thuộc một người | `id`, `user_id` → users, `name`, `species`, `gender`, `date_of_birth`, `weight`, `photo` |
+| `health_records` | Các lần khám | `id`, `pet_id` → pets, `examination_date`, `reason`, `diagnosis`, `treatment`, `medication` |
+| `vaccinations` | Các mũi tiêm | `id`, `pet_id` → pets, `vaccine_name`, `vaccination_date`, `dose` |
+| `documents` | Giấy tờ đã tải lên | `id`, `pet_id` → pets, `file_name`, `file_type` (jpg/png/pdf), `file_path`, `description` |
+
+Mọi khóa ngoại đều `ON DELETE CASCADE`: xóa một bé là xóa luôn hồ sơ, mũi tiêm, tài liệu của bé. Có ràng buộc `CHECK` cho loài, giới tính, cân nặng (0 < kg ≤ 200) và loại tệp.
+
+```mermaid
+erDiagram
+    users ||--o{ pets : "sở hữu"
+    pets ||--o{ health_records : "có"
+    pets ||--o{ vaccinations : "có"
+    pets ||--o{ documents : "có"
+    users {
+        int id PK
+        varchar name
+        varchar email UK
+        varchar password_hash
+        varchar avatar
+    }
+    pets {
+        int id PK
+        int user_id FK
+        varchar name
+        varchar species
+        varchar gender
+        date date_of_birth
+        numeric weight
+        varchar photo
+    }
+    health_records {
+        int id PK
+        int pet_id FK
+        date examination_date
+        varchar reason
+        varchar diagnosis
+        text treatment
+    }
+    vaccinations {
+        int id PK
+        int pet_id FK
+        varchar vaccine_name
+        date vaccination_date
+        varchar dose
+    }
+    documents {
+        int id PK
+        int pet_id FK
+        varchar file_name
+        varchar file_type
+        varchar file_path
+    }
+```
+
+### (b) Kết nối cơ sở dữ liệu
+
+- **Server-side:** Node.js 20 (module `http`, không dùng framework), triển khai thành Vercel Function ([`api/index.js`](api/index.js) → [`server/app.js`](server/app.js))
+- **Cách kết nối:** RESTful API (JSON) — trình duyệt gọi `/api/...`, máy chủ truy vấn PostgreSQL qua thư viện `pg` với câu lệnh có tham số (`$1, $2`) để chống SQL injection ([`server/db.js`](server/db.js))
+- **CRUD đã thực hiện:**
+  - [x] Create — `POST /api/pets`, `/api/pets/:id/health-records`, `/vaccinations`, `/documents`, `/api/auth/register`
+  - [x] Read — `GET /api/overview`, `/api/pets`, `/api/pets/:id`, các danh sách con, `/api/documents/:id/download`
+  - [x] Update — `PUT /api/pets/:id`, `/api/health-records/:id`, `/api/vaccinations/:id`, `/api/auth/me`
+  - [x] Delete — `DELETE /api/pets/:id`, `/api/health-records/:id`, `/api/vaccinations/:id`, `/api/documents/:id`
+
+**Kiến trúc:**
+
+```
+Trình duyệt (HTML/CSS/JS)  ──HTTPS, JSON, token đăng nhập──▶  Vercel Function (Node.js, server/app.js)
+                                                                 │  kiểm tra token + quyền sở hữu ở MỌI request
+                                                                 ├──▶ PostgreSQL (Neon): 5 bảng
+                                                                 └──▶ Vercel Blob: ảnh và giấy tờ
+```
+
+Mật khẩu băm bằng scrypt; token đăng nhập ký bằng HS256 (hết hạn 7 ngày); người khác mở dữ liệu không phải của mình nhận lỗi 403. Toàn bộ 27 endpoint: [`docs/KY-THUAT.md`](docs/KY-THUAT.md).
+
+### (c) Các trang hiển thị dữ liệu động
+
+| Trang | Dữ liệu hiển thị | Query / Endpoint | Người thực hiện |
+|---|---|---|---|
+| Trang chủ | Số bé, lần khám, mũi tiêm, tài liệu; thẻ từng bé; "Cần để ý"; "Gần đây" | `GET /api/overview` (4 truy vấn song song, lọc theo `pets.user_id`) | Thành Đạt, Thế Dũng |
+| Thú cưng | Danh sách bé của người dùng | `GET /api/pets` → `SELECT * FROM pets WHERE user_id = $1` | Thành Đạt, Thế Dũng |
+| Chi tiết — Sức khỏe | Dòng thời gian các lần khám | `GET /api/pets/:id/health-records` | Thành Đạt, Thế Dũng |
+| Chi tiết — Tiêm phòng | Các mũi tiêm dạng con dấu | `GET /api/pets/:id/vaccinations` | Thành Đạt, Thế Dũng |
+| Chi tiết — Tài liệu | Danh sách giấy tờ, ảnh xem trước | `GET /api/pets/:id/documents`, `GET /api/documents/:id/download` | Thành Đạt, Thế Dũng |
+| Tìm kiếm | Kết quả trên toàn bộ dữ liệu | Dữ liệu từ `GET /api/overview`, lọc trên trình duyệt | Thế Dũng |
+| Tài khoản | Tên, email, ảnh đại diện | `GET /api/auth/me` | Thành Đạt, Thế Dũng |
+
+| Trang chủ | Thú cưng | Tài khoản |
+|---|---|---|
+| ![Trang chủ](docs/images/trang-chu.png) | ![Thú cưng](docs/images/danh-sach-thu-cung.png) | ![Tài khoản](docs/images/tai-khoan.png) |
+
+---
+
+## Task 4 — Optimization
+
+### (a) Lighthouse
+
+**Kết quả trước khi tối ưu** *(điền từ ảnh chụp lần chạy đầu)*
+
+| Metric | Score |
+|---|---|
+| Performance | *(điểm)* |
+| Accessibility | 98 |
+| Best Practices | *(điểm)* |
+| SEO | *(điểm)* |
+
+*(Chèn ảnh Lighthouse trước khi tối ưu: `docs/images/lighthouse-truoc.png`)*
+
+**Các vấn đề phát hiện và cách khắc phục:**
+
+| Vấn đề | Hành động khắc phục |
+|---|---|
+| Ảnh minh họa nặng (PNG, tổng 1.040 KB) | Chuyển sang WebP, thu nhỏ đúng kích thước hiển thị → 196 KB |
+| Thiếu điểm mốc `<main>` cho trình đọc màn hình | Bọc nội dung bằng `<main id="app">` |
+| Phông chữ Google chặn hiển thị | Tải bằng `rel="preload"` rồi đổi thành stylesheet khi tải xong |
+| Script chặn hiển thị | Thêm `defer` cho mọi script |
+| `app.css` chặn hiển thị ("Yêu cầu chặn hiển thị") | Tải song song, giữ màu nền trong lúc chờ, hiện giao diện khi CSS về |
+| Màn hình giật (hoạt cảnh dùng `left`, 182 lần tính bố cục / 3 giây) | Đổi sang `transform` → còn 2 lần |
+| Trang chủ gọi máy chủ 1 + 3×số bé lần | Thêm `GET /api/overview`: 1 lần gọi |
+| Ảnh tải lên lớn (ảnh điện thoại 2 MB) | Thu nhỏ còn tối đa 800px trước khi gửi (~230 KB) |
+| Google Analytics và Sentry làm chậm lúc mở trang | Chỉ tải sau khi trang hiện xong và trình duyệt rảnh |
+
+**Kết quả sau khi tối ưu** *(desktop)*
+
+| Metric | Score |
+|---|---|
+| Performance | 100 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 100 |
+
+*(Chèn ảnh Lighthouse sau khi tối ưu: `docs/images/lighthouse-sau.png`. Mobile: Performance 99)*
+
+### (b) Theo dõi lỗi và hành vi người dùng
+
+Cả hai đều bật bằng **biến môi trường trên Vercel** (Settings → Environment Variables), không ghi cứng mã vào code. Trình duyệt lấy cấu hình qua `GET /api/config`.
+
+#### Google Analytics
+
+- [x] Đã tích hợp — [`public/js/monitoring.js`](public/js/monitoring.js)
+- **Measurement ID:** *(G-XXXXXXXXXX — đặt vào biến `GA_MEASUREMENT_ID`)*
+- **Cách tích hợp:** tải `gtag.js` sau khi trang hiện xong; vì ứng dụng là SPA nên tự gửi `page_view` mỗi khi đổi trang (số id trong đường dẫn được thay bằng `:id`, ví dụ `/#/pets/:id/health`). Sự kiện riêng: `login`, `sign_up`, `create_pet`, `create_health`, `create_vacc`, `create_doc`, `update_*`, `form_invalid`, `contact_submit`, `faq_open`. Không gửi tên, email hay nội dung hồ sơ.
+
+*(Chèn ảnh dashboard Google Analytics)*
+
+#### Sentry
+
+- [x] Đã tích hợp
+- **Công cụ:** Sentry
+- **DSN / Config:** biến `SENTRY_DSN` trên Vercel *(ghi tên project Sentry)*
+- **Các loại lỗi được theo dõi:**
+  - **Trình duyệt** ([`public/js/monitoring.js`](public/js/monitoring.js)): lỗi JavaScript và Promise bị từ chối, kể cả lỗi xảy ra trước khi Sentry kịp tải
+  - **Máy chủ** ([`server/monitor.js`](server/monitor.js)): mọi lỗi 5xx của API (mất kết nối database, lỗi lưu tệp lên Blob, lỗi không lường trước), kèm phương thức, đường dẫn đã ẩn id và stack trace. Lỗi do người dùng nhập sai (4xx) không gửi. Có unit test với máy chủ Sentry giả ([`tests/unit/monitor.test.js`](tests/unit/monitor.test.js))
+
+*(Chèn ảnh dashboard Sentry hoặc error log)*
+
+---
+
+## Task 5 — UI/UX Peer Review & Evaluation
+
+### (a) Feedback cho các nhóm khác
+
+#### Nhóm được review #1
+
+- **Tên nhóm / dự án:** *(…)*
+- **Link project:** *(…)*
+
+| Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
+|---|---|---|
+| Usability | | |
+| Aesthetics | | |
+| User-Friendliness | | |
+
+#### Nhóm được review #2
+
+- **Tên nhóm / dự án:** *(…)*
+- **Link project:** *(…)*
+
+| Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
+|---|---|---|
+| Usability | | |
+| Aesthetics | | |
+| User-Friendliness | | |
+
+### (b) Xử lý feedback nhận được
+
+| Feedback | Nguồn (nhóm nào) | Quyết định | Lý do / Commit |
+|---|---|---|---|
+| | | Đã implement / Không implement | |
+
+---
+
+## Deliverables Checklist
+
+- [x] Source code trên GitHub (repository public)
+- [x] README.md đầy đủ: hướng dẫn cài đặt, tổng quan, tính năng kèm ảnh, ERD
+- [ ] Video demo trên YouTube (tối đa 10 phút, tối thiểu 720p, không để riêng tư)
+- [ ] Self-report: mỗi thành viên đã commit file vào `docs/self-reports/`
+
+---
+
+## Self-Reports
+
+| Họ tên | MSSV | Link Self-Report |
+|---|---|---|
+| Nguyễn Hữu Triết | 24090003 | [self-report-24090003.md](docs/self-reports/self-report-24090003.md) |
+| Đinh Phùng Duy Huy | 24090016 | [self-report-24090016.md](docs/self-reports/self-report-24090016.md) |
+| Nguyễn Thế Dũng | 24090007 | [self-report-24090007.md](docs/self-reports/self-report-24090007.md) |
+| Nguyễn Phước Thành Đạt | 24090026 | [self-report-24090026.md](docs/self-reports/self-report-24090026.md) |
+| Đào Duy Quang | 24090005 | [self-report-24090005.md](docs/self-reports/self-report-24090005.md) |
+
+---
+
+## Khai báo sử dụng AI
+
+Nhóm dùng **Claude (Anthropic)** làm AI Coding Agent theo quy trình Step 3: AI nhận tài liệu Step 1–2 cùng quy tắc trong [`CLAUDE.md`](CLAUDE.md), lập kế hoạch ([`PLAN.md`](PLAN.md)), viết code và test; nhóm review, deploy, thử trên web thật và báo lỗi để sửa. Phần lớn mã nguồn được viết với sự hỗ trợ của AI. Mỗi thành viên khai báo cụ thể phần mình dùng AI trong self-report và chịu trách nhiệm giải thích được phần mình phụ trách.

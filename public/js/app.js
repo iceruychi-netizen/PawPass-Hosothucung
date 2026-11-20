@@ -69,6 +69,9 @@
     rd.readAsDataURL(file);
   }
 
+  /* Google Analytics (public/js/monitoring.js): chỉ gửi tên sự kiện, không gửi dữ liệu hồ sơ. */
+  function ppTrack(name, params) { if (window.ppTrack) window.ppTrack(name, params); }
+
   class Component extends window.PawPassRuntime.DCLogic {
     constructor(props) {
       super(props);
@@ -326,7 +329,7 @@
       this.setState({ saving: true, formError: '' });
       this.api('POST', '/auth/login', body).then(function (r) {
         self.setState({ saving: false });
-        if (r.status === 200) self.enter(r.data); else self.setState({ formError: r.error, errors: r.errors || {} });
+        if (r.status === 200) { ppTrack('login', { method: 'email' }); self.enter(r.data); } else self.setState({ formError: r.error, errors: r.errors || {} });
       });
     }
     doRegister() {
@@ -335,7 +338,7 @@
       this.setState({ saving: true, formError: '' });
       this.api('POST', '/auth/register', { name: body.name, email: body.email, password: body.password }).then(function (r) {
         self.setState({ saving: false });
-        if (r.status === 201) self.enter(r.data); else self.setState({ formError: r.error, errors: r.errors || {} });
+        if (r.status === 201) { ppTrack('sign_up', { method: 'email' }); self.enter(r.data); } else self.setState({ formError: r.error, errors: r.errors || {} });
       });
     }
     resetSession() {
@@ -399,12 +402,12 @@
     }
 
     save(validator, body, method, path, done, payload) {
-      var self = this, errs = validator(body);
-      if (ppHasErr(errs)) { this.setState({ errors: errs }); this.toast('err', 'Vui lòng kiểm tra lại các ô được đánh dấu.'); return; }
+      var self = this, errs = validator(body), form = this.state.modal || 'form';
+      if (ppHasErr(errs)) { this.setState({ errors: errs }); this.toast('err', 'Vui lòng kiểm tra lại các ô được đánh dấu.'); ppTrack('form_invalid', { form: form }); return; }
       this.setState({ saving: true });
       this.api(method, path, payload || body).then(function (r) {
         self.setState({ saving: false });
-        if (r.status === 200 || r.status === 201) done(r.data, r.status); else self.failed(r);
+        if (r.status === 200 || r.status === 201) { ppTrack((r.status === 201 ? 'create_' : 'update_') + form); done(r.data, r.status); } else self.failed(r);
       });
     }
     upsert(key, item) { this.setState(function (s) { var arr = s[key], found = false; var next = arr.map(function (x) { if (x.id === item.id) { found = true; return item; } return x; }); if (!found) next = next.concat([item]); var o = {}; o[key] = next; return o; }); }

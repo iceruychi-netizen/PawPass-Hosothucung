@@ -529,3 +529,8 @@ body:has(.arrive) .game *,body:has(.arrive) .yard *{animation-play-state:paused}
 
 /* index.html hides #app until this stylesheet has loaded (it is loaded without blocking rendering) */
 #app{visibility:visible}
+
+/* Links to the About / Contact pages (built with Tailwind, see public/gioi-thieu.html) */
+.site-links{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0;font-size:15px}
+.site-links a,.site-foot a{color:#A85A14;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.site-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:28px 16px 140px;font-size:14px;color:#7A6352}
