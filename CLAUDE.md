@@ -16,7 +16,7 @@ Tài liệu gốc (nguồn sự thật, theo thứ tự ưu tiên):
 
 | Phần | Dùng | Ghi chú |
 | --- | --- | --- |
-| Frontend | HTML + CSS + JavaScript thuần | Không framework. Template `sc-if` / `sc-for` / `{{...}}` do `public/js/runtime.js` hiển thị |
+| Frontend | HTML + CSS + JavaScript thuần; Tailwind CSS cho trang Giới thiệu / Liên hệ | Không framework. Template `sc-if` / `sc-for` / `{{...}}` do `public/js/runtime.js` hiển thị. Tailwind chỉ quét `gioi-thieu.html`, `lien-he.html`, `js/site.js`; sửa class xong chạy `npm run build:css` |
 | Backend | Node.js 20+, module `http` | Không Express. Mọi request `/api/*` vào `api/index.js` (Vercel Function) |
 | Database | PostgreSQL (Neon) qua `pg` | 5 bảng theo ERD, `server/schema.js` phải giống `db/schema.sql` |
 | Lưu tệp | Vercel Blob (deploy), `uploads/` (máy cá nhân) | Tài liệu chỉ tải qua API có kiểm tra quyền |
@@ -55,7 +55,8 @@ tests/ui/run-ui.js    → E2E test bằng Playwright
 - Không cuộn ngang ở 1366px, 820px, 390px.
 
 **Code**
-- Không thêm thư viện mới nếu không thật cần. Hiện chỉ dùng `pg` và `@vercel/blob`.
+- Không thêm thư viện mới nếu không thật cần. Hiện chỉ dùng `pg`, `@vercel/blob` và `tailwindcss` (chỉ lúc build). Google Analytics và Sentry tải từ CDN, bật bằng biến `GA_MEASUREMENT_ID`, `SENTRY_DSN`.
+- Không sửa tay `public/css/tailwind.css` (file sinh ra).
 - Thông báo cho người dùng viết bằng tiếng Việt, rõ nguyên nhân và cách sửa.
 
 ## Skill — quy trình làm một việc
@@ -70,7 +71,7 @@ tests/ui/run-ui.js    → E2E test bằng Playwright
    npm run dev & npm run test:ui                        # E2E (cần tài khoản demo: npm run db:seed)
    ```
 5. Cập nhật `PLAN.md` (trạng thái) và `README.md` nếu có thay đổi đáng kể.
-6. Tạo nhánh, commit với tên rõ ràng (ví dụ "Thêm test cân nặng âm"), mở Pull Request theo `PHAN-CONG.md`.
+6. Commit với tên rõ ràng, theo quy ước `feat:` / `fix:` / `docs:` / `test:` (ví dụ `test: thêm test cân nặng âm`).
 
 ## Định nghĩa "xong"
 

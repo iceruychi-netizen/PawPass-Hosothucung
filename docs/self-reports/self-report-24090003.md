@@ -23,13 +23,13 @@
 
 - Chốt prototype Step 1 và viết tài liệu Step 2 (PRD, kiến trúc, ERD, API Docs) cùng AI, cả nhóm xem lại.
 - Lập kế hoạch Step 3, chia dự án thành 5 phần và phân công (`PHAN-CONG.md`, `PLAN.md`), soạn tài liệu đọc hiểu cho từng phần.
-- Tạo repo GitHub, đưa phần giao diện lên đầu tiên; xử lý xung đột khi gộp code (merge conflict) trên GitHub Desktop.
+- Tạo repo GitHub, đưa phần giao diện lên đầu tiên; xử lý xung đột khi gộp code (merge conflict) trên GitHub Desktop. Nhóm làm trực tiếp trên `main`, chưa dùng nhánh riêng hay Pull Request.
 
 **Bằng chứng đóng góp:**
 
 - [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d) — đưa giao diện và hình ảnh lên repo
 - [`3c64f7b`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/3c64f7b) — thêm PHAN-CONG.md, cập nhật README
-- [`641a49f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/641a49f) — gộp nhánh khi xung đột
+- [`641a49f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/641a49f) — gộp code khi bị xung đột
 - [`4b37b3c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/4b37b3c) — thêm PLAN.md, CLAUDE.md, unit test
 
 **Khó khăn gặp phải:**

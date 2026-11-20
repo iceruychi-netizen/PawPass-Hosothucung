@@ -16,6 +16,8 @@ Step 3   Planning → Review Plan → Code (AI Coding Agent + Rule/Skill/Context
 
 Trạng thái: ✅ xong · 🟨 đang làm · ⬜ chưa làm
 
+Cột **Phụ trách** là người phụ trách phần đó và đưa phần đó lên repo ngày 13/11. Mã nguồn được viết với AI Coding Agent; các bản sửa sau deploy và các mục 2.5, 2.6, 3.6, 3.7 do Hữu Triết thực hiện cùng AI.
+
 ---
 
 ## Phase 0 — Test trước (định nghĩa "thế nào là đúng")
@@ -51,10 +53,10 @@ Chạy: `npm run test:unit` · `npm test` (unit + integration) · `npm run test:
 | --- | --- | --- | --- | --- | --- |
 | 2.1 | Router, đọc JSON / multipart, mã lỗi HTTP | ③, ⑤ | `server/http.js` | Thành Đạt | ✅ |
 | 2.2 | Băm mật khẩu (scrypt), token đăng nhập (JWT, 7 ngày), secret từ biến môi trường | ③ | `server/security.js` | Thành Đạt | ✅ |
-| 2.3 | 5 endpoint xác thực + 20 endpoint thú cưng / sức khỏe / tiêm phòng / tài liệu; kiểm tra quyền sở hữu ở mọi endpoint | ②, ④, ⑤ | `server/app.js` | Thành Đạt | ✅ |
+| 2.3 | 5 endpoint xác thực + 20 endpoint thú cưng / sức khỏe / tiêm phòng / tài liệu; kiểm tra quyền sở hữu ở mọi endpoint | ②, ④, ⑤ | `server/app.js` | Hữu Triết | ✅ |
 | 2.4 | Lưu tệp: Vercel Blob (khi deploy) hoặc thư mục `uploads/` (khi chạy máy) | ③ | `server/storage.js` | Thành Đạt | ✅ |
-| 2.5 | `GET /api/overview`: cả trang chính trong 1 lần gọi (**bổ sung** sau khi đo thấy trang chính chậm) | ⑤ | `server/app.js` | Thành Đạt | ✅ |
-| 2.6 | `GET /api/config` + gửi lỗi 5xx lên Sentry (`server/monitor.js`) — **bổ sung theo đề bài môn học** | ⑤ | `server/app.js`, `server/monitor.js` | Thành Đạt | ✅ |
+| 2.5 | `GET /api/overview`: cả trang chính trong 1 lần gọi (**bổ sung** sau khi đo thấy trang chính chậm) | ⑤ | `server/app.js` | Hữu Triết | ✅ |
+| 2.6 | `GET /api/config` + gửi lỗi 5xx lên Sentry (`server/monitor.js`) — **bổ sung theo đề bài môn học** | ⑤ | `server/app.js`, `server/monitor.js` | Hữu Triết | ✅ |
 
 **Kiểm tra:** test 0.2 và 0.3 qua hết.
 
@@ -69,8 +71,8 @@ Chạy: `npm run test:unit` · `npm test` (unit + integration) · `npm run test:
 | 3.3 | Bộ hiển thị template (`sc-if`, `sc-for`, `{{...}}`) | ③ | `public/js/runtime.js` | Thế Dũng | ✅ |
 | 3.4 | Trạng thái, điều hướng, gọi API thật, thu nhỏ ảnh trước khi gửi, nhớ dữ liệu khi F5 | ②, ⑤ | `public/js/app.js` | Thế Dũng | ✅ |
 | 3.5 | Dùng chung quy tắc kiểm tra dữ liệu với backend | ② | `public/js/validators.js` | Duy Quang | ✅ |
-| 3.6 | Trang Giới thiệu và Liên hệ bằng **Tailwind CSS** — **bổ sung theo đề bài môn học** (tối thiểu 3 trang, có About/Contact) | ① | `public/gioi-thieu.html`, `public/lien-he.html`, `tailwind.config.js` | Hữu Triết, Duy Huy | ✅ |
-| 3.7 | Menu điện thoại, accordion, kiểm tra form liên hệ; Google Analytics + Sentry phía trình duyệt | ② | `public/js/site.js`, `public/js/monitoring.js` | Thế Dũng | ✅ |
+| 3.6 | Trang Giới thiệu và Liên hệ bằng **Tailwind CSS** — **bổ sung theo đề bài môn học** (tối thiểu 3 trang, có About/Contact) | ① | `public/gioi-thieu.html`, `public/lien-he.html`, `tailwind.config.js` | Hữu Triết | ✅ |
+| 3.7 | Menu điện thoại, accordion, kiểm tra form liên hệ; Google Analytics + Sentry phía trình duyệt | ② | `public/js/site.js`, `public/js/monitoring.js` | Hữu Triết | ✅ |
 
 **Kiểm tra:** test 0.4 qua hết.
 
@@ -82,8 +84,8 @@ Chạy: `npm run test:unit` · `npm test` (unit + integration) · `npm run test:
 | --- | --- | --- | --- | --- |
 | 4.1 | Deploy Vercel + Neon + Vercel Blob, secret chỉ nằm trong Environment Variables | https://pawpass-hosothucung-web.vercel.app/ | Duy Huy | ✅ |
 | 4.2 | Lighthouse: ảnh WebP, phông chữ và CSS không chặn hiển thị | `public/` | Duy Huy | ✅ |
-| 4.3 | Cùng vùng máy chủ Vercel với Neon (Settings → Functions → Function Region) | cấu hình Vercel | Duy Huy | ⬜ |
-| 4.4 | Tạo tài khoản Google Analytics và Sentry, đặt `GA_MEASUREMENT_ID`, `SENTRY_DSN` trên Vercel, chụp ảnh dashboard | cấu hình Vercel | Duy Huy | ⬜ |
+| 4.3 | Cùng vùng máy chủ Vercel với Neon (Settings → Functions → Function Region) | cấu hình Vercel | Hữu Triết | ⬜ |
+| 4.4 | Tạo tài khoản Google Analytics và Sentry, đặt `GA_MEASUREMENT_ID`, `SENTRY_DSN` trên Vercel, chụp ảnh dashboard | cấu hình Vercel | Hữu Triết | ⬜ |
 
 ---
 

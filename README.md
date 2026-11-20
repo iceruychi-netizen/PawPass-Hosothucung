@@ -22,11 +22,11 @@
 
 | Họ tên | MSSV | Vai trò |
 |---|---|---|
-| Nguyễn Hữu Triết | 24090003 | **Leader** — điều phối, làm việc với AI Coding Agent, deploy Vercel; Frontend: các màn hình, hình ảnh, trang Giới thiệu / Liên hệ |
-| Đinh Phùng Duy Huy | 24090016 | Frontend — CSS, Tailwind CSS, cấu hình deploy, test giao diện |
-| Nguyễn Thế Dũng | 24090007 | Frontend — logic JavaScript, gọi API, Google Analytics & Sentry phía trình duyệt |
-| Nguyễn Phước Thành Đạt | 24090026 | Backend — API, bảo mật, lưu tệp, Sentry phía máy chủ |
-| Đào Duy Quang | 24090005 | Backend — database, quy tắc kiểm tra dữ liệu, test API |
+| Nguyễn Hữu Triết | 24090003 | **Leader** — điều phối, làm việc với AI Coding Agent, deploy Vercel, sửa lỗi sau deploy, đợt bổ sung 20/11; phần 1: các màn hình & hình ảnh |
+| Đinh Phùng Duy Huy | 24090016 | Frontend — phần 2: CSS, cấu hình deploy, test giao diện |
+| Nguyễn Thế Dũng | 24090007 | Frontend — phần 3: logic JavaScript, gọi API |
+| Nguyễn Phước Thành Đạt | 24090026 | Backend — phần 4: API, bảo mật, lưu tệp |
+| Đào Duy Quang | 24090005 | Backend — phần 5: database, quy tắc kiểm tra dữ liệu, test API |
 
 ---
 
@@ -113,15 +113,17 @@ npm run dev              # http://localhost:3000 — cùng lúc giao diện và 
 
 ### (a) Phân công vai trò
 
-Nhóm chia dự án thành 5 phần theo lớp của ứng dụng, mỗi người phụ trách một phần: hiểu rõ, trình bày được và review mọi thay đổi chạm vào phần đó. Chi tiết từng file và việc cần làm: [`PHAN-CONG.md`](PHAN-CONG.md).
+Nhóm chia dự án thành 5 phần theo lớp của ứng dụng. Mỗi người phụ trách một phần: đưa phần đó lên repo, đọc hiểu và trình bày được. Mã nguồn được viết với AI Coding Agent (xem mục **Khai báo sử dụng AI** cuối báo cáo). Chi tiết: [`PHAN-CONG.md`](PHAN-CONG.md).
 
-| Phần | Thành viên | Trách nhiệm | File chính |
-|---|---|---|---|
-| 1 | Hữu Triết (Leader) | Điều phối nhóm, làm việc với AI, deploy; các màn hình, hình ảnh, trang Giới thiệu / Liên hệ | `public/index.html`, `public/assets/`, `public/gioi-thieu.html`, `public/lien-he.html` |
-| 2 | Duy Huy | CSS, Tailwind, cấu hình deploy, test giao diện, Lighthouse | `public/css/app.css`, `tailwind.config.js`, `src/tailwind.css`, `vercel.json`, `package.json`, `tests/ui/run-ui.js` |
-| 3 | Thế Dũng | Logic frontend, gọi API, tương tác JavaScript, Google Analytics / Sentry trình duyệt | `public/js/app.js`, `public/js/runtime.js`, `public/js/site.js`, `public/js/monitoring.js` |
-| 4 | Thành Đạt | API, xác thực, phân quyền, lưu tệp, Sentry máy chủ, báo cáo | `server/app.js`, `server/http.js`, `server/security.js`, `server/storage.js`, `server/monitor.js`, `README.md`, `CLAUDE.md` |
-| 5 | Duy Quang | Database, quy tắc kiểm tra dữ liệu, test API | `db/schema.sql`, `server/schema.js`, `server/db.js`, `scripts/`, `public/js/validators.js`, `tests/` |
+| Phần | Thành viên | Trách nhiệm | File chính | Commit đưa lên |
+|---|---|---|---|---|
+| 1 | Hữu Triết (Leader) | Điều phối nhóm, làm việc với AI, deploy và cấu hình Vercel / Neon / Blob, sửa lỗi sau deploy, đợt bổ sung 20/11; các màn hình & hình ảnh | `public/index.html`, `public/assets/` | [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d) |
+| 2 | Duy Huy | CSS, cấu hình deploy, test giao diện | `public/css/app.css`, `vercel.json`, `package.json`, `.gitignore`, `.env.example`, `tests/ui/run-ui.js` | [`7cc1796`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/7cc1796), [`5d98e0f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/5d98e0f) |
+| 3 | Thế Dũng | Logic frontend, gọi API | `public/js/app.js`, `public/js/runtime.js` | [`e5c84fa`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/e5c84fa) |
+| 4 | Thành Đạt | API, xác thực, phân quyền, lưu tệp | `server/app.js`, `server/http.js`, `server/security.js`, `server/storage.js`, `server/local.js`, `api/index.js` | [`14d7456`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/14d7456) |
+| 5 | Duy Quang | Database, quy tắc kiểm tra dữ liệu, test API | `db/schema.sql`, `server/schema.js`, `server/db.js`, `server/env.js`, `scripts/`, `public/js/validators.js`, `tests/api.test.js` | [`d98340c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/d98340c) |
+
+Sau khi cả nhóm đưa code lên (13/11), các bản sửa lỗi khi chạy thật và đợt bổ sung theo đề bài (20/11: Tailwind CSS, trang Giới thiệu / Liên hệ, Google Analytics, Sentry, báo cáo này) do Hữu Triết thực hiện cùng AI và đưa lên.
 
 ### (b) Wireframe
 
@@ -154,23 +156,28 @@ Nhóm làm theo quy trình 3 bước: **Step 1 Prototype → Step 2 tài liệu 
 
 ### (e) GitHub workflow
 
-**Quy ước commit** (áp dụng từ đợt bổ sung Tailwind / Giới thiệu / Liên hệ / Analytics):
+**Cách nhóm đã làm thực tế:**
 
-```
-<loại>: <việc đã làm, tiếng Việt, bắt đầu bằng động từ> (#<số issue>)
+- Nhóm làm trực tiếp trên nhánh `main`, **không tạo nhánh riêng, không dùng Issue và Pull Request**.
+- Tối 13/11/2026, mỗi thành viên đưa phần của mình lên bằng **"Add files via upload"** trên giao diện web GitHub (19:49 – 19:58). Duy Huy upload nhầm cả thư mục zip lên nên đã xóa và upload lại ([`9328c46`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9328c46), [`5d98e0f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/5d98e0f)).
+- Sau đó Hữu Triết dùng GitHub Desktop để đưa lên các bản sửa lỗi khi chạy thật trên Vercel (13/11, 20:13 – 22:28). Có một lần xung đột khi gộp code, đã xử lý bằng commit gộp [`641a49f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/641a49f).
+- Đợt bổ sung theo đề bài được đưa lên ngày 20/11/2026.
 
-feat:  thêm trang Giới thiệu bằng Tailwind CSS (#2)
-fix:   sửa màn hình chờ bị giật sau khi đăng nhập (#5)
-docs:  viết báo cáo README theo template môn học (#6)
-test:  thêm unit test cho module theo dõi lỗi Sentry (#4)
-chore: cấu hình Tailwind và lệnh build:css (#1)
-```
+**Commit tiêu biểu:**
 
-**Pull Request workflow:** mỗi việc là một **Issue** → mỗi người tạo **nhánh riêng** (`phan-<số>-<việc>`) → commit nhỏ theo quy ước trên → mở **Pull Request** ghi `Closes #<issue>` → người phụ trách phần bị sửa review (Vercel tạo link xem thử cho mỗi PR) → merge vào `main`. Chi tiết: [`PHAN-CONG.md`](PHAN-CONG.md#3-quy-trình-làm-việc).
+| Commit | Nội dung |
+|---|---|
+| [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d) Add files via upload | Giao diện và hình ảnh (phần 1) |
+| [`14d7456`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/14d7456) Add files via upload | Backend API (phần 4) |
+| [`d98340c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/d98340c) Add files via upload | Database và test API (phần 5) |
+| [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) sửa lỗi lặp đăng nhập | Sửa F5 hiện lại trang đăng nhập |
+| [`bb49ddf`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/bb49ddf) sửa lỗi ảnh | Sửa lỗi lưu ảnh lên Vercel Blob |
+| [`ab67f70`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/ab67f70) | Trang chủ tải trong 1 lần gọi (`/api/overview`) |
+| [`4b37b3c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/4b37b3c) bản vá cuối | Thêm `PLAN.md`, `CLAUDE.md`, unit test |
 
-**Ghi chú trung thực:** đợt code đầu tiên (13/11/2026) được đưa lên bằng "Add files via upload" trên giao diện web của GitHub, chưa theo quy ước trên. Các thay đổi sau đó đi qua Issue và Pull Request.
+**Tự đánh giá và rút kinh nghiệm:** tên commit chưa theo quy ước (nhiều commit chỉ là "Add files via upload" hay "fix lỗi bla bla"), và code được đưa lên dồn trong một buổi tối thay vì đều đặn. Lần sau nhóm sẽ: tạo Issue cho từng việc, mỗi người làm trên nhánh riêng, mở Pull Request để người khác review trước khi gộp, và đặt tên commit theo quy ước `feat:` / `fix:` / `docs:` kèm số issue.
 
-*(Chèn ảnh danh sách commit hoặc một Pull Request)*
+*(Chèn ảnh danh sách commit)*
 
 ---
 
@@ -188,8 +195,8 @@ chore: cấu hình Tailwind và lệnh build:css (#1)
 | Chi tiết thú cưng | `/#/pets/:id/health` · `/vaccinations` · `/documents` | Hộ chiếu của bé với 3 tab: sức khỏe, tiêm phòng, tài liệu | Hữu Triết, Thế Dũng |
 | Tìm kiếm | `/#/search` | Tìm trên toàn bộ dữ liệu, lọc theo loại | Hữu Triết, Thế Dũng |
 | Tài khoản | `/#/account` | Sửa thông tin, ảnh đại diện, đổi mật khẩu, đăng xuất | Hữu Triết, Thế Dũng |
-| **About** (Giới thiệu) | `/gioi-thieu.html` | Vấn đề, tính năng, cách dùng, nhóm thực hiện | Hữu Triết, Duy Huy |
-| **Contact** (Liên hệ) | `/lien-he.html` | Form góp ý / báo lỗi, thông tin nhóm, câu hỏi thường gặp | Hữu Triết, Thế Dũng |
+| **About** (Giới thiệu) | `/gioi-thieu.html` | Vấn đề, tính năng, cách dùng, nhóm thực hiện | Hữu Triết |
+| **Contact** (Liên hệ) | `/lien-he.html` | Form góp ý / báo lỗi, thông tin nhóm, câu hỏi thường gặp | Hữu Triết |
 
 | Đăng nhập | Giới thiệu | Liên hệ |
 |---|---|---|
@@ -197,6 +204,7 @@ chore: cấu hình Tailwind và lệnh build:css (#1)
 
 ### (b) Sử dụng Tailwind CSS
 
+- **Người thực hiện:** Hữu Triết (đợt bổ sung 20/11).
 - **Cài đặt:** `tailwindcss` trong `devDependencies` của `package.json`; cấu hình ở [`tailwind.config.js`](tailwind.config.js); nguồn ở [`src/tailwind.css`](src/tailwind.css); lệnh `npm run build:css` sinh ra `public/css/tailwind.css` (đã nén). Vercel tự chạy lệnh này khi deploy (`buildCommand` trong `vercel.json`).
 - **Phạm vi:** Tailwind dùng cho trang Giới thiệu và Liên hệ. Ứng dụng chính giữ CSS viết tay trong `public/css/app.css` vì đã làm xong từ prototype Step 1; `content` của Tailwind chỉ quét các trang mới để hai bộ CSS không đè nhau.
 - **Màu và phông riêng:** khai báo trong `theme.extend` cho giống ứng dụng chính: `bg-cream`, `bg-paper`, `text-ink`, `bg-orange`, `bg-mint`, `bg-sky`, `bg-rose`, phông `font-display` (Baloo 2), `font-body` (Nunito), `font-hand` (Patrick Hand), bóng `shadow-chunky`.
@@ -209,16 +217,18 @@ chore: cấu hình Tailwind và lệnh build:css (#1)
 
 ### (c) Các tính năng tương tác
 
+> Cột "Người thực hiện": người phụ trách và đưa phần đó lên repo. Mã nguồn được viết với AI (xem **Khai báo sử dụng AI**).
+
 | Tính năng | Mô tả | File / Component | Người thực hiện |
 |---|---|---|---|
 | Modal thêm / sửa | Form thêm và sửa thú cưng, lần khám, mũi tiêm, tài liệu, tài khoản trong hộp thoại | `public/js/app.js` (`openModal`, `submitModal`) | Thế Dũng |
 | Form validation | Kiểm tra ngay trên trình duyệt (email, mật khẩu, cân nặng, ngày không ở tương lai, loại và dung lượng tệp); cùng bộ quy tắc với máy chủ | `public/js/validators.js`, `public/js/app.js` | Duy Quang, Thế Dũng |
-| Form liên hệ | Báo lỗi ngay dưới ô, đếm ký tự, gửi thành Issue trên GitHub | `public/js/site.js` | Thế Dũng |
-| Accordion câu hỏi thường gặp | Bấm để mở / đóng câu trả lời, hỗ trợ bàn phím (`aria-expanded`) | `public/js/site.js` | Thế Dũng |
-| Menu điện thoại | Nút ☰ mở / đóng menu, phím Esc để đóng | `public/js/site.js` | Thế Dũng |
+| Form liên hệ | Báo lỗi ngay dưới ô, đếm ký tự, gửi thành Issue trên GitHub | `public/js/site.js` | Hữu Triết |
+| Accordion câu hỏi thường gặp | Bấm để mở / đóng câu trả lời, hỗ trợ bàn phím (`aria-expanded`) | `public/js/site.js` | Hữu Triết |
+| Menu điện thoại | Nút ☰ mở / đóng menu, phím Esc để đóng | `public/js/site.js` | Hữu Triết |
 | Tìm kiếm & lọc | Gõ là lọc ngay, không tải lại trang | `public/js/app.js` | Thế Dũng |
-| Tải ảnh & tài liệu | Thu nhỏ ảnh trước khi gửi, xem trước ảnh / PDF, tải về | `public/js/app.js` (`ppShrink`, `docUrl`) | Thế Dũng |
-| Màn hình chờ & hoạt cảnh | Chó mèo chạy vào nhà cho đến khi dữ liệu tải xong; thú cưng đi dạo cuối trang, bấm vào thì nhảy | `public/index.html`, `public/css/app.css`, `public/js/app.js` | Hữu Triết, Duy Huy, Thế Dũng |
+| Tải ảnh & tài liệu | Thu nhỏ ảnh trước khi gửi, xem trước ảnh / PDF, tải về | `public/js/app.js` (`ppShrink`, `docUrl`) | Thế Dũng, Hữu Triết (bản sửa sau deploy) |
+| Màn hình chờ & hoạt cảnh | Chó mèo chạy vào nhà cho đến khi dữ liệu tải xong; thú cưng đi dạo cuối trang, bấm vào thì nhảy | `public/index.html`, `public/css/app.css`, `public/js/app.js` | Hữu Triết, Duy Huy, Thế Dũng; sửa giật và chờ tải xong: Hữu Triết |
 
 **Cách kiểm tra:** test E2E bằng Playwright ([`tests/ui/run-ui.js`](tests/ui/run-ui.js)) tự bấm qua toàn bộ luồng: đăng ký, thêm thú cưng, nhập sai form, tải tệp, tìm kiếm, người khác mở link bị chặn, xóa, đăng xuất.
 
@@ -327,7 +337,7 @@ Mật khẩu băm bằng scrypt; token đăng nhập ký bằng HS256 (hết h�
 
 | Trang | Dữ liệu hiển thị | Query / Endpoint | Người thực hiện |
 |---|---|---|---|
-| Trang chủ | Số bé, lần khám, mũi tiêm, tài liệu; thẻ từng bé; "Cần để ý"; "Gần đây" | `GET /api/overview` (4 truy vấn song song, lọc theo `pets.user_id`) | Thành Đạt, Thế Dũng |
+| Trang chủ | Số bé, lần khám, mũi tiêm, tài liệu; thẻ từng bé; "Cần để ý"; "Gần đây" | `GET /api/overview` (4 truy vấn song song, lọc theo `pets.user_id`) | Thành Đạt, Thế Dũng; `/api/overview` thêm sau bởi Hữu Triết |
 | Thú cưng | Danh sách bé của người dùng | `GET /api/pets` → `SELECT * FROM pets WHERE user_id = $1` | Thành Đạt, Thế Dũng |
 | Chi tiết — Sức khỏe | Dòng thời gian các lần khám | `GET /api/pets/:id/health-records` | Thành Đạt, Thế Dũng |
 | Chi tiết — Tiêm phòng | Các mũi tiêm dạng con dấu | `GET /api/pets/:id/vaccinations` | Thành Đạt, Thế Dũng |
@@ -387,7 +397,7 @@ Cả hai đều bật bằng **biến môi trường trên Vercel** (Settings �
 
 #### Google Analytics
 
-- [x] Đã tích hợp — [`public/js/monitoring.js`](public/js/monitoring.js)
+- [x] Đã tích hợp (Hữu Triết, đợt bổ sung 20/11) — [`public/js/monitoring.js`](public/js/monitoring.js)
 - **Measurement ID:** *(G-XXXXXXXXXX — đặt vào biến `GA_MEASUREMENT_ID`)*
 - **Cách tích hợp:** tải `gtag.js` sau khi trang hiện xong; vì ứng dụng là SPA nên tự gửi `page_view` mỗi khi đổi trang (số id trong đường dẫn được thay bằng `:id`, ví dụ `/#/pets/:id/health`). Sự kiện riêng: `login`, `sign_up`, `create_pet`, `create_health`, `create_vacc`, `create_doc`, `update_*`, `form_invalid`, `contact_submit`, `faq_open`. Không gửi tên, email hay nội dung hồ sơ.
 
@@ -463,4 +473,4 @@ Cả hai đều bật bằng **biến môi trường trên Vercel** (Settings �
 
 ## Khai báo sử dụng AI
 
-Nhóm dùng **Claude (Anthropic)** làm AI Coding Agent theo quy trình Step 3: AI nhận tài liệu Step 1–2 cùng quy tắc trong [`CLAUDE.md`](CLAUDE.md), lập kế hoạch ([`PLAN.md`](PLAN.md)), viết code và test; nhóm review, deploy, thử trên web thật và báo lỗi để sửa. Phần lớn mã nguồn được viết với sự hỗ trợ của AI. Mỗi thành viên khai báo cụ thể phần mình dùng AI trong self-report và chịu trách nhiệm giải thích được phần mình phụ trách.
+Nhóm dùng **Claude (Anthropic)** làm AI Coding Agent theo quy trình Step 3: AI nhận tài liệu Step 1–2 cùng quy tắc trong [`CLAUDE.md`](CLAUDE.md), lập kế hoạch ([`PLAN.md`](PLAN.md)), viết code và test; Hữu Triết làm việc trực tiếp với AI, deploy, thử trên web thật và báo lỗi để sửa; mỗi thành viên đưa phần mình phụ trách lên repo và đọc hiểu phần đó. Phần lớn mã nguồn được viết với sự hỗ trợ của AI. Mỗi thành viên khai báo cụ thể phần mình dùng AI trong self-report và chịu trách nhiệm giải thích được phần mình phụ trách.
