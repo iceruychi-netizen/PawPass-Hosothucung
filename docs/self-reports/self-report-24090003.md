@@ -17,11 +17,11 @@
 
 ## Task 1 — Planning & Setup
 
-**Tuần:** Tuần 1, ngày 11/11 – 13/11
+**Tuần:** Tuần 1, ngày 09/11 – 13/11
 
 **Công việc đã làm:**
 
-- Chốt prototype Step 1 và viết tài liệu Step 2 (PRD, kiến trúc, ERD, API Docs) cùng AI.
+- Làm prototype Step 1 bằng Claude Design (09/11 – 11/11, nhiều vòng sửa) và viết tài liệu Step 2 (PRD, kiến trúc, ERD, API Docs) cùng AI (12/11).
 - Lập kế hoạch Step 3, chia dự án thành 5 phần và phân công (`PHAN-CONG.md`, `PLAN.md`), soạn tài liệu đọc hiểu cho từng phần.
 - Tạo repo GitHub, đưa phần giao diện lên đầu tiên; xử lý xung đột khi gộp code (merge conflict) trên GitHub Desktop. Nhóm làm trực tiếp trên `main`, chưa dùng nhánh riêng hay Pull Request.
 
@@ -71,7 +71,7 @@ Hiệu ứng chó mèo chạy bị giật trên máy thật dù chạy thử th�
 
 ## Task 3 — Database Integration
 
-**Tuần:** Tuần 1–2, ngày 12/11 – 13/11
+**Tuần:** Tuần 1, ngày 12/11 – 13/11
 
 **Công việc đã làm:**
 
@@ -107,7 +107,8 @@ Web báo "không kết nối được cơ sở dữ liệu", rồi thiếu `JWT_
 - [`15b8a0e`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/15b8a0e) — tải CSS không chặn hiển thị (Lighthouse)
 - [`3553678`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/3553678) — Google Analytics, Sentry (`public/js/monitoring.js`, `server/monitor.js`)
 - Ảnh WebP và thẻ `<main>` đã có từ lần đưa lên đầu tiên [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d)
-- *(ảnh Lighthouse trước / sau, ảnh dashboard GA / Sentry)*
+- Ảnh Lighthouse trước (13/11): `docs/images/lighthouse-truoc-van-de.png`, `lighthouse-truoc-con-lai.png` · sau (20/11, 100/100/100/100): `docs/images/lighthouse-sau-desktop.jpg`, `lighthouse-sau-mobile.jpg`
+- *(ảnh dashboard GA / Sentry)*
 
 **Khó khăn gặp phải:**
 

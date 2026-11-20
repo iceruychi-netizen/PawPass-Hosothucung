@@ -127,15 +127,21 @@ Sau khi cả nhóm đưa code lên (13/11), các bản sửa lỗi khi chạy th
 
 ### (b) Wireframe
 
-- **Công cụ sử dụng:** Claude Design (prototype có thể bấm thử — Step 1 của quy trình nhóm)
+- **Công cụ sử dụng:** Claude Design — prototype bấm thử được (Step 1 của quy trình nhóm), bắt đầu ngày **09/11/2026**, chốt bản cuối ngày **11/11/2026** sau nhiều vòng sửa
 - **Các trang đã thiết kế:**
   - [x] Homepage (trang chủ tổng quan)
   - [x] Đăng nhập / Đăng ký
   - [x] Danh sách thú cưng, chi tiết thú cưng (3 tab Sức khỏe / Tiêm phòng / Tài liệu)
   - [x] Tìm kiếm, Tài khoản
-  - [ ] Giới thiệu / Liên hệ (thêm sau, dựa trên phong cách của prototype)
+  - [ ] Giới thiệu / Liên hệ (không có trong prototype; làm thêm ngày 20/11 theo phong cách của prototype)
 
-*(Chèn ảnh xuất từ prototype vào `docs/images/wireframe-*.png` nếu có)*
+| Bản đầu (09/11) — trang giới thiệu | Bản đầu (09/11) — trang chủ |
+|---|---|
+| ![Prototype bản đầu: giới thiệu](docs/images/prototype-v1-gioi-thieu.png) | ![Prototype bản đầu: trang chủ](docs/images/prototype-v1-trang-chu.png) |
+| **Bản chốt (11/11) — đăng nhập** | **Bản chốt (11/11) — trang chủ** |
+| ![Prototype: đăng nhập](docs/images/prototype-dang-nhap.png) | ![Prototype: trang chủ](docs/images/prototype-trang-chu.png) |
+| **Bản chốt (11/11) — chọn thú cưng** | **Bản chốt (11/11) — hộ chiếu từng bé** |
+| ![Prototype: chọn bé](docs/images/prototype-chon-be.png) | ![Prototype: chi tiết](docs/images/prototype-chi-tiet.png) |
 
 ### (c) Project Plan
 
@@ -143,12 +149,14 @@ Nhóm làm theo quy trình 3 bước: **Step 1 Prototype → Step 2 tài liệu 
 
 | Milestone | Deadline | Trạng thái |
 |---|---|---|
-| Hoàn thành wireframe (prototype Step 1) | *(DD/MM)* | Hoàn thành *(Đúng hạn / Trễ X ngày)* |
-| Setup GitHub & database schema (tài liệu Step 2: PRD, ERD, API) | *(DD/MM)* | Hoàn thành 12/11/2026 *(Đúng hạn / Trễ X ngày)* |
-| Hoàn thành UI cơ bản | *(DD/MM)* | Hoàn thành 13/11/2026 *(Đúng hạn / Trễ X ngày)* |
-| Tích hợp database xong (deploy Vercel + Neon + Blob) | *(DD/MM)* | Hoàn thành 13/11/2026 *(Đúng hạn / Trễ X ngày)* |
-| Optimization & peer review | *(DD/MM)* | Tối ưu: hoàn thành · Peer review: *(trạng thái)* |
+| Hoàn thành wireframe (prototype Step 1) | *(DD/MM)* | Hoàn thành **11/11/2026** (bắt đầu 09/11) |
+| Setup GitHub & database schema | *(DD/MM)* | ERD và API Docs trong tài liệu Step 2: **12/11/2026** · Repo GitHub chung của nhóm: **13/11/2026** |
+| Hoàn thành UI cơ bản | *(DD/MM)* | Hoàn thành **12/11/2026** (code Step 3, chạy được trên Vercel) |
+| Tích hợp database xong | *(DD/MM)* | Hoàn thành **12/11/2026** (Vercel + Neon + Vercel Blob, đăng ký / lưu thú cưng / tải ảnh chạy được) |
+| Optimization & peer review | *(DD/MM)* | Tối ưu: hoàn thành **13/11/2026** (Lighthouse, sửa giật, tăng tốc), bổ sung **20/11/2026** (Tailwind, Giới thiệu / Liên hệ, Google Analytics, Sentry) · Peer review: chưa làm |
 | Nộp bài | *(DD/MM)* | *(trạng thái)* |
+
+Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi deploy và lịch sử commit. Cột Deadline do nhóm điền theo lịch của môn.
 
 ### (d) GitHub Repository
 
@@ -355,16 +363,20 @@ Mật khẩu băm bằng scrypt; token đăng nhập ký bằng HS256 (hết h�
 
 ### (a) Lighthouse
 
-**Kết quả trước khi tối ưu** *(điền từ ảnh chụp lần chạy đầu)*
+**Kết quả trước khi tối ưu** (13/11/2026)
+
+Nhóm không lưu lại ảnh điểm số của lần đo đầu tiên; điểm còn nhớ được là Accessibility **98** (thiếu thẻ `<main>`). Dưới đây là ảnh các mục Lighthouse báo cần sửa ở các lần đo trong ngày 13/11:
 
 | Metric | Score |
 |---|---|
-| Performance | *(điểm)* |
+| Performance | *(không lưu ảnh)* |
 | Accessibility | 98 |
-| Best Practices | *(điểm)* |
-| SEO | *(điểm)* |
+| Best Practices | *(không lưu ảnh)* |
+| SEO | *(không lưu ảnh)* |
 
-*(Chèn ảnh Lighthouse trước khi tối ưu: `docs/images/lighthouse-truoc.png`)*
+| Các mục cần sửa (13/11) | Mục còn lại sau lần sửa đầu (13/11) |
+|---|---|
+| ![Lighthouse trước khi tối ưu](docs/images/lighthouse-truoc-van-de.png) | ![Lighthouse còn 3 mục](docs/images/lighthouse-truoc-con-lai.png) |
 
 **Các vấn đề phát hiện và cách khắc phục:**
 
@@ -380,16 +392,18 @@ Mật khẩu băm bằng scrypt; token đăng nhập ký bằng HS256 (hết h�
 | Ảnh tải lên lớn (ảnh điện thoại 2 MB) | Thu nhỏ còn tối đa 800px trước khi gửi (~230 KB) |
 | Google Analytics và Sentry làm chậm lúc mở trang | Chỉ tải sau khi trang hiện xong và trình duyệt rảnh |
 
-**Kết quả sau khi tối ưu** *(desktop)*
+**Kết quả sau khi tối ưu** — PageSpeed Insights trên web thật, ngày 20/11/2026
 
-| Metric | Score |
+| Metric | Desktop | Mobile |
+|---|---|---|
+| Performance | 100 | 100 |
+| Accessibility | 100 | 100 |
+| Best Practices | 100 | 100 |
+| SEO | 100 | 100 |
+
+| Desktop | Mobile |
 |---|---|
-| Performance | 100 |
-| Accessibility | 100 |
-| Best Practices | 100 |
-| SEO | 100 |
-
-*(Chèn ảnh Lighthouse sau khi tối ưu: `docs/images/lighthouse-sau.png`. Mobile: Performance 99)*
+| ![Lighthouse sau khi tối ưu — desktop](docs/images/lighthouse-sau-desktop.jpg) | ![Lighthouse sau khi tối ưu — mobile](docs/images/lighthouse-sau-mobile.jpg) |
 
 ### (b) Theo dõi lỗi và hành vi người dùng
 
