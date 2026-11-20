@@ -128,7 +128,7 @@ Không tham gia trực tiếp. Phần review nhóm 2, nhóm 5 và xử lý góp 
 
 **Tóm tắt những gì bạn đã đóng góp cho dự án:**
 
-Mình phụ trách phần 2: CSS, cấu hình deploy và test giao diện. Mình đưa phần cấu hình (`package.json`, `vercel.json`, `.gitignore`, `.env.example`) lên repo; lần đầu upload nhầm cả thư mục zip nên phải xóa rồi upload lại. Mình đọc hiểu cách CSS chia 3 khổ màn hình và cách test giao diện tự bấm qua các trang. Mình học được cách đưa file lên GitHub đúng cấu trúc thư mục và cách Vercel dùng `vercel.json` để deploy.
+Em phụ trách phần 2: CSS, cấu hình deploy và test giao diện. Em đưa phần cấu hình (`package.json`, `vercel.json`, `.gitignore`, `.env.example`) lên repo; lần đầu upload nhầm cả thư mục zip nên phải xóa rồi upload lại. Em được đọc hiểu cách CSS chia 3 khổ màn hình và cách test giao diện tự bấm qua các trang. Và em học được cách đưa file lên GitHub đúng cấu trúc thư mục và cách Vercel dùng `vercel.json` để deploy.
 
 **Ước tính % đóng góp so với cả nhóm:** ~15%
 
