@@ -82,10 +82,10 @@ Chạy: `npm run test:unit` · `npm test` (unit + integration) · `npm run test:
 
 | # | Việc | Kết quả | Phụ trách | Trạng thái |
 | --- | --- | --- | --- | --- |
-| 4.1 | Deploy Vercel + Neon + Vercel Blob, secret chỉ nằm trong Environment Variables | https://pawpass-hosothucung-web.vercel.app/ | Duy Huy | ✅ |
-| 4.2 | Lighthouse: ảnh WebP, phông chữ và CSS không chặn hiển thị | `public/` | Duy Huy | ✅ |
+| 4.1 | Deploy Vercel + Neon + Vercel Blob, secret chỉ nằm trong Environment Variables | https://pawpass-hosothucung-web.vercel.app/ | Hữu Triết | ✅ |
+| 4.2 | Lighthouse: ảnh WebP, phông chữ và CSS không chặn hiển thị | `public/` | Hữu Triết | ✅ |
 | 4.3 | Cùng vùng máy chủ Vercel với Neon (Settings → Functions → Function Region) | cấu hình Vercel | Hữu Triết | ⬜ |
-| 4.4 | Tạo tài khoản Google Analytics và Sentry, đặt `GA_MEASUREMENT_ID`, `SENTRY_DSN` trên Vercel, chụp ảnh dashboard | cấu hình Vercel | Hữu Triết | ⬜ |
+| 4.4 | Tạo tài khoản Google Analytics và Sentry, đặt `GA_MEASUREMENT_ID`, `SENTRY_DSN` trên Vercel, chụp ảnh dashboard | cấu hình Vercel | Hữu Triết | ✅ |
 
 ---
 

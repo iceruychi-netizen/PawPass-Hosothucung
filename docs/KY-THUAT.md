@@ -15,7 +15,7 @@ Giao diện giữ nguyên prototype Step 1. API, database và quy tắc đúng t
 | 4 | Thành Đạt | Backend API, bảo mật & README | `server/app.js`, `server/http.js`, `server/security.js`, `server/storage.js`, `server/local.js`, `api/index.js`, `README.md` |
 | 5 | Duy Quang | Database, kiểm tra dữ liệu & test API | `db/schema.sql`, `server/schema.js`, `server/db.js`, `server/env.js`, `scripts/`, `public/js/validators.js`, `tests/api.test.js` |
 
-Việc cần làm tiếp và quy trình làm việc nhóm: xem [PHAN-CONG.md](PHAN-CONG.md).
+Việc cần làm tiếp và quy trình làm việc nhóm: xem [PHAN-CONG.md](../PHAN-CONG.md).
 
 ## Cấu trúc dự án
 
@@ -59,9 +59,9 @@ pawpass/
 
 Dự án theo quy trình **Step 1 Prototype → Step 2 PRD / Kiến trúc / ERD / API Docs → Step 3 Planning → Review Plan → Code → Test**.
 
-- [`PLAN.md`](PLAN.md): kế hoạch triển khai theo phase (Phase 0 là test)
-- [`CLAUDE.md`](CLAUDE.md): rule và context cho AI Coding Agent
-- [`PHAN-CONG.md`](PHAN-CONG.md): phân công và quy trình làm nhóm
+- [`PLAN.md`](../PLAN.md): kế hoạch triển khai theo phase (Phase 0 là test)
+- [`CLAUDE.md`](../CLAUDE.md): rule và context cho AI Coding Agent
+- [`PHAN-CONG.md`](../PHAN-CONG.md): phân công và quy trình làm nhóm
 - Kiểm thử 3 tầng: **unit** (`tests/unit/`), **integration** (`tests/api.test.js`), **E2E** (`tests/ui/run-ui.js`)
 
 ## Biến môi trường
@@ -83,7 +83,7 @@ node -e "console.log(require('crypto').randomBytes(48).toString('base64'))"
 
 ## Deploy lên Vercel
 
-1. Import repo GitHub vào Vercel (**Add New → Project**). Framework Preset để **Other**, không cần Build Command.
+1. Import repo GitHub vào Vercel (**Add New → Project**). Framework Preset để **Other**; Build Command (`npm run build:css`) lấy tự động từ `vercel.json`.
 2. **Storage → Create Database → Neon (Postgres)** → **Connect Project**: chọn project của bạn (ví dụ `pawpass-hosothucung-web`), **All Environments**, ô **Custom Prefix** gõ `DATABASE` (để có biến `DATABASE_URL`), không tích "Create database branch".
 3. **Storage → Create → Blob**: chọn quyền truy cập **Public** (bắt buộc: ảnh thú cưng hiển thị trực tiếp; kho Private sẽ báo lỗi `access must be "public"`).
    Khi **Connect Project**: prefix để trống và **tích "Add a read-write token env var to this connection"** để có biến `BLOB_READ_WRITE_TOKEN`.

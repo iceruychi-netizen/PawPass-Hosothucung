@@ -20,7 +20,7 @@ Tài liệu gốc (nguồn sự thật, theo thứ tự ưu tiên):
 | Backend | Node.js 20+, module `http` | Không Express. Mọi request `/api/*` vào `api/index.js` (Vercel Function) |
 | Database | PostgreSQL (Neon) qua `pg` | 5 bảng theo ERD, `server/schema.js` phải giống `db/schema.sql` |
 | Lưu tệp | Vercel Blob (deploy), `uploads/` (máy cá nhân) | Tài liệu chỉ tải qua API có kiểm tra quyền |
-| Deploy | Vercel | Không có Build Command, phục vụ thư mục `public/` |
+| Deploy | Vercel | Build Command `npm run build:css` (khai báo trong `vercel.json`), phục vụ thư mục `public/` |
 
 ## Cấu trúc thư mục
 
