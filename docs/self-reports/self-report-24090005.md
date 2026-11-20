@@ -26,12 +26,17 @@
 - Không có commit riêng cho task này
 
 **Khó khăn gặp phải:**
+Gặp một số khó khăn trong việc xác định mối quan hệ giữa các bảng, khóa chính và khóa ngoại trong ERD.
 
-—
+Chưa hiểu rõ mục đích của một số trường dữ liệu nên cần trao đổi và tìm hiểu thêm tài liệu.
 
 **Đánh giá bản thân:** 8/10
+Hoàn thành việc đọc và tìm hiểu tài liệu theo yêu cầu.
 
----
+Có tinh thần chủ động tìm hiểu cấu trúc database của dự án.
+
+Tuy nhiên, cần cải thiện khả năng phân tích ERD và hiểu sâu hơn về luồng dữ liệu.
+
 
 ## Task 2 — UI Implementation
 
@@ -46,13 +51,7 @@
 - `public/js/validators.js` nằm trong commit [`d98340c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/d98340c) (xem Task 3)
 
 **Khó khăn gặp phải:**
-
-—
-
 **Đánh giá bản thân:** 8/10
-
----
-
 ## Task 3 — Database Integration
 
 **Tuần:** Tuần 1–2, ngày 13/11
@@ -67,13 +66,7 @@
 - [`d98340c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/d98340c) — upload phần 5 — database và test (tài khoản GitHub `hhuy82571-alt`)
 
 **Khó khăn gặp phải:**
-
-—
-
 **Đánh giá bản thân:** 8/10
-
----
-
 ## Task 4 — Optimization
 
 **Tuần:** Tuần 2–3, ngày 13/11 – 20/11
@@ -87,13 +80,7 @@
 - Không có commit riêng cho task này
 
 **Khó khăn gặp phải:**
-
-—
-
 **Đánh giá bản thân:** 8/10
-
----
-
 ## Task 5 — Peer Review
 
 **Tuần:** —
@@ -103,17 +90,8 @@
 Không tham gia trực tiếp. Phần review nhóm 2, nhóm 5 và xử lý góp ý do Hữu Triết thực hiện (xem Task 5 trong `README.md`).
 
 **Bằng chứng đóng góp:**
-
-—
-
 **Khó khăn gặp phải:**
-
-—
-
 **Đánh giá bản thân:** —
-
----
-
 ## Khai báo sử dụng AI
 
 | Phần / file | Công cụ AI | AI làm gì | Tôi đã làm gì với phần đó |
@@ -130,4 +108,4 @@ Mình phụ trách phần 5: database, kiểm tra dữ liệu và test API. Mìn
 
 **Ước tính % đóng góp so với cả nhóm:** ~15%
 
-**Điểm tự đánh giá tổng thể:** 8/10
+**Điểm tự đánh giá tổng thể:** 8/10 
