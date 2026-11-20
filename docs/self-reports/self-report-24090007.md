@@ -19,15 +19,12 @@
 
 **Công việc đã làm:**
 
-- Đọc tài liệu phần 3 và API Docs Step 2.
+- Đọc tài liệu phân công phần 3 và API Docs Step 2 để nắm phạm vi công việc.
+- Tìm hiểu mối liên hệ giữa logic JavaScript, giao diện và API của dự án.
 
 **Bằng chứng đóng góp:**
 
-- Không có commit riêng cho task này
-
-**Khó khăn gặp phải:**
-
-—
+- Hoạt động tìm hiểu tài liệu, không có commit riêng.
 
 **Đánh giá bản thân:** 8/10
 
@@ -59,16 +56,10 @@
 **Tuần:** Tuần 2
 
 **Công việc đã làm:**
+- Tìm hiểu cách frontend gọi API để lấy dữ liệu và hiển thị lên giao diện.
+- Đọc hiểu vai trò của frontend trong luồng trao đổi dữ liệu với backend.
 
-- Đọc hiểu cách frontend gọi API thật và hiển thị dữ liệu động.
-
-**Bằng chứng đóng góp:**
-
-- Không có commit riêng cho task này
-
-**Khó khăn gặp phải:**
-
-—
+**Phạm vi tham gia:** Tìm hiểu luồng tích hợp từ phía frontend; không trực tiếp triển khai cơ sở dữ liệu và không có commit riêng cho task này.
 
 **Đánh giá bản thân:** 8/10
 
@@ -101,14 +92,6 @@
 **Công việc đã làm:**
 
 Không tham gia trực tiếp. Phần review nhóm 2, nhóm 5 và xử lý góp ý do Hữu Triết thực hiện (xem Task 5 trong `README.md`).
-
-**Bằng chứng đóng góp:**
-
-—
-
-**Khó khăn gặp phải:**
-
-—
 
 **Đánh giá bản thân:** —
 
