@@ -126,7 +126,7 @@ Không tham gia trực tiếp. Phần review nhóm 2, nhóm 5 và xử lý góp 
 
 **Tóm tắt những gì bạn đã đóng góp cho dự án:**
 
-Mình phụ trách phần 4: backend API và bảo mật. Mình đưa các file máy chủ (`server/`, `api/index.js`) và README đầu tiên lên repo, đọc hiểu cách API kiểm tra token đăng nhập và quyền sở hữu (người khác mở dữ liệu bị chặn 403). Mình học được vì sao mật khẩu phải được băm chứ không lưu dạng chữ thường.
+Em phụ trách phần 4: backend API và bảo mật. Em đưa các file máy chủ (`server/`, `api/index.js`) và README đầu tiên lên repo, đọc hiểu cách API kiểm tra token đăng nhập và quyền sở hữu (người khác mở dữ liệu bị chặn 403). Mình học được vì sao mật khẩu phải được băm chứ không lưu dạng chữ thường.
 
 **Ước tính % đóng góp so với cả nhóm:** ~15%
 
