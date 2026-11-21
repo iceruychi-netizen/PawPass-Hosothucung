@@ -114,12 +114,6 @@ Không tham gia trực tiếp. Phần review nhóm 2, nhóm 5 và xử lý góp 
 
 ---
 
-## Khai báo sử dụng AI
-
-| Phần / file | Công cụ AI | AI làm gì | Tôi đã làm gì với phần đó |
-|---|---|---|---|
-| `server/*.js`, `api/index.js` | Claude | Viết code API, bảo mật, lưu tệp | Đưa phần này lên repo ([`14d7456`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/14d7456)), đọc hiểu để trình bày được |
-
 ---
 
 ## Tổng Kết Đóng Góp Cá Nhân
