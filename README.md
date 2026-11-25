@@ -394,7 +394,7 @@ Nhóm không lưu lại ảnh điểm số của lần đo đầu tiên; điểm
 | Ảnh tải lên lớn (ảnh điện thoại 2 MB) | Thu nhỏ còn tối đa 800px trước khi gửi (~230 KB) |
 | Google Analytics và Sentry làm chậm lúc mở trang | Chỉ tải sau khi trang hiện xong và trình duyệt rảnh |
 
-**Kết quả sau khi tối ưu** — PageSpeed Insights trên web thật, ngày 20/11/2026
+**Kết quả sau khi tối ưu** — PageSpeed Insights trên web thật, ngày 20/11/2026 (trang đầu, chưa đăng nhập)
 
 | Metric | Desktop | Mobile |
 |---|---|---|
@@ -406,6 +406,46 @@ Nhóm không lưu lại ảnh điểm số của lần đo đầu tiên; điểm
 | Desktop | Mobile |
 |---|---|
 | ![Lighthouse sau khi tối ưu — desktop](docs/images/lighthouse-sau-desktop.jpg) | ![Lighthouse sau khi tối ưu — mobile](docs/images/lighthouse-sau-mobile.jpg) |
+
+**Đo các trang chính sau khi đăng nhập** (25–26/11/2026)
+
+Bản chấm thử ghi nhận nhóm mới đo trang đầu (màn đăng nhập), nên nhóm đo thêm các trang chính **sau khi đăng nhập** bằng Lighthouse trong Chrome DevTools: chế độ Navigation, **bỏ chọn "Clear storage"** để giữ phiên đăng nhập, đo cả Desktop và Mobile trên web thật.
+
+| Trang | Desktop (Perf / A11y / BP / SEO) | Mobile (Perf / A11y / BP / SEO) |
+|---|---|---|
+| Tổng quan `#/dashboard` | 83–87 / 100 / 100 / 100 → **100 / 100 / 100 / 100** sau khi sửa | 99 / 100 / 100 / 100 |
+| Danh sách thú cưng `#/pets` | 100 / 100 / 100 / 100 | 99 / 100 / 100 / 100 |
+| Chi tiết một bé `#/pets/7/health` | 100 / 99 / 100 / 100 → **A11y 100** sau khi sửa | 99 / 99 / 100 / 100 |
+| Tìm kiếm `#/search` | 100 / 100 / 100 / 100 | 99 / 100 / 100 / 100 |
+
+Điểm Performance 99 và 100 dao động giữa các lần đo; 2 trang có mục dưới 100 thật sự được sửa như sau, mỗi lỗi một Issue → nhánh riêng → Pull Request:
+
+| Trang | Lighthouse báo | Nguyên nhân | Cách sửa | Kết quả |
+|---|---|---|---|---|
+| Tổng quan (Desktop) | Performance 83–87, **CLS 0,262**, LCP 1,3 s | Phông Baloo 2, Nunito tải từ Google Fonts **sau** khi chữ đã hiện → chữ đổi cỡ, cả trang xô lệch | Đổi `display=swap` → `display=optional` trong link phông của 3 trang (Issue [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1), PR [#2](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/2)) | Performance **100**, CLS **0**, LCP **0,2 s** |
+| Chi tiết một bé | Accessibility 99, *heading-order* | Tên lần khám / mũi tiêm dùng `<h3>` ngay sau `<h1>` (tên bé), bỏ qua cấp `<h2>` | Đổi 7 thẻ `<h3>` thành `<h2>`, giữ nguyên class nên giao diện không đổi (Issue [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3), PR [#4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4)) | Accessibility **100** (đo trên link Preview của PR) |
+
+Ghi chú: khi đo trên link **Preview** của Vercel, SEO chỉ còn 63 vì Vercel tự gắn `x-robots-tag: noindex` cho bản xem thử; web chính không bị.
+
+| Tổng quan — Desktop, trước khi sửa | Tổng quan — Desktop, sau khi sửa |
+|---|---|
+| ![Lighthouse Tổng quan desktop trước](docs/images/lighthouse-tong-quan-desktop-truoc.jpg) | ![Lighthouse Tổng quan desktop sau](docs/images/lighthouse-tong-quan-desktop-sau.jpg) |
+
+| Chi tiết một bé — Desktop, trước khi sửa | Chi tiết một bé — Desktop, sau khi sửa (Preview PR #4) |
+|---|---|
+| ![Lighthouse Chi tiết desktop trước](docs/images/lighthouse-chi-tiet-desktop-truoc.jpg) | ![Lighthouse Chi tiết desktop sau](docs/images/lighthouse-chi-tiet-desktop-sau-preview.jpg) |
+
+| Tổng quan — Mobile | Chi tiết một bé — Mobile (trước khi sửa) |
+|---|---|
+| ![Lighthouse Tổng quan mobile](docs/images/lighthouse-tong-quan-mobile.jpg) | ![Lighthouse Chi tiết mobile](docs/images/lighthouse-chi-tiet-mobile-truoc.jpg) |
+
+| Danh sách thú cưng — Desktop | Danh sách thú cưng — Mobile |
+|---|---|
+| ![Lighthouse Danh sách desktop](docs/images/lighthouse-danh-sach-desktop.jpg) | ![Lighthouse Danh sách mobile](docs/images/lighthouse-danh-sach-mobile.jpg) |
+
+| Tìm kiếm — Desktop | Tìm kiếm — Mobile |
+|---|---|
+| ![Lighthouse Tìm kiếm desktop](docs/images/lighthouse-tim-kiem-desktop.jpg) | ![Lighthouse Tìm kiếm mobile](docs/images/lighthouse-tim-kiem-mobile.jpg) |
 
 ### (b) Theo dõi lỗi và hành vi người dùng
 
