@@ -158,6 +158,15 @@ Nhóm làm theo quy trình 3 bước: **Step 1 Prototype → Step 2 tài liệu 
 
 Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi deploy và lịch sử commit. Hạn nộp của môn là 21/11/2026, nhóm không có hạn riêng cho từng milestone nên cột Deadline dùng ngày nộp.
 
+**Kế hoạch phần việc bổ sung sau bản chấm thử (25/11/2026)** — theo dõi bằng [GitHub Milestones](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestones), mỗi việc là một Issue có người phụ trách và hạn riêng:
+
+| Milestone | Hạn | Issue | Người phụ trách |
+|---|---|---|---|
+| [M1 · Sửa lỗi Lighthouse sau khi đăng nhập](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/1) | 26/11/2026 | [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1), [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3), [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) | Hữu Triết |
+| [M2 · Wireframe bổ sung và họp duyệt](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/2) | 27/11/2026 | [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7), [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8) | Duy Huy, Duy Quang |
+| [M3 · Góp ý UI/UX chi tiết cho nhóm 2 và nhóm 5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/3) | 28/11/2026 | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) | Thế Dũng, Thành Đạt |
+| [M4 · Cập nhật README và nộp bài](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/4) | 29/11/2026 | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11) | Hữu Triết |
+
 ### (d) GitHub Repository
 
 - **Repository link:** https://github.com/iceruychi-netizen/PawPass-Hosothucung
@@ -184,6 +193,19 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 | [`4b37b3c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/4b37b3c) bản vá cuối | Thêm `PLAN.md`, `CLAUDE.md`, unit test |
 
 **Tự đánh giá và rút kinh nghiệm:** tên commit chưa theo quy ước (nhiều commit chỉ là "Add files via upload" hay "fix lỗi bla bla"), và code được đưa lên dồn trong một buổi tối thay vì đều đặn. Lần sau nhóm sẽ: tạo Issue cho từng việc, mỗi người làm trên nhánh riêng, mở Pull Request để người khác review trước khi gộp, và đặt tên commit theo quy ước `feat:` / `fix:` / `docs:` kèm số issue.
+
+**Từ 25/11/2026 (sau bản chấm thử): làm theo Issue → nhánh riêng → Pull Request**
+
+| Việc | Issue | Nhánh | Pull Request |
+|---|---|---|---|
+| Sửa trang Tổng quan bị xô lệch do phông chữ | [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1) | `perf/font-display` | [#2](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/2) (đã merge) |
+| Sửa thứ tự tiêu đề trang chi tiết bé | [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3) | `fix/a11y-heading-order` | [#4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4) |
+| README: Lighthouse các trang sau khi đăng nhập | [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) | `docs/lighthouse-sau-dang-nhap` | [#6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6) |
+| README: kế hoạch theo Milestone và quy trình mới | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11) | `docs/ke-hoach-quy-trinh` | PR cập nhật mục này |
+
+- Commit đặt tên theo quy ước `perf:` / `fix:` / `docs:` kèm số Issue, ví dụ `perf: dùng font-display optional cho trang ứng dụng (#1)`.
+- Mỗi Pull Request ghi `Closes #số` để Issue tự đóng khi merge, kèm nguyên nhân, cách sửa và kết quả trước / sau; Vercel tạo link Preview cho từng nhánh để đo lại trước khi merge.
+- PR #2 được merge trước khi có người review; nhóm rút kinh nghiệm, các PR sau để mở chờ một thành viên khác Approve rồi mới merge.
 
 | Commit ngày 20/11 và cuối ngày 13/11 | Commit ngày 13/11 — mỗi thành viên đưa phần của mình lên |
 |---|---|
