@@ -15,15 +15,17 @@
 
 ## Task 1 — Planning & Setup
 
-**Tuần:** Tuần 1, ngày 13/11
+**Tuần:** Tuần 1, ngày 13/11; bổ sung 27/11
 
 **Công việc đã làm:**
 
 - Đọc ERD 5 bảng trong tài liệu Step 2 và tài liệu phần 5.
+- 27/11 (sau bản chấm thử): dự buổi họp duyệt của nhóm (gọi nhóm Messenger, 01:11 – 01:45), cùng xem lại wireframe 4 trang bổ sung và lược đồ CSDL 5 bảng.
 
 **Bằng chứng đóng góp:**
 
 - Không có commit riêng cho task này
+- Biên bản họp: [`docs/bien-ban/2026-11-27-hop-duyet-wireframe-va-csdl.md`](../bien-ban/2026-11-27-hop-duyet-wireframe-va-csdl.md) (Issue [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8), PR [#19](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/19))
 
 **Khó khăn gặp phải:**
 Gặp một số khó khăn trong việc xác định mối quan hệ giữa các bảng, khóa chính và khóa ngoại trong ERD.
