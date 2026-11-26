@@ -60,8 +60,8 @@
 
 | Ảnh | Minh họa cho |
 |---|---|
-| ![Khung xám lúc tải](nhom-5-thai-tu-fashion-anh/1-dang-tai.jpg) | Đề xuất #1: khung xám khi mới mở |
-| ![Trang chủ](nhom-5-thai-tu-fashion-anh/2-trang-chu.jpg) | Điểm mạnh: ảnh bìa pastel; Đề xuất #3: nút "+" |
-| ![Chưa chọn size](nhom-5-thai-tu-fashion-anh/3-chua-chon-size.jpg) | Điểm mạnh: báo lỗi khi chưa chọn size; Đề xuất #4 |
-| ![Thêm vào giỏ](nhom-5-thai-tu-fashion-anh/4-them-vao-gio.jpg) | Đề xuất #2: chỉ có số 1 trên biểu tượng giỏ |
-| ![Smart Studio](nhom-5-thai-tu-fashion-anh/5-studio.jpg) | Điểm mạnh: Smart Studio 5 công cụ |
+| ![Khung xám lúc tải](nhom-5-thai-tu-fashion-anh/65f55500-9493-43e3-9b7a-a5b5c2a2e815.jpg) | Đề xuất #1: khung xám khi mới mở |
+| ![Trang chủ](nhom-5-thai-tu-fashion-anh/836a128d-b432-4382-ad0d-d6e574110818.jpg) | Điểm mạnh: ảnh bìa pastel; Đề xuất #3: nút "+" |
+| ![Chưa chọn size](nhom-5-thai-tu-fashion-anh/fa55634b-5667-42a8-85f0-aa635db61b19.jpg) | Điểm mạnh: báo lỗi khi chưa chọn size; Đề xuất #4 |
+| ![Thêm vào giỏ](nhom-5-thai-tu-fashion-anh/194442b9-866a-4ee1-8b97-d0351f9c49b5.jpg) | Đề xuất #2: chỉ có số 1 trên biểu tượng giỏ |
+| ![Smart Studio](nhom-5-thai-tu-fashion-anh/82be4162-7d3f-4837-b1ce-5ba87a91ce5c.jpg) | Điểm mạnh: Smart Studio 5 công cụ |
