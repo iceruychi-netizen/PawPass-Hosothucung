@@ -40,4 +40,4 @@ Không có việc phát sinh.
 
 Cuộc gọi nhóm Messenger: bắt đầu 01:11, đủ 5 thành viên tham gia, kết thúc 01:45 (34 phút).
 
-![Ảnh chụp cuộc gọi nhóm](anh-hop-27-11.png)
+![Ảnh chụp cuộc gọi nhóm](Screenshot%202026-11-27%20011615.png)
