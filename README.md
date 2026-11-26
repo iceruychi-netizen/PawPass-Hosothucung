@@ -133,7 +133,7 @@ Sau khi cả nhóm đưa code lên (13/11), các bản sửa lỗi khi chạy th
   - [x] Đăng nhập / Đăng ký
   - [x] Danh sách thú cưng, chi tiết thú cưng (3 tab Sức khỏe / Tiêm phòng / Tài liệu)
   - [x] Tìm kiếm, Tài khoản
-  - [ ] Giới thiệu / Liên hệ (không có trong prototype; làm thêm ngày 20/11 theo phong cách của prototype)
+  - [x] Giới thiệu, Liên hệ, Tìm kiếm, Tài khoản — wireframe bổ sung ngày 27/11/2026 (xem bên dưới)
 
 | Bản đầu (09/11) — trang giới thiệu | Bản đầu (09/11) — trang chủ |
 |---|---|
@@ -142,6 +142,15 @@ Sau khi cả nhóm đưa code lên (13/11), các bản sửa lỗi khi chạy th
 | ![Prototype: đăng nhập](docs/images/prototype-dang-nhap.png) | ![Prototype: trang chủ](docs/images/prototype-trang-chu.png) |
 | **Bản chốt (11/11) — chọn thú cưng** | **Bản chốt (11/11) — hộ chiếu từng bé** |
 | ![Prototype: chọn bé](docs/images/prototype-chon-be.png) | ![Prototype: chi tiết](docs/images/prototype-chi-tiet.png) |
+
+**Wireframe bổ sung (27/11/2026)** — bản chấm thử ghi nhận wireframe chưa phủ trang Giới thiệu, Liên hệ, Tìm kiếm, Tài khoản. Duy Huy vẽ thêm 4 trang, mỗi trang bản desktop và điện thoại (Issue [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7), PR [#17](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/17)); ảnh trong [`docs/images/wireframe/`](docs/images/wireframe/), file nguồn HTML trong [`docs/wireframe-src/`](docs/wireframe-src/). Cả nhóm duyệt trong buổi họp ngày 27/11 — [biên bản](docs/bien-ban/2026-11-27-hop-duyet-wireframe-va-csdl.md).
+
+| Trang | Desktop | Điện thoại |
+|---|---|---|
+| Giới thiệu | ![](docs/images/wireframe/wireframe-gioi-thieu-desktop.png) | ![](docs/images/wireframe/wireframe-gioi-thieu-mobile.png) |
+| Liên hệ | ![](docs/images/wireframe/wireframe-lien-he-desktop.png) | ![](docs/images/wireframe/wireframe-lien-he-mobile.png) |
+| Tìm kiếm | ![](docs/images/wireframe/wireframe-tim-kiem-desktop.png) | ![](docs/images/wireframe/wireframe-tim-kiem-mobile.png) |
+| Tài khoản | ![](docs/images/wireframe/wireframe-tai-khoan-desktop.png) | ![](docs/images/wireframe/wireframe-tai-khoan-mobile.png) |
 
 ### (c) Project Plan
 
@@ -160,12 +169,12 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 
 **Kế hoạch phần việc bổ sung sau bản chấm thử (25/11/2026)** — theo dõi bằng [GitHub Milestones](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestones), mỗi việc là một Issue có người phụ trách và hạn riêng:
 
-| Milestone | Hạn | Issue | Người phụ trách |
-|---|---|---|---|
-| [M1 · Sửa lỗi Lighthouse sau khi đăng nhập](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/1) | 26/11/2026 | [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1), [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3), [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) | Hữu Triết |
-| [M2 · Wireframe bổ sung và họp duyệt](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/2) | 27/11/2026 | [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7), [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8) | Duy Huy, Duy Quang |
-| [M3 · Góp ý UI/UX chi tiết cho nhóm 2 và nhóm 5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/3) | 28/11/2026 | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) | Thế Dũng, Thành Đạt |
-| [M4 · Cập nhật README và nộp bài](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/4) | 29/11/2026 | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11) | Hữu Triết |
+| Milestone | Hạn | Issue | Người phụ trách | Trạng thái |
+|---|---|---|---|---|
+| [M1 · Sửa lỗi Lighthouse sau khi đăng nhập](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/1) | 26/11/2026 | [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1), [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3), [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) | Hữu Triết | Hoàn thành 26/11 |
+| [M2 · Wireframe bổ sung và họp duyệt](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/2) | 27/11/2026 | [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7), [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8) | Duy Huy (wireframe), Thế Dũng (họp duyệt, biên bản) | Hoàn thành 27/11 |
+| [M3 · Góp ý UI/UX chi tiết cho nhóm 2 và nhóm 5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/3) | 28/11/2026 | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) | Thế Dũng (nhóm 2), Hữu Triết (nhóm 5) | Hoàn thành 27/11 |
+| [M4 · Cập nhật README và nộp bài](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/4) | 29/11/2026 | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11) | Hữu Triết | README cập nhật 27/11 |
 
 ### (d) GitHub Repository
 
@@ -199,13 +208,19 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 | Việc | Issue | Nhánh | Pull Request |
 |---|---|---|---|
 | Sửa trang Tổng quan bị xô lệch do phông chữ | [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1) | `perf/font-display` | [#2](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/2) (đã merge) |
-| Sửa thứ tự tiêu đề trang chi tiết bé | [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3) | `fix/a11y-heading-order` | [#4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4) |
-| README: Lighthouse các trang sau khi đăng nhập | [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) | `docs/lighthouse-sau-dang-nhap` | [#6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6) |
-| README: kế hoạch theo Milestone và quy trình mới | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11) | `docs/ke-hoach-quy-trinh` | PR cập nhật mục này |
+| Sửa thứ tự tiêu đề trang chi tiết bé | [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3) | `fix/a11y-heading-order` | [#4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4) (đã merge) |
+| README: Lighthouse các trang sau khi đăng nhập | [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) | `docs/lighthouse-sau-dang-nhap` | [#6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6) (đã merge) |
+| README: kế hoạch theo Milestone và quy trình mới | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11) | `docs/ke-hoach-quy-trinh` | [#12](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/12) (đã merge) |
+| Wireframe 4 trang Giới thiệu, Liên hệ, Tìm kiếm, Tài khoản | [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7) | `docs/wireframe-bo-sung` | [#17](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/17) (đã merge) |
+| Họp duyệt wireframe và lược đồ CSDL, biên bản | [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8) | `docs/bien-ban-hop` | [#19](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/19) (đã merge) |
+| Góp ý UI/UX chi tiết cho nhóm 2 | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9) | `docs/review-nhom-2-1` | [#13](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/13) (đã merge) |
+| Góp ý UI/UX chi tiết cho nhóm 5 | [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) | `docs/review-nhom-5`, `docs/anh-review-nhom-5` | [#18](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/18), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20) (đã merge) |
+| Cập nhật self-report Thế Dũng | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9) | `docs/self-report-dung-1` | [#15](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/15) (đã merge) |
 
 - Commit đặt tên theo quy ước `perf:` / `fix:` / `docs:` kèm số Issue, ví dụ `perf: dùng font-display optional cho trang ứng dụng (#1)`.
 - Mỗi Pull Request ghi `Closes #số` để Issue tự đóng khi merge, kèm nguyên nhân, cách sửa và kết quả trước / sau; Vercel tạo link Preview cho từng nhánh để đo lại trước khi merge.
 - PR #2 được merge trước khi có người review; nhóm rút kinh nghiệm, các PR sau để mở chờ một thành viên khác Approve rồi mới merge.
+- Một số lỗi khi mới làm quen quy trình đã được sửa ngay trên Pull Request: tải file nhầm thư mục (PR #13), PR nhắm nhầm nhánh đích và bản copy mất định dạng (PR #14 đóng, thay bằng #15), PR #18 merge trước khi có ảnh nên bổ sung bằng PR #20.
 
 | Commit ngày 20/11 và cuối ngày 13/11 | Commit ngày 13/11 — mỗi thành viên đưa phần của mình lên |
 |---|---|
@@ -296,6 +311,8 @@ Test E2E kiểm tra **không có cuộn ngang** trên mọi trang ở cả 3 kh�
 | `documents` | Giấy tờ đã tải lên | `id`, `pet_id` → pets, `file_name`, `file_type` (jpg/png/pdf), `file_path`, `description` |
 
 Mọi khóa ngoại đều `ON DELETE CASCADE`: xóa một bé là xóa luôn hồ sơ, mũi tiêm, tài liệu của bé. Có ràng buộc `CHECK` cho loài, giới tính, cân nặng (0 < kg ≤ 200) và loại tệp.
+
+**Xem lại lược đồ (27/11/2026):** cả nhóm xem lại 5 bảng, khóa ngoại `ON DELETE CASCADE` và các ràng buộc `CHECK` trong buổi họp duyệt; kết luận giữ nguyên lược đồ — [biên bản](docs/bien-ban/2026-11-27-hop-duyet-wireframe-va-csdl.md) (Issue [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8), PR [#19](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/19)).
 
 ```mermaid
 erDiagram
@@ -503,7 +520,7 @@ Cả hai đều bật bằng **biến môi trường trên Vercel** (Settings �
 
 ### (a) Feedback cho các nhóm khác
 
-Người review: Nguyễn Hữu Triết.
+Người review: Nguyễn Hữu Triết (đợt đầu); góp ý chi tiết bổ sung ngày 26–27/11: Nguyễn Thế Dũng (nhóm 2), Nguyễn Hữu Triết (nhóm 5).
 
 #### Nhóm được review #1
 
@@ -517,16 +534,20 @@ Người review: Nguyễn Hữu Triết.
 | Aesthetics | Phong cách pixel art ấm áp, tông màu tối dịu mắt, hợp không khí học tập kiểu lo-fi | — |
 | User-Friendliness | Cho tự chọn phòng (học, ngủ, sân vườn), âm thanh, thời tiết và đồ vật, có gợi ý đeo tai nghe | Tương tác với chú mèo nên sống động hơn (phản hồi rõ hơn khi người dùng bấm hoặc rê chuột vào) |
 
+**Góp ý chi tiết (26/11/2026):** [`docs/reviews/given/nhom-2-focuspace.md`](docs/reviews/given/nhom-2-focuspace.md) — 3 tiêu chí, mỗi ý chỉ rõ trang và chi tiết, bảng tổng hợp 7 đề xuất kèm mức độ; đã gửi cho nhóm 2 (Issue [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), PR [#13](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/13), ảnh minh họa và ảnh tin nhắn trong PR).
+
 #### Nhóm được review #2
 
 - **Tên nhóm / dự án:** Nhóm 5 — Web bán quần áo
-- **Link project:** *(nhóm 5 chưa đưa web lên mạng; nhóm góp ý trên bản nhóm 5 đang làm)*
+- **Link project:** https://thai-tu-fashion-v1.vercel.app (đợt đầu nhóm 5 chưa đưa web lên mạng, nhóm góp ý trên bản nhóm 5 đang làm)
 
 | Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
 |---|---|---|
 | Usability | — | Trình bày lại bố cục cho dễ theo dõi, dễ tìm sản phẩm |
 | Aesthetics | — | Góp ý về giao diện và thiết kế tổng thể cho hài hòa, hợp mắt hơn |
 | User-Friendliness | Có cơ chế **phối đồ và đề xuất quần áo**, giúp người dùng chọn trang phục dễ hơn | — |
+
+**Góp ý chi tiết (27/11/2026):** [`docs/reviews/given/nhom-5-thai-tu-fashion.md`](docs/reviews/given/nhom-5-thai-tu-fashion.md) — dùng thử bản Thai Tu Fashion trên mạng, góp ý theo 3 tiêu chí, bảng tổng hợp 5 đề xuất kèm mức độ và 5 ảnh minh họa; đã gửi cho nhóm 5 (Issue [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10), PR [#18](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/18), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20)).
 
 ### (b) Xử lý feedback nhận được
 
