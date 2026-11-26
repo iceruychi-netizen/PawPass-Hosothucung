@@ -62,5 +62,4 @@
 | 7 | Aesthetics | Chữ nhỏ, màu nhạt trên nền tối | Tăng cỡ chữ / độ sáng | Thấp |
 
 ## Hình minh họa
-
-*(Kéo các ảnh chụp vào đây khi đăng Issue: 3 nút biểu tượng, chú thích khi rê chuột, bảng Đồ vật phát âm thanh, cận cảnh ly cà phê, Pomodoro đang chạy.)*
+Ảnh minh họa và ảnh chụp tin nhắn đã gửi góp ý cho nhóm 2: xem comment trong Pull Request #13.
