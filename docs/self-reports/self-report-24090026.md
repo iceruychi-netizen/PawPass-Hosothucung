@@ -15,15 +15,17 @@
 
 ## Task 1 — Planning & Setup
 
-**Tuần:** Tuần 1, ngày 13/11
+**Tuần:** Tuần 1, ngày 13/11; bổ sung 27/11
 
 **Công việc đã làm:**
 
 - Đọc tài liệu phần 4 và API Docs Step 2.
+- 27/11 (sau bản chấm thử): dự buổi họp duyệt của nhóm (gọi nhóm Messenger, 01:11 – 01:45), cùng xem lại wireframe 4 trang bổ sung và lược đồ CSDL 5 bảng.
 
 **Bằng chứng đóng góp:**
 
 - Không có commit riêng cho task này
+- Biên bản họp: [`docs/bien-ban/2026-11-27-hop-duyet-wireframe-va-csdl.md`](../bien-ban/2026-11-27-hop-duyet-wireframe-va-csdl.md) (Issue [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8), PR [#19](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/19))
 
 **Khó khăn gặp phải:**
 

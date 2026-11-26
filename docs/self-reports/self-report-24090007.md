@@ -15,16 +15,18 @@
 
 ## Task 1 — Planning & Setup
 
-**Tuần:** Tuần 1, ngày 13/11
+**Tuần:** Tuần 1, ngày 13/11; bổ sung 27/11
 
 **Công việc đã làm:**
 
 - Đọc tài liệu phân công phần 3 và API Docs Step 2 để nắm phạm vi công việc.
 - Tìm hiểu mối liên hệ giữa logic JavaScript, giao diện và API của dự án.
+- 27/11 (sau bản chấm thử): trình bày wireframe 4 trang bổ sung và lược đồ CSDL trong buổi họp duyệt của nhóm (gọi nhóm Messenger, 01:11 – 01:45, đủ 5 thành viên), ghi biên bản và đưa lên repo theo quy trình Issue → nhánh → Pull Request.
 
 **Bằng chứng đóng góp:**
 
 - Hoạt động tìm hiểu tài liệu, không có commit riêng.
+- Biên bản họp: [`docs/bien-ban/2026-11-27-hop-duyet-wireframe-va-csdl.md`](../bien-ban/2026-11-27-hop-duyet-wireframe-va-csdl.md) — Issue [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8) → PR [#19](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/19)
 
 **Đánh giá bản thân:** 8/10
 
@@ -93,12 +95,12 @@
 
 - Dùng thử web FocuSpace của nhóm 2 trên máy tính và điện thoại, viết góp ý UI/UX theo 3 tiêu chí (Usability, Aesthetics, User-friendliness), có bảng tổng hợp 7 đề xuất kèm mức độ.
 - Gửi góp ý cho nhóm 2 qua tin nhắn; theo mẫu của nhóm 2, lưu bản góp ý vào repo nhóm mình tại `docs/reviews/given/nhom-2-focuspace.md`.
-- Review Pull Request của thành viên khác trước khi merge: PR #4 (sửa thứ tự tiêu đề) và PR #6 (README Lighthouse).
+- Review Pull Request của thành viên khác trước khi merge: PR #4 (sửa thứ tự tiêu đề), PR #6 (README Lighthouse), PR #12 (kế hoạch, quy trình), PR #20 (ảnh góp ý nhóm 5), PR #21 (README cuối).
 
 **Bằng chứng đóng góp:**
 
 - Issue [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9) → PR [#13](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/13) — góp ý UI/UX cho nhóm 2 (ảnh minh họa và ảnh chụp tin nhắn gửi nhóm 2 trong comment của PR)
-- Review [PR #4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4), Approve [PR #6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6)
+- Review [PR #4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4); Approve [PR #6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6), [#12](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/12), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20), [#21](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/21)
 
 **Khó khăn gặp phải:**
 
@@ -114,6 +116,7 @@ Lần đầu làm theo quy trình Issue → nhánh → Pull Request: lúc đầu
 |---|---|---|---|
 | `public/js/app.js`, `runtime.js`, `site.js`, `monitoring.js` | Claude | Viết code | Đưa phần này lên repo ([`e5c84fa`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/e5c84fa)), đọc hiểu để trình bày được |
 | Góp ý UI/UX cho nhóm 2 | Claude | Soạn nháp góp ý từ việc dùng thử web | Tự dùng thử lại web nhóm 2, sửa ý chưa đúng (ví dụ nút có hiện tên khi rê chuột), chụp ảnh minh họa và gửi cho nhóm 2 |
+| Biên bản họp 27/11 | Claude | Soạn mẫu biên bản, điền thông tin chung từ ảnh cuộc gọi | Xác nhận nội dung đã bàn trong buổi họp, đưa biên bản lên repo |
 
 ---
 
@@ -121,7 +124,7 @@ Lần đầu làm theo quy trình Issue → nhánh → Pull Request: lúc đầu
 
 **Tóm tắt những gì bạn đã đóng góp cho dự án:**
 
-Mình phụ trách phần 3: logic frontend. Mình đưa `app.js` và `runtime.js` lên repo và đọc hiểu luồng đăng nhập → tải dữ liệu → hiển thị lên màn hình. Mình học được cách một trang web gọi API và đổi trang bằng `#/...` mà không phải tải lại cả trang. Sau bản chấm thử, mình làm thêm phần góp ý UI/UX cho nhóm 2 và review Pull Request của các bạn theo quy trình Issue → nhánh → PR.
+Mình phụ trách phần 3: logic frontend. Mình đưa `app.js` và `runtime.js` lên repo và đọc hiểu luồng đăng nhập → tải dữ liệu → hiển thị lên màn hình. Mình học được cách một trang web gọi API và đổi trang bằng `#/...` mà không phải tải lại cả trang. Sau bản chấm thử, mình làm thêm phần góp ý UI/UX cho nhóm 2, trình bày và ghi biên bản buổi họp duyệt wireframe – CSDL, và review Pull Request của các bạn theo quy trình Issue → nhánh → PR.
 
 **Ước tính % đóng góp so với cả nhóm:** ~15%
 

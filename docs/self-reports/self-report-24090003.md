@@ -23,6 +23,7 @@
 - Lập kế hoạch Step 3, chia dự án thành 5 phần và phân công (`PHAN-CONG.md`, `PLAN.md`), soạn tài liệu đọc hiểu cho từng phần.
 - Tạo repo GitHub, đưa phần giao diện lên đầu tiên; xử lý xung đột khi gộp code (merge conflict) trên GitHub Desktop. Nhóm làm trực tiếp trên `main`, chưa dùng nhánh riêng hay Pull Request.
 - Sau bản chấm thử (25–26/11): lập kế hoạch phần việc bổ sung trên GitHub Milestones (M1–M4, mỗi mốc có hạn riêng) và tạo Issue giao việc cho từng thành viên; từ đây mỗi việc đi theo Issue → nhánh riêng → Pull Request.
+- 26–27/11: điều phối các Pull Request của nhóm — review và Approve PR của bạn khác (#13, #15, #17, #19), merge sau khi có người Approve, sửa các PR bị lỗi (đổi nhánh đích PR #15, sửa link ảnh PR #19 và #20), xóa nhánh sau khi merge; cập nhật README lần cuối và đóng Issue #11.
 
 **Bằng chứng đóng góp:**
 
@@ -31,6 +32,7 @@
 - [`641a49f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/641a49f) — gộp code khi bị xung đột
 - [`4b37b3c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/4b37b3c) — thêm PLAN.md, CLAUDE.md, unit test
 - [Milestones M1–M4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestones) · Issue giao việc [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7), [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8), [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10), [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11)
+- Review / Approve: PR [#13](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/13), [#15](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/15), [#17](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/17), [#19](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/19) · README cuối: PR [#21](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/21)
 
 **Khó khăn gặp phải:**
 
@@ -110,7 +112,7 @@ Web báo "không kết nối được cơ sở dữ liệu", rồi thiếu `JWT_
 - Ảnh WebP và thẻ `<main>` đã có từ lần đưa lên đầu tiên [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d)
 - Ảnh Lighthouse trước (13/11): `docs/images/lighthouse-truoc-van-de.png`, `lighthouse-truoc-con-lai.png` · sau (20/11, 100/100/100/100): `docs/images/lighthouse-sau-desktop.jpg`, `lighthouse-sau-mobile.jpg`
 - Google Analytics nhận người dùng thật: `docs/images/ga-realtime.png` · Sentry nhận lỗi thử: `docs/images/sentry-issues.png`
-- Issue [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1) → PR [#2](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/2) (phông chữ, đã merge) · Issue [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3) → PR [#4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4) (thứ tự tiêu đề) · Issue [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) → PR [#6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6) (README Lighthouse)
+- Issue [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1) → PR [#2](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/2) (phông chữ, đã merge) · Issue [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3) → PR [#4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4) (thứ tự tiêu đề, đã merge) · Issue [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) → PR [#6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6) (README Lighthouse, đã merge)
 
 **Khó khăn gặp phải:**
 
@@ -122,12 +124,13 @@ Lighthouse vẫn báo mục đỏ sau khi sửa; phải phân biệt mục bị 
 
 ## Task 5 — Peer Review
 
-**Tuần:** Tuần 2, ngày 13/11 – 20/11
+**Tuần:** Tuần 2, ngày 13/11 – 20/11; bổ sung 27/11
 
 **Công việc đã làm:**
 
 - Review web **nhóm 2 (Focus Space)**: dùng thử, góp ý tương tác với chú mèo cho sống động hơn và số lượng vật thể trong phòng.
 - Góp ý cho **nhóm 5 (web bán quần áo)** về giao diện, thiết kế tổng thể và cách trình bày cho hợp mắt.
+- 27/11 (sau bản chấm thử): góp ý chi tiết cho **nhóm 5 (Thai Tu Fashion)** trên bản web đã đưa lên mạng — đi qua trang chủ, trang sản phẩm, thêm vào giỏ, Smart Studio; góp ý theo 3 tiêu chí, bảng 5 đề xuất kèm mức độ, 5 ảnh minh họa; gửi cho nhóm 5 và lưu vào `docs/reviews/given/`.
 - Nhận 3 góp ý từ nhóm 2 cho PawPass: sửa 2 góp ý (màn hình chờ tải nền trang chính, F5 không còn nhảy qua trang đăng nhập), giữ nguyên 1 góp ý (kích thước chú mèo — linh vật của nhóm) và giải thích lý do.
 
 **Bằng chứng đóng góp:**
@@ -135,6 +138,7 @@ Lighthouse vẫn báo mục đỏ sau khi sửa; phải phân biệt mục bị 
 - Bảng góp ý và cách xử lý: mục Task 5 trong `README.md`
 - [`c5c5461`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/c5c5461), [`6058e8a`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/6058e8a) — màn hình chờ tải nền trang chính
 - [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) — F5 giữ đúng trang đang xem
+- Góp ý chi tiết nhóm 5: [`docs/reviews/given/nhom-5-thai-tu-fashion.md`](../reviews/given/nhom-5-thai-tu-fashion.md) — Issue [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) → PR [#18](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/18), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20)
 
 **Khó khăn gặp phải:**
 
@@ -150,6 +154,7 @@ Web nhóm 5 chưa đưa lên mạng nên chỉ góp ý được trên bản đan
 |---|---|---|---|
 | Phần lớn mã nguồn (giao diện, logic, API, test) và tài liệu | Claude | Viết code, tài liệu, test theo yêu cầu và tài liệu Step 1–2 | Đưa yêu cầu, thử trên web thật, báo lỗi, quyết định sửa gì; deploy và cấu hình Vercel / Neon / Blob |
 | Đợt sửa sau bản chấm thử (phông chữ, thứ tự tiêu đề, README Lighthouse, Milestone / Issue / PR) | Claude | Đọc báo cáo Lighthouse (JSON) tìm nguyên nhân, viết bản sửa và nội dung README; thao tác GitHub (tạo Issue, nhánh, PR, Milestone) qua trình duyệt trên tài khoản của tôi | Đo Lighthouse trên web thật và link Preview, kiểm tra kết quả, quyết định merge |
+| Góp ý chi tiết nhóm 5, README cuối, review / merge PR (26–27/11) | Claude | Dùng thử web nhóm 5 qua trình duyệt và soạn nháp góp ý; soạn nội dung README; thao tác GitHub (tạo nhánh, PR, Approve, merge) trên tài khoản của tôi | Gửi góp ý cho nhóm 5, kiểm tra nội dung, quyết định Approve / merge từng PR |
 
 ---
 
