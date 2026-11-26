@@ -22,6 +22,7 @@
 - Làm prototype Step 1 bằng Claude Design (09/11 – 11/11, nhiều vòng sửa) và viết tài liệu Step 2 (PRD, kiến trúc, ERD, API Docs) cùng AI (12/11).
 - Lập kế hoạch Step 3, chia dự án thành 5 phần và phân công (`PHAN-CONG.md`, `PLAN.md`), soạn tài liệu đọc hiểu cho từng phần.
 - Tạo repo GitHub, đưa phần giao diện lên đầu tiên; xử lý xung đột khi gộp code (merge conflict) trên GitHub Desktop. Nhóm làm trực tiếp trên `main`, chưa dùng nhánh riêng hay Pull Request.
+- Sau bản chấm thử (25–26/11): lập kế hoạch phần việc bổ sung trên GitHub Milestones (M1–M4, mỗi mốc có hạn riêng) và tạo Issue giao việc cho từng thành viên; từ đây mỗi việc đi theo Issue → nhánh riêng → Pull Request.
 
 **Bằng chứng đóng góp:**
 
@@ -29,6 +30,7 @@
 - [`3c64f7b`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/3c64f7b) — thêm PHAN-CONG.md, cập nhật README
 - [`641a49f`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/641a49f) — gộp code khi bị xung đột
 - [`4b37b3c`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/4b37b3c) — thêm PLAN.md, CLAUDE.md, unit test
+- [Milestones M1–M4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestones) · Issue giao việc [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7), [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8), [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10), [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11)
 
 **Khó khăn gặp phải:**
 
@@ -97,6 +99,7 @@ Web báo "không kết nối được cơ sở dữ liệu", rồi thiếu `JWT_
 
 - Chạy Lighthouse, sửa các mục bị trừ: ảnh WebP (1.040 KB → 196 KB), thẻ `<main>`, phông chữ và CSS không chặn hiển thị.
 - Tìm nguyên nhân web chậm: máy chủ Vercel đặt ở Mỹ (iad1); thêm tải trang chủ trong 1 lần gọi, thu nhỏ ảnh trước khi tải lên.
+- 25–26/11 (sau bản chấm thử): đo Lighthouse các trang chính **sau khi đăng nhập** bằng DevTools (bỏ chọn Clear storage), tìm và sửa 2 lỗi: trang Tổng quan xô lệch do phông chữ (Performance 83–87 → 100, CLS 0,262 → 0) và sai thứ tự tiêu đề ở trang chi tiết bé (Accessibility 99 → 100); đưa bảng điểm và ảnh vào README.
 - Đợt bổ sung: tích hợp Google Analytics và Sentry, viết lại README theo template báo cáo.
 
 **Bằng chứng đóng góp:**
@@ -107,6 +110,7 @@ Web báo "không kết nối được cơ sở dữ liệu", rồi thiếu `JWT_
 - Ảnh WebP và thẻ `<main>` đã có từ lần đưa lên đầu tiên [`a735c4d`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/a735c4d)
 - Ảnh Lighthouse trước (13/11): `docs/images/lighthouse-truoc-van-de.png`, `lighthouse-truoc-con-lai.png` · sau (20/11, 100/100/100/100): `docs/images/lighthouse-sau-desktop.jpg`, `lighthouse-sau-mobile.jpg`
 - Google Analytics nhận người dùng thật: `docs/images/ga-realtime.png` · Sentry nhận lỗi thử: `docs/images/sentry-issues.png`
+- Issue [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1) → PR [#2](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/2) (phông chữ, đã merge) · Issue [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3) → PR [#4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4) (thứ tự tiêu đề) · Issue [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) → PR [#6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6) (README Lighthouse)
 
 **Khó khăn gặp phải:**
 
@@ -145,6 +149,7 @@ Web nhóm 5 chưa đưa lên mạng nên chỉ góp ý được trên bản đan
 | Phần / file | Công cụ AI | AI làm gì | Tôi đã làm gì với phần đó |
 |---|---|---|---|
 | Phần lớn mã nguồn (giao diện, logic, API, test) và tài liệu | Claude | Viết code, tài liệu, test theo yêu cầu và tài liệu Step 1–2 | Đưa yêu cầu, thử trên web thật, báo lỗi, quyết định sửa gì; deploy và cấu hình Vercel / Neon / Blob |
+| Đợt sửa sau bản chấm thử (phông chữ, thứ tự tiêu đề, README Lighthouse, Milestone / Issue / PR) | Claude | Đọc báo cáo Lighthouse (JSON) tìm nguyên nhân, viết bản sửa và nội dung README; thao tác GitHub (tạo Issue, nhánh, PR, Milestone) qua trình duyệt trên tài khoản của tôi | Đo Lighthouse trên web thật và link Preview, kiểm tra kết quả, quyết định merge |
 
 ---
 
