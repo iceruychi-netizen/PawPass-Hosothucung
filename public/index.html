@@ -296,7 +296,7 @@
       </div>
     </div>
     <sc-if value="{{petsFilteredEmpty}}" hint-placeholder-val="{{ false }}">
-      <div class="card empty"><h3 class="h2">Không tìm thấy bé nào</h3><p class="muted" style="margin:0">Thử đổi từ khóa hoặc bộ lọc loài.</p></div>
+      <div class="card empty"><h2 class="h2">Không tìm thấy bé nào</h2><p class="muted" style="margin:0">Thử đổi từ khóa hoặc bộ lọc loài.</p></div>
     </sc-if>
     <div class="pgrid">
       <sc-for list="{{petsFiltered}}" as="p" hint-placeholder-count="3">
@@ -394,7 +394,7 @@
             <button type="button" class="btn btn-p" onClick="{{H.addHealth}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Thêm lần khám</button>
           </div>
           <sc-if value="{{hlEmpty}}" hint-placeholder-val="{{ false }}">
-            <div class="empty"><h3 class="h2">{{hlEmptyTitle}}</h3><p class="muted" style="margin:0">Mỗi lần khám lưu lý do, chẩn đoán, điều trị và thuốc.</p></div>
+            <div class="empty"><h2 class="h2">{{hlEmptyTitle}}</h2><p class="muted" style="margin:0">Mỗi lần khám lưu lý do, chẩn đoán, điều trị và thuốc.</p></div>
           </sc-if>
           <div class="tl">
             <sc-for list="{{hl}}" as="h" hint-placeholder-count="2">
@@ -402,7 +402,7 @@
                 <div class="tl-date hand">{{h.dateText}}<br><span class="muted" style="font-size:15px">{{h.agoText}}</span></div>
                 <div class="tl-dot" aria-hidden="true"></div>
                 <div class="tl-body">
-                  <h3 class="h3">{{h.reason}}</h3>
+                  <h2 class="h3">{{h.reason}}</h2>
                   <p style="margin:0;font-size:14px"><span class="muted">Chẩn đoán:</span> {{h.diagText}}</p>
                   <sc-if value="{{h.hasMed}}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:14px"><span class="muted">Thuốc:</span> {{h.medication}}</p></sc-if>
                   <div style="display:flex;gap:6px;margin-top:6px">
@@ -425,7 +425,7 @@
             <button type="button" class="btn btn-p" onClick="{{H.addVacc}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Thêm mũi tiêm</button>
           </div>
           <sc-if value="{{vlEmpty}}" hint-placeholder-val="{{ false }}">
-            <div class="empty"><h3 class="h2">{{vlEmptyTitle}}</h3><p class="muted" style="margin:0">Mỗi mũi tiêm là một con dấu trong sổ.</p></div>
+            <div class="empty"><h2 class="h2">{{vlEmptyTitle}}</h2><p class="muted" style="margin:0">Mỗi mũi tiêm là một con dấu trong sổ.</p></div>
           </sc-if>
           <div class="stamps">
             <sc-for list="{{vl}}" as="v" hint-placeholder-count="2">
@@ -433,7 +433,7 @@
                 <div style="display:flex;gap:12px;align-items:center">
                   <div class="vmark" aria-hidden="true"><b>{{v.dd}}</b><span>{{v.mmyy}}</span></div>
                   <div style="min-width:0">
-                    <h3 class="h3">{{v.vaccine_name}}</h3>
+                    <h2 class="h3">{{v.vaccine_name}}</h2>
                     <span class="tag t-blue" style="margin-top:4px">{{v.dose}}</span>
                   </div>
                 </div>
@@ -461,7 +461,7 @@
             <button type="button" class="btn btn-p" onClick="{{H.addDoc}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V5"></path><path d="M7 10l5-5 5 5"></path><path d="M5 20h14"></path></svg>Tải lên</button>
           </div>
           <sc-if value="{{dlEmpty}}" hint-placeholder-val="{{ false }}">
-            <div class="empty"><h3 class="h2">{{dlEmptyTitle}}</h3><p class="muted" style="margin:0">Hỗ trợ JPG, PNG, PDF — tối đa 4 MB mỗi tệp.</p></div>
+            <div class="empty"><h2 class="h2">{{dlEmptyTitle}}</h2><p class="muted" style="margin:0">Hỗ trợ JPG, PNG, PDF — tối đa 4 MB mỗi tệp.</p></div>
           </sc-if>
           <div class="docs">
             <sc-for list="{{dl}}" as="d" hint-placeholder-count="2">
@@ -509,7 +509,7 @@
     </div>
     <sc-if value="{{searchIdle}}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:16px"><img src="/assets/6f21ee961c0b8ff919470721e02b6978.webp" alt="" aria-hidden="true" style="width:90px;height:90px;border-radius:50%;border:2.5px solid #3A2E28;background:#FDE3BC;object-fit:cover"><p class="hand muted" style="margin:0;font-size:22px">Gõ vài chữ, các bé sẽ đi tìm giúp bạn…</p></div></sc-if>
     <sc-if value="{{resultsEmpty}}" hint-placeholder-val="{{ false }}">
-      <div class="card empty"><h3 class="h2">Không có kết quả</h3><p class="muted" style="margin:0">Không tìm thấy dữ liệu khớp với “{{searchQuery}}”.</p></div>
+      <div class="card empty"><h2 class="h2">Không có kết quả</h2><p class="muted" style="margin:0">Không tìm thấy dữ liệu khớp với “{{searchQuery}}”.</p></div>
     </sc-if>
     <sc-if value="{{resultsHas}}" hint-placeholder-val="{{ false }}">
     <div class="card" style="padding:10px 14px">
