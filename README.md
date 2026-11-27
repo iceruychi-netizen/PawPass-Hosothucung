@@ -541,33 +541,13 @@ Người review: Nguyễn Hữu Triết (đợt đầu); góp ý chi tiết bổ
 - **Tên nhóm / dự án:** Nhóm 5 — Web bán quần áo
 - **Link project:** https://thai-tu-fashion-v1.vercel.app (đợt đầu nhóm 5 chưa đưa web lên mạng, nhóm góp ý trên bản nhóm 5 đang làm)
 
+## Đánh giá giao diện
+
 | Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
 |---|---|---|
-| Usability | — | Điểm mạnh
-
-Thanh điều hướng dưới cùng có 5 mục kèm cả biểu tượng lẫn chữ (Trang chủ, Cửa hàng, Studio, Yêu thích, Giỏ hàng), dễ bấm bằng ngón cái.
-Các nút trên đầu trang (Tìm kiếm, Thông báo, Đăng nhập, Menu) có vùng bấm 44×44px và nhãn cho trình đọc màn hình; bấm logo là về trang chủ.
-Trang sản phẩm bấm "Thêm vào giỏ" khi chưa chọn size thì báo đỏ "Hãy chọn size trước khi tiếp tục."; size sắp hết có ghi "Còn 2".
-Đề xuất cải thiện
-
-Thêm vào giỏ chưa có thông báo rõ: sau khi chọn size M và bấm "Thêm vào giỏ", nhóm chỉ thấy số 1 nhỏ hiện trên biểu tượng Giỏ hàng ở thanh dưới. Đề xuất hiện thông báo ngắn "Đã thêm vào giỏ" kèm nút "Xem giỏ".
-Nút "+" trên ảnh trang chủ chưa có gợi ý: bấm vào là mở thẳng trang sản phẩm, nhưng trước khi bấm người dùng không biết nút để làm gì. Đề xuất thêm nhãn nhỏ (tên sản phẩm, giá) khi rê chuột / chạm lần đầu. |
-| Aesthetics | — | Điểm mạnh
-
-Ảnh bìa trang chủ 3 khung màu pastel (tím, xanh bạc hà, vàng) hợp chủ đề "Seoul mood"; chữ đen trắng, phông chữ đậm, gọn gàng.
-Trang sản phẩm trình bày rõ: dáng, chất liệu, hợp dịp, phong cách; nút "Mua ngay" nền đen nổi hơn nút "Thêm vào giỏ".
-Đề xuất cải thiện
-
-Lúc mở web hiện khung xám khá lâu: lần đầu mở trang chủ, nhóm thấy toàn khung xám (skeleton) khoảng 5 giây rồi mới hiện ảnh. Đề xuất nén / giảm cỡ ảnh bìa và tải trước ảnh đầu tiên.
-Ảnh trang chủ và ảnh trang sản phẩm khác kiểu: trang chủ dùng ảnh người mẫu, trang sản phẩm dùng ảnh dựng 3D. Đề xuất có thêm ảnh người mẫu trong trang sản phẩm để đồng nhất. |
-| User-Friendliness | Điểm mạnh
-
-Smart Studio gom 5 công cụ (Outfit Builder, Size Advisor, AI Stylist, Visual Search, Virtual Try-On), mỗi công cụ có 1 dòng giải thích dễ hiểu.
-Trang sản phẩm có sẵn "Tìm size hợp với tôi", "Phối trong Outfit Builder" và gợi ý "Hoàn thiện set đồ" với các món đi kèm.
-Ghi rõ chính sách ngay dưới nút mua: miễn phí giao từ 1.500.000₫, đổi size 7 ngày, kiểm tra hàng trước khi nhận.
-Đề xuất cải thiện
-
-Thông báo "Hãy chọn size" nhỏ: dòng chữ đỏ nằm dưới hàng size, chữ nhỏ, dễ bỏ qua. Đề xuất viền đỏ hàng nút size hoặc rung nhẹ để người dùng thấy ngay. | — |
+| **Usability** | **Điểm mạnh**<br><br>Thanh điều hướng dưới cùng có 5 mục kèm cả biểu tượng lẫn chữ (Trang chủ, Cửa hàng, Studio, Yêu thích, Giỏ hàng), dễ bấm bằng ngón cái.<br><br>Các nút trên đầu trang (Tìm kiếm, Thông báo, Đăng nhập, Menu) có vùng bấm 44×44px và nhãn cho trình đọc màn hình; bấm logo là về trang chủ.<br><br>Trang sản phẩm bấm "Thêm vào giỏ" khi chưa chọn size thì báo đỏ "Hãy chọn size trước khi tiếp tục."; size sắp hết có ghi "Còn 2". | **Đề xuất cải thiện**<br><br>Thêm vào giỏ chưa có thông báo rõ: sau khi chọn size M và bấm "Thêm vào giỏ", nhóm chỉ thấy số 1 nhỏ hiện trên biểu tượng Giỏ hàng ở thanh dưới. Đề xuất hiện thông báo ngắn "Đã thêm vào giỏ" kèm nút "Xem giỏ".<br><br>Nút "+" trên ảnh trang chủ chưa có gợi ý: bấm vào là mở thẳng trang sản phẩm, nhưng trước khi bấm người dùng không biết nút để làm gì. Đề xuất thêm nhãn nhỏ (tên sản phẩm, giá) khi rê chuột / chạm lần đầu. |
+| **Aesthetics** | **Điểm mạnh**<br><br>Ảnh bìa trang chủ 3 khung màu pastel (tím, xanh bạc hà, vàng) hợp chủ đề "Seoul mood"; chữ đen trắng, phông chữ đậm, gọn gàng.<br><br>Trang sản phẩm trình bày rõ: dáng, chất liệu, hợp dịp, phong cách; nút "Mua ngay" nền đen nổi hơn nút "Thêm vào giỏ". | **Đề xuất cải thiện**<br><br>Lúc mở web hiện khung xám khá lâu: lần đầu mở trang chủ, nhóm thấy toàn khung xám (skeleton) khoảng 5 giây rồi mới hiện ảnh. Đề xuất nén / giảm cỡ ảnh bìa và tải trước ảnh đầu tiên.<br><br>Ảnh trang chủ và ảnh trang sản phẩm khác kiểu: trang chủ dùng ảnh người mẫu, trang sản phẩm dùng ảnh dựng 3D. Đề xuất có thêm ảnh người mẫu trong trang sản phẩm để đồng nhất. |
+| **User-Friendliness** | **Điểm mạnh**<br><br>Smart Studio gom 5 công cụ (Outfit Builder, Size Advisor, AI Stylist, Visual Search, Virtual Try-On), mỗi công cụ có 1 dòng giải thích dễ hiểu.<br><br>Trang sản phẩm có sẵn "Tìm size hợp với tôi", "Phối trong Outfit Builder" và gợi ý "Hoàn thiện set đồ" với các món đi kèm.<br><br>Ghi rõ chính sách ngay dưới nút mua: miễn phí giao từ 1.500.000₫, đổi size 7 ngày, kiểm tra hàng trước khi nhận. | **Đề xuất cải thiện**<br><br>Thông báo "Hãy chọn size" nhỏ: dòng chữ đỏ nằm dưới hàng size, chữ nhỏ, dễ bỏ qua. Đề xuất viền đỏ hàng nút size hoặc rung nhẹ để người dùng thấy ngay. |
 
 **Góp ý chi tiết (27/11/2026):** [`docs/reviews/given/nhom-5-thai-tu-fashion.md`](docs/reviews/given/nhom-5-thai-tu-fashion.md) — dùng thử bản Thai Tu Fashion trên mạng, góp ý theo 3 tiêu chí, bảng tổng hợp 5 đề xuất kèm mức độ và 5 ảnh minh họa; đã gửi cho nhóm 5 (Issue [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10), PR [#18](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/18), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20)).
 
