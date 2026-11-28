@@ -165,7 +165,7 @@ Test giao diện kiểm tra toàn bộ luồng chính, không có lỗi console 
 | Sau màn hình chờ, trang chính còn phải chờ tải | `public/js/app.js`: màn hình chờ chỉ tắt khi dữ liệu và ảnh đã tải xong bên dưới (tối thiểu 3 giây, tối đa 30 giây, có nút Bỏ qua; chó mèo chạy vào nhà liên tục cho đến khi tải xong); `public/css/app.css`: trang chính được vẽ sẵn phía sau |
 | Trang chính tải chậm vì phải gọi máy chủ 1 + 3 lần cho mỗi bé | Thêm `GET /api/overview` (`server/app.js`): cả trang chính trong **1 lần gọi**. Đây là endpoint **bổ sung** so với tài liệu Step 2 (các endpoint cũ giữ nguyên). `public/js/app.js`: dùng endpoint này, quá 20 giây thì hiện nút **Thử lại**; `vercel.json`: bỏ nhớ tạm CSS/JS để bản mới hiện ngay sau deploy |
 | Lighthouse: "Yêu cầu chặn hiển thị" (app.css) | `public/index.html`: tải `app.css` không chặn hiển thị, giữ màu nền trong lúc chờ; `public/css/app.css`: hiện giao diện khi CSS đã tải |
+| Đề bài yêu cầu Tailwind CSS, trang Giới thiệu/Liên hệ, Google Analytics, Sentry | `tailwind.config.js`, `src/tailwind.css` → `public/css/tailwind.css` (`npm run build:css`, Vercel tự build); `public/gioi-thieu.html`, `public/lien-he.html`, `public/js/site.js`; `public/js/monitoring.js`, `server/monitor.js`, `GET /api/config` |
 
 Kiểm thử bản cuối: 17 unit test, 41 integration test API và toàn bộ test giao diện (E2E) đều qua.
 
-| Đề bài yêu cầu Tailwind CSS, trang Giới thiệu/Liên hệ, Google Analytics, Sentry | `tailwind.config.js`, `src/tailwind.css` → `public/css/tailwind.css` (`npm run build:css`, Vercel tự build); `public/gioi-thieu.html`, `public/lien-he.html`, `public/js/site.js`; `public/js/monitoring.js`, `server/monitor.js`, `GET /api/config` |

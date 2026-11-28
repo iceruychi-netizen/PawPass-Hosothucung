@@ -89,6 +89,23 @@ Chạy: `npm run test:unit` · `npm test` (unit + integration) · `npm run test:
 
 ---
 
+## Phase 5 — Sau bản chấm thử (25/11 – 29/11)
+
+Mỗi việc là một Issue → nhánh riêng → Pull Request có người duyệt. Theo dõi bằng [Milestones](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestones).
+
+| # | Việc | Issue / PR | Phụ trách | Trạng thái |
+| --- | --- | --- | --- | --- |
+| 5.1 | M1 · Sửa lỗi Lighthouse sau khi đăng nhập (xô lệch phông chữ, thứ tự tiêu đề, README Lighthouse) | #1, #3, #5 → PR #2, #4, #6 | Hữu Triết | ✅ |
+| 5.2 | M2 · Wireframe 4 trang bổ sung, họp duyệt wireframe và lược đồ CSDL | #7, #8 → PR #17, #19 | Duy Huy, Thế Dũng | ✅ |
+| 5.3 | M3 · Góp ý UI/UX chi tiết cho nhóm 2 và nhóm 5 | #9, #10 → PR #13, #18, #20 | Thế Dũng, Hữu Triết | ✅ |
+| 5.4 | M5 · Xử lý góp ý nhận được: ô "Hiện mật khẩu" (#23), focus ô lỗi đầu tiên (#26), ghi quyết định vào README (#29); #16 trả lời, không sửa code | PR #27, #28, #30 | Hữu Triết (sửa), Thế Dũng (duyệt) | ✅ |
+| 5.5 | M6 · Sửa lỗi phát hiện khi thử web thật sau #27: `runtime.js` xóa nhầm ô khi ô đổi `type` | #31 → PR #32 | Hữu Triết (sửa), Thế Dũng (duyệt) | ✅ |
+| 5.6 | M4 · Cập nhật README, tài liệu, self-report và nộp bài | #11, #33, … | Hữu Triết | 🟨 |
+
+Các góp ý **không làm** đều vì cần đổi ERD đã duyệt (27/11) hoặc vượt phạm vi Step 1–2; lý do từng ý: [`docs/reviews/received.md`](docs/reviews/received.md).
+
+---
+
 ## Review Plan — kiểm tra lại trước khi code
 
 - [x] Mỗi việc có đầu vào từ Step 1–2 và có test chứng minh đã xong
