@@ -133,7 +133,12 @@
       if (id) { // keyed by id: reuse the same live element even if siblings appeared/disappeared
         var found = null;
         for (var s = cur; s; s = s.nextSibling) { if (s.nodeType === 1 && s.getAttribute('id') === id && s.nodeName === nb.nodeName) { found = s; break; } }
-        if (found) { parent.insertBefore(found, cur); patchNode(found, nb); continue; }
+        if (found) {
+          // found === cur: same element whose type changed (e.g. password ↔ text) — patch it in place and move on,
+          // otherwise the clean-up loop below would remove it.
+          if (found === cur) cur = cur.nextSibling; else parent.insertBefore(found, cur);
+          patchNode(found, nb); continue;
+        }
       }
       parent.insertBefore(nb, cur);
     }
