@@ -41,6 +41,9 @@ async function run() {
   await page.goto(BASE + '/');
   await btn('Đăng nhập', true).click();
   check(await page.locator('.err').count() > 0, 'empty login shows field errors');
+  await page.getByLabel('Hiện mật khẩu').first().check();
+  check(await page.getAttribute('#lg-pass', 'type') === 'text', 'show-password toggle reveals the password (#23)');
+  await page.getByLabel('Hiện mật khẩu').first().uncheck();
   await page.fill('#lg-email', 'nobody@example.com'); await page.fill('#lg-pass', 'wrongpass');
   await btn('Đăng nhập', true).click();
   check(await seen('Email hoặc mật khẩu không đúng.'), 'invalid credentials show an error');

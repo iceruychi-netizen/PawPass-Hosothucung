@@ -90,7 +90,7 @@
         form: {}, errors: {}, formError: '',
         modal: null, editingId: null, viewId: null, confirm: null, saving: false,
         petQuery: '', petSpecies: '', tabQuery: '', docType: '', searchQuery: '', searchType: 'all',
-        toasts: [], busy: 0, arriving: false,
+        toasts: [], busy: 0, arriving: false, showPw: false,
         poke: { c1: '', c2: '', d1: '' }, cheer: false, sleeperAwake: false, sleeperLine: ''
       };
     }
@@ -382,7 +382,7 @@
       else if (type === 'account') { f = { name: s.me.name, email: s.me.email, avatar: s.me.avatar || '' }; }
       else if (type === 'password') { f = {}; }
       Object.keys(f).forEach(function (k) { if (f[k] === null && k !== 'file') f[k] = ''; });
-      this.setState({ modal: type, editingId: id || null, form: f, errors: {}, formError: '' });
+      this.setState({ modal: type, editingId: id || null, form: f, errors: {}, formError: '', showPw: false });
     }
     closeModal() { this.setState({ modal: null, editingId: null, viewId: null, errors: {}, form: {} }); }
 
@@ -493,8 +493,9 @@
       PP_KEYS.forEach(function(k){ on[k]=function(e){ self.setField(k, e.target.value); }; });
       this._h = {
         on:on,
-        goLogin:function(){ self.setState({screen:'login',form:{},errors:{},formError:''}); },
-        goRegister:function(){ self.setState({screen:'register',form:{},errors:{},formError:''}); },
+        goLogin:function(){ self.setState({screen:'login',form:{},errors:{},formError:'',showPw:false}); },
+        goRegister:function(){ self.setState({screen:'register',form:{},errors:{},formError:'',showPw:false}); },
+        toggleShowPw:function(){ self.setState(function(s){ return {showPw:!s.showPw}; }); },
         submitLogin:function(e){ if(e && e.preventDefault) e.preventDefault(); self.doLogin(); },
         submitRegister:function(e){ if(e && e.preventDefault) e.preventDefault(); self.doRegister(); },
         keyLogin:function(e){ if(e.key==='Enter' && e.target && e.target.tagName==='INPUT'){ e.preventDefault(); self.doLogin(); } },
@@ -628,7 +629,7 @@
       ['c1','c2','d1'].forEach(function(k){ bub[k]=s.poke[k] || (s.cheer?'Yay!':''); critCls[k]=(s.poke[k]||s.cheer)?'critter hop':'critter'; });
 
       return {
-        H:H, f:f, err:err, noErr:noErr, cls:cls, formError:s.formError, busy:s.busy>0, saving:s.saving,
+        H:H, f:f, showPw:!!s.showPw, pwType:s.showPw?'text':'password', err:err, noErr:noErr, cls:cls, formError:s.formError, busy:s.busy>0, saving:s.saving,
         loginLabel:s.saving?'Đang đăng nhập…':'Đăng nhập', registerLabel:s.saving?'Đang tạo tài khoản…':'Tạo tài khoản',
         saveLabel:s.saving?'Đang lưu…':(md.doc?'Tải lên':'Lưu'), deleteLabel:s.saving?'Đang xóa…':'Xóa',
         scr:{auth:s.screen!=='app' && !s.booting, login:s.screen==='login', register:s.screen==='register', app:s.screen==='app'},

@@ -96,8 +96,9 @@
       </div>
       <div>
         <label class="lbl" for="lg-pass">Mật khẩu <span class="req">*</span></label>
-        <input id="lg-pass" class="{{cls.password}}" type="password" autocomplete="current-password" value="{{f.password}}" onChange="{{H.on.password}}">
+        <input id="lg-pass" class="{{cls.password}}" type="{{pwType}}" autocomplete="current-password" value="{{f.password}}" onChange="{{H.on.password}}">
         <sc-if value="{{err.password}}" hint-placeholder-val="{{ false }}"><p class="err">{{err.password}}</p></sc-if>
+        <label class="muted" style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;cursor:pointer;min-height:44px"><input type="checkbox" checked="{{showPw}}" onChange="{{H.toggleShowPw}}" style="width:18px;height:18px"> Hiện mật khẩu</label>
       </div>
       <button type="button" class="btn btn-p" disabled="{{saving}}" style="width:100%" onClick="{{H.submitLogin}}">{{loginLabel}}</button>
     </div>
@@ -123,14 +124,15 @@
       </div>
       <div>
         <label class="lbl" for="rg-pass">Mật khẩu <span class="req">*</span></label>
-        <input id="rg-pass" class="{{cls.password}}" type="password" autocomplete="new-password" value="{{f.password}}" onChange="{{H.on.password}}">
+        <input id="rg-pass" class="{{cls.password}}" type="{{pwType}}" autocomplete="new-password" value="{{f.password}}" onChange="{{H.on.password}}">
         <sc-if value="{{err.password}}" hint-placeholder-val="{{ false }}"><p class="err">{{err.password}}</p></sc-if>
         <sc-if value="{{noErr.password}}" hint-placeholder-val="{{ true }}"><p class="hint">Tối thiểu 6 ký tự.</p></sc-if>
       </div>
       <div>
         <label class="lbl" for="rg-confirm">Nhập lại mật khẩu <span class="req">*</span></label>
-        <input id="rg-confirm" class="{{cls.confirm}}" type="password" autocomplete="new-password" value="{{f.confirm}}" onChange="{{H.on.confirm}}">
+        <input id="rg-confirm" class="{{cls.confirm}}" type="{{pwType}}" autocomplete="new-password" value="{{f.confirm}}" onChange="{{H.on.confirm}}">
         <sc-if value="{{err.confirm}}" hint-placeholder-val="{{ false }}"><p class="err">{{err.confirm}}</p></sc-if>
+        <label class="muted" style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;cursor:pointer;min-height:44px"><input type="checkbox" checked="{{showPw}}" onChange="{{H.toggleShowPw}}" style="width:18px;height:18px"> Hiện mật khẩu</label>
       </div>
       <button type="button" class="btn btn-p" disabled="{{saving}}" style="width:100%" onClick="{{H.submitRegister}}">{{registerLabel}}</button>
     </div>
@@ -756,18 +758,19 @@
       <div style="display:flex;flex-direction:column;gap:16px">
         <div>
           <label class="lbl" for="pw-cur">Mật khẩu hiện tại <span class="req">*</span></label>
-          <input id="pw-cur" class="{{cls.current_password}}" type="password" autocomplete="current-password" value="{{f.current_password}}" onChange="{{H.on.current_password}}">
+          <input id="pw-cur" class="{{cls.current_password}}" type="{{pwType}}" autocomplete="current-password" value="{{f.current_password}}" onChange="{{H.on.current_password}}">
           <sc-if value="{{err.current_password}}" hint-placeholder-val="{{ false }}"><p class="err">{{err.current_password}}</p></sc-if>
         </div>
         <div>
           <label class="lbl" for="pw-new">Mật khẩu mới <span class="req">*</span></label>
-          <input id="pw-new" class="{{cls.new_password}}" type="password" autocomplete="new-password" value="{{f.new_password}}" onChange="{{H.on.new_password}}">
+          <input id="pw-new" class="{{cls.new_password}}" type="{{pwType}}" autocomplete="new-password" value="{{f.new_password}}" onChange="{{H.on.new_password}}">
           <sc-if value="{{err.new_password}}" hint-placeholder-val="{{ false }}"><p class="err">{{err.new_password}}</p></sc-if>
         </div>
         <div>
           <label class="lbl" for="pw-confirm">Nhập lại mật khẩu mới <span class="req">*</span></label>
-          <input id="pw-confirm" class="{{cls.confirm}}" type="password" autocomplete="new-password" value="{{f.confirm}}" onChange="{{H.on.confirm}}">
+          <input id="pw-confirm" class="{{cls.confirm}}" type="{{pwType}}" autocomplete="new-password" value="{{f.confirm}}" onChange="{{H.on.confirm}}">
           <sc-if value="{{err.confirm}}" hint-placeholder-val="{{ false }}"><p class="err">{{err.confirm}}</p></sc-if>
+          <label class="muted" style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;cursor:pointer;min-height:44px"><input type="checkbox" checked="{{showPw}}" onChange="{{H.toggleShowPw}}" style="width:18px;height:18px"> Hiện mật khẩu</label>
         </div>
       </div>
       </sc-if>
