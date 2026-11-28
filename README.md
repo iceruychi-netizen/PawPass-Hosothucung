@@ -175,6 +175,8 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 | [M2 · Wireframe bổ sung và họp duyệt](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/2) | 27/11/2026 | [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7), [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8) | Duy Huy (wireframe), Thế Dũng (họp duyệt, biên bản) | Hoàn thành 27/11 |
 | [M3 · Góp ý UI/UX chi tiết cho nhóm 2 và nhóm 5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/3) | 28/11/2026 | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) | Thế Dũng (nhóm 2), Hữu Triết (nhóm 5) | Hoàn thành 27/11 |
 | [M4 · Cập nhật README và nộp bài](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/4) | 29/11/2026 | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11) | Hữu Triết | README cập nhật 27/11 |
+| [M5 · Sửa góp ý nhận được](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/5) | 29/11/2026 | [#16](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/16), [#23](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/23), [#26](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/26), [#29](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/29) | Hữu Triết (sửa, trả lời issue), Thế Dũng (duyệt PR) | Hoàn thành 28/11 |
+| [M6 · Sửa lỗi sau khi merge góp ý](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/6) | 29/11/2026 | [#31](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/31) | Hữu Triết (sửa), Thế Dũng (duyệt PR) | Hoàn thành 28/11 |
 
 ### (d) GitHub Repository
 
@@ -216,6 +218,11 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 | Góp ý UI/UX chi tiết cho nhóm 2 | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9) | `docs/review-nhom-2-1` | [#13](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/13) (đã merge) |
 | Góp ý UI/UX chi tiết cho nhóm 5 | [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) | `docs/review-nhom-5`, `docs/anh-review-nhom-5` | [#18](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/18), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20) (đã merge) |
 | Cập nhật self-report Thế Dũng | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9) | `docs/self-report-dung-1` | [#15](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/15) (đã merge) |
+| Góp ý #23 (nhóm FocusFlow): ô "Hiện mật khẩu" | [#23](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/23) | `fix/hien-mat-khau-23` | [#27](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/27) (Thế Dũng duyệt, đã merge) |
+| Góp ý #26 (nhóm ThaiTuFashion): tự focus ô lỗi đầu tiên | [#26](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/26) | `fix/focus-o-loi-26` | [#28](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/28) (Thế Dũng duyệt, đã merge) |
+| Ghi quyết định góp ý #16, #23, #26 vào README | [#29](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/29) | `docs/phan-hoi-gop-y-29` | [#30](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/30) (Thế Dũng duyệt, đã merge) |
+| Lỗi phát hiện khi thử lại web thật sau #27: tích "Hiện mật khẩu" làm mất ô | [#31](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/31) | `fix/runtime-doi-type-31` | [#32](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/32) (Thế Dũng duyệt, đã merge) |
+| README: ghi milestone M5, M6 và các PR trên | [#33](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/33) | `docs/readme-m5-m6-33` | PR này |
 
 - Commit đặt tên theo quy ước `perf:` / `fix:` / `docs:` kèm số Issue, ví dụ `perf: dùng font-display optional cho trang ứng dụng (#1)`.
 - Mỗi Pull Request ghi `Closes #số` để Issue tự đóng khi merge, kèm nguyên nhân, cách sửa và kết quả trước / sau; Vercel tạo link Preview cho từng nhánh để đo lại trước khi merge.
