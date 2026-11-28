@@ -62,6 +62,8 @@ async function run() {
   await btn(/Thêm một bé mới|Thêm thú cưng/).first().click();
   await btn('Lưu', true).click();
   check(await seen('Vui lòng nhập tên thú cưng.'), 'pet form validates required fields');
+  await page.waitForTimeout(300);
+  check(await page.evaluate(() => document.activeElement && document.activeElement.id === 'pt-name'), 'first invalid field gets focus (#26)');
   await page.fill('#pt-name', 'Mochi');
   await page.selectOption('#pt-species', 'Chó');
   await page.fill('#pt-breed', 'Corgi');
