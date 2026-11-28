@@ -96,13 +96,13 @@
 - Dùng thử web FocuSpace của nhóm 2 trên máy tính và điện thoại, viết góp ý UI/UX theo 3 tiêu chí (Usability, Aesthetics, User-friendliness), có bảng tổng hợp 7 đề xuất kèm mức độ.
 - Gửi góp ý cho nhóm 2 qua tin nhắn; theo mẫu của nhóm 2, lưu bản góp ý vào repo nhóm mình tại `docs/reviews/given/nhom-2-focuspace.md`.
 - Review Pull Request của thành viên khác trước khi merge: PR #4 (sửa thứ tự tiêu đề), PR #6 (README Lighthouse), PR #12 (kế hoạch, quy trình), PR #20 (ảnh góp ý nhóm 5), PR #21 (README cuối).
-- 28/11: duyệt các Pull Request của đợt xử lý góp ý nhận được trước khi merge: PR #27 (ô "Hiện mật khẩu"), PR #28 (focus ô lỗi đầu tiên), PR #30 (ghi quyết định góp ý vào README), PR #32 (sửa lỗi mất ô mật khẩu), PR #34 (README Milestone M5, M6).
+- 28/11: duyệt các Pull Request của đợt xử lý góp ý nhận được trước khi merge: PR #27 (ô "Hiện mật khẩu"), PR #28 (focus ô lỗi đầu tiên), PR #30 (ghi quyết định góp ý vào README), PR #32 (sửa lỗi mất ô mật khẩu), PR #34 (README Milestone M5, M6), PR #36 (sửa tài liệu lệch), PR #38 (self-report).
 
 **Bằng chứng đóng góp:**
 
 - Issue [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9) → PR [#13](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/13) — góp ý UI/UX cho nhóm 2 (ảnh minh họa và ảnh chụp tin nhắn gửi nhóm 2 trong comment của PR)
 - Review [PR #4](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/4); Approve [PR #6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/6), [#12](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/12), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20), [#21](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/21)
-- Approve 28/11: PR [#27](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/27), [#28](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/28), [#30](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/30), [#32](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/32), [#34](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/34)
+- Approve 28/11: PR [#27](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/27), [#28](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/28), [#30](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/30), [#32](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/32), [#34](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/34), [#36](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/36), [#38](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/38)
 
 **Khó khăn gặp phải:**
 

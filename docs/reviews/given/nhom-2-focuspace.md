@@ -7,6 +7,7 @@
 - **Link repo:** https://github.com/CaoLePhucThinh2203/FocuSpace
 - **Ngày review:** 26/11/2026
 - **Người review:** Nguyễn Thế Dũng (Nhóm 4 – PawPass)
+- **Đã gửi cho nhóm 2:** Issue [FocuSpace #174](https://github.com/CaoLePhucThinh2203/FocuSpace/issues/174)
 - **Cách review:** dùng thử trên máy tính (Chrome) và điện thoại, đi qua Trang chủ, Căn phòng, Thư viện, Thống kê.
 
 ## 1. Usability (Tính khả dụng)
