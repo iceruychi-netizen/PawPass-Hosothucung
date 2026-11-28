@@ -558,6 +558,18 @@ Người review: Nguyễn Hữu Triết (đợt đầu); góp ý chi tiết bổ
 | Sau màn hình chờ, trang chính vẫn phải đợi một lúc mới hiện thông tin | Nhóm 2 | Đã implement | Cho trang chính tải dữ liệu và ảnh **ở nền, bên dưới màn hình chờ**; màn hình chờ chỉ tắt khi đã tải xong, nên người dùng không phải đợi thêm — [`c5c5461`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/c5c5461), [`6058e8a`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/6058e8a) |
 | Bấm F5 ở một trang thì giao diện bị giật: nhảy qua trang đăng ký / đăng nhập rồi mới về trang đang xem | Nhóm 2 | Đã implement | Ghi nhớ trang người dùng đang ở và phiên đăng nhập, F5 mở lại đúng trang đó ngay — [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) |
 | Chú mèo quá to, ảnh lớn khi chuyển động làm giảm điểm Lighthouse | Nhóm 2 | Không implement | Chú mèo là **linh vật** của PawPass, được nhóm tổng hợp từ nhiều bản thiết kế để tạo cảm giác gần gũi với người dùng, nên nhóm giữ nguyên kích thước. Nhóm giảm ảnh hưởng tới tốc độ theo cách khác: ảnh WebP, chuyển động bằng `transform` (Lighthouse hiện đạt 100 ở cả 4 mục) |
+| F5 / vừa đăng nhập bị đưa về trang đăng nhập ([#16](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/16)) | Nhóm 2 | Đã có sẵn | Đã sửa từ đợt góp ý đầu — [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) |
+| Logo "PawPass" lúc bấm được lúc không (#16) | Nhóm 2 | Không implement | Thanh điều hướng luôn có nút **Trang chủ** cạnh logo; giữ logo theo thiết kế đã duyệt |
+| Tên / ảnh đại diện trông như bấm được (#16) | Nhóm 2 | Không implement | Đã có nút **Tài khoản** trên thanh điều hướng; tên / ảnh chỉ cho biết ai đang đăng nhập |
+| Chọn loài "Khác" không có ô nhập loài cụ thể (#16) | Nhóm 2 | Không implement | Cần thêm cột vào bảng `pets` (ERD đã duyệt 27/11); ô **Giống** đã dùng để ghi cụ thể |
+| Sửa email trực tiếp dễ làm hỏng đăng nhập (#16) | Nhóm 2 | Không implement | Xác minh email (thư xác nhận / OTP) vượt phạm vi môn Basic Web; máy chủ đã kiểm tra định dạng và trùng email (409) |
+| Mèo cam giống chó; chim, thỏ, hamster chưa có hình (#16) | Nhóm 2 | Không implement | Hình minh họa chỉ là hình tạm; người dùng tải ảnh thật của bé lên và ảnh đó thay hình minh họa |
+| Ô mật khẩu chưa có nút ẩn / hiện ([#23](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/23)) | Nhóm FocusFlow | Đã implement | Ô "Hiện mật khẩu" ở Đăng nhập, Đăng ký, Đổi mật khẩu — PR [#27](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/27) |
+| Tiêu đề phụ viết chữ thường (#23) | Nhóm FocusFlow | Không implement | Dòng ghi chú viết tay (phông Patrick Hand), chủ ý viết thường theo thiết kế đã duyệt |
+| Form có lỗi không focus ô lỗi đầu tiên, thông báo che form ([#26](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/26)) | Nhóm ThaiTuFashion | Đã implement | Tự cuộn ô lỗi đầu tiên ra giữa màn hình và đặt con trỏ vào đó — PR [#28](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/28) |
+| Thêm ngày tiêm nhắc lại, nhắc mũi sắp đến hạn (#26) | Nhóm ThaiTuFashion | Ghi nhận cho bản sau | Cần thêm cột vào bảng `vaccinations` (ERD đã duyệt); tạm ghi lịch nhắc vào ô Ghi chú |
+
+Chi tiết quyết định và lý do cho từng issue: [`docs/reviews/received.md`](docs/reviews/received.md).
 
 **Trước / sau khi sửa góp ý về màn hình chờ:**
 
