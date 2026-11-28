@@ -124,7 +124,7 @@ Lighthouse vẫn báo mục đỏ sau khi sửa; phải phân biệt mục bị 
 
 ## Task 5 — Peer Review
 
-**Tuần:** Tuần 2, ngày 13/11 – 20/11; bổ sung 27/11
+**Tuần:** Tuần 2, ngày 13/11 – 20/11; bổ sung 27/11, 28/11
 
 **Công việc đã làm:**
 
@@ -132,12 +132,15 @@ Lighthouse vẫn báo mục đỏ sau khi sửa; phải phân biệt mục bị 
 - Góp ý cho **nhóm 5 (web bán quần áo)** về giao diện, thiết kế tổng thể và cách trình bày cho hợp mắt.
 - 27/11 (sau bản chấm thử): góp ý chi tiết cho **nhóm 5 (Thai Tu Fashion)** trên bản web đã đưa lên mạng — đi qua trang chủ, trang sản phẩm, thêm vào giỏ, Smart Studio; góp ý theo 3 tiêu chí, bảng 5 đề xuất kèm mức độ, 5 ảnh minh họa; gửi cho nhóm 5 và lưu vào `docs/reviews/given/`.
 - Nhận 3 góp ý từ nhóm 2 cho PawPass: sửa 2 góp ý (màn hình chờ tải nền trang chính, F5 không còn nhảy qua trang đăng nhập), giữ nguyên 1 góp ý (kích thước chú mèo — linh vật của nhóm) và giải thích lý do.
+- 28/11: xử lý 3 issue góp ý nhận được (nhóm 2 [#16](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/16), FocusFlow [#23](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/23), ThaiTuFashion [#26](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/26)). Lọc theo nguyên tắc: góp ý sửa ít code, không đổi thiết kế / ERD đã duyệt thì sửa; còn lại trả lời lý do theo bảng Góp ý / Quyết định / Lý do. Sửa: ô "Hiện mật khẩu" (PR [#27](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/27)), tự focus ô lỗi đầu tiên khi form sai (PR [#28](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/28)); trả lời trong cả 3 issue; ghi quyết định vào `docs/reviews/received.md` và README 5(b) (PR [#30](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/30)).
+- 28/11: thử lại trên web thật sau khi merge, phát hiện tích "Hiện mật khẩu" làm mất ô mật khẩu do lỗi trong `runtime.js`; mở [#31](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/31) và sửa ở PR [#32](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/32). Cập nhật README (Milestone M5, M6, bảng Issue → nhánh → PR — PR [#34](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/34)) và sửa tài liệu lệch (PR [#36](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/36)). Mọi PR đều có Thế Dũng duyệt trước khi merge.
 
 **Bằng chứng đóng góp:**
 
 - Bảng góp ý và cách xử lý: mục Task 5 trong `README.md`
 - [`c5c5461`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/c5c5461), [`6058e8a`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/6058e8a) — màn hình chờ tải nền trang chính
 - [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) — F5 giữ đúng trang đang xem
+- Xử lý góp ý nhận được (28/11): [`docs/reviews/received.md`](../reviews/received.md) — PR [#27](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/27), [#28](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/28), [#30](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/30), [#32](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/32), [#34](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/34), [#36](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/36); Milestone [M5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/5), [M6](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/6)
 - Góp ý chi tiết nhóm 5: [`docs/reviews/given/nhom-5-thai-tu-fashion.md`](../reviews/given/nhom-5-thai-tu-fashion.md) — Issue [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) → PR [#18](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/18), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20)
 
 **Khó khăn gặp phải:**
@@ -154,6 +157,7 @@ Web nhóm 5 chưa đưa lên mạng nên chỉ góp ý được trên bản đan
 |---|---|---|---|
 | Phần lớn mã nguồn (giao diện, logic, API, test) và tài liệu | Claude | Viết code, tài liệu, test theo yêu cầu và tài liệu Step 1–2 | Đưa yêu cầu, thử trên web thật, báo lỗi, quyết định sửa gì; deploy và cấu hình Vercel / Neon / Blob |
 | Đợt sửa sau bản chấm thử (phông chữ, thứ tự tiêu đề, README Lighthouse, Milestone / Issue / PR) | Claude | Đọc báo cáo Lighthouse (JSON) tìm nguyên nhân, viết bản sửa và nội dung README; thao tác GitHub (tạo Issue, nhánh, PR, Milestone) qua trình duyệt trên tài khoản của tôi | Đo Lighthouse trên web thật và link Preview, kiểm tra kết quả, quyết định merge |
+| Xử lý góp ý nhận được và sửa lỗi `runtime.js` (28/11) | Claude | Đọc 3 issue góp ý, đối chiếu với code, viết bản sửa và test E2E, soạn câu trả lời; thử web thật qua trình duyệt và tìm ra lỗi mất ô mật khẩu; thao tác GitHub (Issue, nhánh, PR, Milestone, merge) trên tài khoản của tôi | Quyết định góp ý nào sửa, góp ý nào từ chối và lý do; duyệt nội dung trả lời trước khi đăng; nhờ thành viên khác duyệt PR trước khi merge |
 | Góp ý chi tiết nhóm 5, README cuối, review / merge PR (26–27/11) | Claude | Dùng thử web nhóm 5 qua trình duyệt và soạn nháp góp ý; soạn nội dung README; thao tác GitHub (tạo nhánh, PR, Approve, merge) trên tài khoản của tôi | Gửi góp ý cho nhóm 5, kiểm tra nội dung, quyết định Approve / merge từng PR |
 
 ---
