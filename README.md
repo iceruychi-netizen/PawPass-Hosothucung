@@ -16,7 +16,7 @@
 | **GitHub Repository** | https://github.com/iceruychi-netizen/PawPass-Hosothucung |
 | **Web đang chạy** | https://pawpass-hosothucung-web.vercel.app/ |
 | **Video Demo** | https://www.youtube.com/watch?v=W2zrzrErFAk |
-| **Ngày nộp** | 21/11/2026 |
+| **Ngày nộp** | 21/11/2026 (bản cập nhật sau bản chấm thử: 29/11/2026) |
 
 ### Thành viên nhóm
 
@@ -174,7 +174,7 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 | [M1 · Sửa lỗi Lighthouse sau khi đăng nhập](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/1) | 26/11/2026 | [#1](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/1), [#3](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/3), [#5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/5) | Hữu Triết | Hoàn thành 26/11 |
 | [M2 · Wireframe bổ sung và họp duyệt](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/2) | 27/11/2026 | [#7](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/7), [#8](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/8) | Duy Huy (wireframe), Thế Dũng (họp duyệt, biên bản) | Hoàn thành 27/11 |
 | [M3 · Góp ý UI/UX chi tiết cho nhóm 2 và nhóm 5](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/3) | 28/11/2026 | [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10) | Thế Dũng (nhóm 2), Hữu Triết (nhóm 5) | Hoàn thành 27/11 |
-| [M4 · Cập nhật README và nộp bài](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/4) | 29/11/2026 | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11) | Hữu Triết | README cập nhật 27/11 |
+| [M4 · Cập nhật README và nộp bài](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/4) | 29/11/2026 | [#11](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/11), [#33](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/33), [#35](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/35), [#37](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/37), [#39](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/39) | Hữu Triết (cập nhật), Thế Dũng (duyệt PR) | README, tài liệu, self-report cập nhật 28/11; nộp 29/11 |
 | [M5 · Sửa góp ý nhận được](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/5) | 29/11/2026 | [#16](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/16), [#23](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/23), [#26](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/26), [#29](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/29) | Hữu Triết (sửa, trả lời issue), Thế Dũng (duyệt PR) | Hoàn thành 28/11 |
 | [M6 · Sửa lỗi sau khi merge góp ý](https://github.com/iceruychi-netizen/PawPass-Hosothucung/milestone/6) | 29/11/2026 | [#31](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/31) | Hữu Triết (sửa), Thế Dũng (duyệt PR) | Hoàn thành 28/11 |
 
@@ -222,11 +222,14 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 | Góp ý #26 (nhóm ThaiTuFashion): tự focus ô lỗi đầu tiên | [#26](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/26) | `fix/focus-o-loi-26` | [#28](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/28) (Thế Dũng duyệt, đã merge) |
 | Ghi quyết định góp ý #16, #23, #26 vào README | [#29](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/29) | `docs/phan-hoi-gop-y-29` | [#30](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/30) (Thế Dũng duyệt, đã merge) |
 | Lỗi phát hiện khi thử lại web thật sau #27: tích "Hiện mật khẩu" làm mất ô | [#31](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/31) | `fix/runtime-doi-type-31` | [#32](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/32) (Thế Dũng duyệt, đã merge) |
-| README: ghi milestone M5, M6 và các PR trên | [#33](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/33) | `docs/readme-m5-m6-33` | [#34](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/34) |
+| README: ghi milestone M5, M6 và các PR trên | [#33](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/33) | `docs/readme-m5-m6-33` | [#34](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/34) (Thế Dũng duyệt, đã merge) |
+| Sửa tài liệu lệch: `PHAN-CONG.md` mục 3, bảng `KY-THUAT.md`, Phase 5 trong `PLAN.md` | [#35](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/35) | `docs/sua-tai-lieu-lech-35` | [#36](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/36) (Thế Dũng duyệt, đã merge) |
+| Self-report ghi đợt xử lý góp ý 28/11 | [#37](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/37) | `docs/self-report-28-11-37` | [#38](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/38) (Thế Dũng duyệt, đã merge) |
+| README: hoàn thiện Task 5a, rút kinh nghiệm 1e, đồng bộ tài liệu | [#39](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/39) | `docs/readme-task5-39` | [#40](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/40) |
 
 - Commit đặt tên theo quy ước `perf:` / `fix:` / `docs:` kèm số Issue, ví dụ `perf: dùng font-display optional cho trang ứng dụng (#1)`.
 - Mỗi Pull Request ghi `Closes #số` để Issue tự đóng khi merge, kèm nguyên nhân, cách sửa và kết quả trước / sau; Vercel tạo link Preview cho từng nhánh để đo lại trước khi merge.
-- PR #2 được merge trước khi có người review; nhóm rút kinh nghiệm, các PR sau để mở chờ một thành viên khác Approve rồi mới merge.
+- Chưa làm đúng hoàn toàn: PR #2, #22, #24, #25 được merge khi **chưa có người Approve**. Nhóm rút kinh nghiệm: từ PR #27 trở đi (đợt xử lý góp ý 28/11), mọi PR đều chờ một thành viên khác Approve rồi mới merge.
 - Một số lỗi khi mới làm quen quy trình đã được sửa ngay trên Pull Request: tải file nhầm thư mục (PR #13), PR nhắm nhầm nhánh đích và bản copy mất định dạng (PR #14 đóng, thay bằng #15), PR #18 merge trước khi có ảnh nên bổ sung bằng PR #20.
 
 | Commit ngày 20/11 và cuối ngày 13/11 | Commit ngày 13/11 — mỗi thành viên đưa phần của mình lên |
@@ -527,46 +530,48 @@ Cả hai đều bật bằng **biến môi trường trên Vercel** (Settings �
 
 ### (a) Feedback cho các nhóm khác
 
-Người review: Nguyễn Hữu Triết (đợt đầu); góp ý chi tiết bổ sung ngày 26–27/11: Nguyễn Thế Dũng (nhóm 2), Nguyễn Hữu Triết (nhóm 5).
+Người review: Nguyễn Hữu Triết (đợt đầu, góp ý trực tiếp); góp ý chi tiết 26–27/11: Nguyễn Thế Dũng (nhóm 2), Nguyễn Hữu Triết (nhóm 5). Góp ý chi tiết được gửi thành **Issue trên repo của nhóm được review**: nhóm 2 — [FocuSpace #174](https://github.com/CaoLePhucThinh2203/FocuSpace/issues/174), nhóm 5 — [thai_tu_fashion #53](https://github.com/huynhsy986-droid/thai_tu_fashion/issues/53).
 
 #### Nhóm được review #1
 
 - **Tên nhóm / dự án:** Nhóm 2 — Focus Space
 - **Link project:** https://focuspace-iota.vercel.app/
-- **Cách review:** dùng thử web, thử tương tác với chú mèo và các vật thể trong phòng, rồi góp ý trực tiếp với nhóm.
+- **Link repo:** https://github.com/CaoLePhucThinh2203/FocuSpace
+- **Cách review:** đợt đầu (13–20/11) dùng thử web và góp ý trực tiếp với nhóm; ngày 26/11 dùng thử lại trên máy tính (Chrome) và điện thoại, đi qua Trang chủ, Căn phòng, Thư viện, Thống kê.
+- **Góp ý đã gửi:** Issue [FocuSpace #174](https://github.com/CaoLePhucThinh2203/FocuSpace/issues/174) trên repo nhóm 2 (nhóm 2 đã trả lời trong issue)
 
 | Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
 |---|---|---|
-| Usability | Trang đầu nói rõ web dùng để làm gì, nút **Vào phòng** nổi bật nên bắt đầu rất nhanh | Xem lại số lượng vật thể trong phòng cho vừa phải, để người dùng dễ tập trung và dễ thao tác |
-| Aesthetics | Phong cách pixel art ấm áp, tông màu tối dịu mắt, hợp không khí học tập kiểu lo-fi | — |
-| User-Friendliness | Cho tự chọn phòng (học, ngủ, sân vườn), âm thanh, thời tiết và đồ vật, có gợi ý đeo tai nghe | Tương tác với chú mèo nên sống động hơn (phản hồi rõ hơn khi người dùng bấm hoặc rê chuột vào) |
+| Usability | Trang đầu nói rõ mục đích ("Không gian ảo giúp tập trung"), 2 nút **Vào phòng** / **Xem thư viện** rõ ràng; đồng hồ Pomodoro 25:00 + nút Bắt đầu luôn thấy ở góc phải; dòng trạng thái cho biết đang ở phòng nào, bật mấy nguồn âm thanh; rê chuột vào nút biểu tượng thì hiện tên | **(Cao)** Đồ vật trên bàn có vùng bấm rất nhỏ (ly cà phê ~17×14px trên điện thoại) → tối thiểu 44×44px<br>**(TB)** 3 nút biểu tượng không có chữ trên màn hình cảm ứng (không rê chuột được) → hiện chữ dưới biểu tượng<br>**(TB)** Không biết đồ vật kéo thả được → gợi ý ngắn lần đầu vào phòng |
+| Aesthetics | Pixel art đồng nhất từ trang chủ tới trong phòng; tông nâu tối, ánh lò sưởi, mưa ngoài cửa sổ đúng không khí lo-fi; mũi tên đổi phòng cùng phong cách | **(Cao)** Trên điện thoại cầm dọc, cả căn phòng xoay ngang 90° mà không có thông báo → gợi ý xoay máy hoặc bố cục dọc<br>**(Thấp)** Chữ nhỏ, màu nhạt trên nền tối ("hãy đeo tai nghe", nhãn "FOCUS") → tăng cỡ chữ / độ sáng |
+| User-Friendliness | Tự chọn phòng (học, ngủ, sân vườn), thời tiết, đồ vật, âm thanh; nhãn tiếng Việt rõ nghĩa cho trình đọc màn hình; có gợi ý đeo tai nghe | **(TB)** Khó theo dõi Pomodoro khi chuyển tab → hiện thời gian còn lại trên tiêu đề tab, âm báo hết giờ<br>**(Thấp)** Chưa rõ lựa chọn có được lưu khi chuyển phòng / tải lại trang → ghi nhớ và báo "Đã lưu" |
 
-**Góp ý chi tiết (26/11/2026):** [`docs/reviews/given/nhom-2-focuspace.md`](docs/reviews/given/nhom-2-focuspace.md) — 3 tiêu chí, mỗi ý chỉ rõ trang và chi tiết, bảng tổng hợp 7 đề xuất kèm mức độ; đã gửi cho nhóm 2 (Issue [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), PR [#13](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/13), ảnh minh họa và ảnh tin nhắn trong PR).
+**Góp ý chi tiết (26/11/2026):** [`docs/reviews/given/nhom-2-focuspace.md`](docs/reviews/given/nhom-2-focuspace.md) — 3 tiêu chí, bảng tổng hợp 7 đề xuất kèm mức độ; đã gửi cho nhóm 2 qua Issue [FocuSpace #174](https://github.com/CaoLePhucThinh2203/FocuSpace/issues/174) (theo dõi trong repo nhóm mình: Issue [#9](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/9), PR [#13](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/13), ảnh minh họa và ảnh tin nhắn trong PR).
 
 #### Nhóm được review #2
 
 - **Tên nhóm / dự án:** Nhóm 5 — Web bán quần áo
 - **Link project:** https://thai-tu-fashion-v1.vercel.app (đợt đầu nhóm 5 chưa đưa web lên mạng, nhóm góp ý trên bản nhóm 5 đang làm)
-
-## Đánh giá giao diện
+- **Link repo:** https://github.com/huynhsy986-droid/thai_tu_fashion
+- **Cách review:** ngày 27/11 dùng thử bản Thai Tu Fashion trên mạng bằng Chrome (cửa sổ hẹp, bố cục điện thoại), đi qua Trang chủ, trang sản phẩm Hoodie oversize Cloud, thêm vào giỏ, Smart Studio.
+- **Góp ý đã gửi:** Issue [thai_tu_fashion #53](https://github.com/huynhsy986-droid/thai_tu_fashion/issues/53) trên repo nhóm 5
 
 | Khía cạnh | Điểm mạnh | Gợi ý cải thiện |
 |---|---|---|
-| **Usability** | **Điểm mạnh**<br><br>Thanh điều hướng dưới cùng có 5 mục kèm cả biểu tượng lẫn chữ (Trang chủ, Cửa hàng, Studio, Yêu thích, Giỏ hàng), dễ bấm bằng ngón cái.<br><br>Các nút trên đầu trang (Tìm kiếm, Thông báo, Đăng nhập, Menu) có vùng bấm 44×44px và nhãn cho trình đọc màn hình; bấm logo là về trang chủ.<br><br>Trang sản phẩm bấm "Thêm vào giỏ" khi chưa chọn size thì báo đỏ "Hãy chọn size trước khi tiếp tục."; size sắp hết có ghi "Còn 2". | **Đề xuất cải thiện**<br><br>Thêm vào giỏ chưa có thông báo rõ: sau khi chọn size M và bấm "Thêm vào giỏ", nhóm chỉ thấy số 1 nhỏ hiện trên biểu tượng Giỏ hàng ở thanh dưới. Đề xuất hiện thông báo ngắn "Đã thêm vào giỏ" kèm nút "Xem giỏ".<br><br>Nút "+" trên ảnh trang chủ chưa có gợi ý: bấm vào là mở thẳng trang sản phẩm, nhưng trước khi bấm người dùng không biết nút để làm gì. Đề xuất thêm nhãn nhỏ (tên sản phẩm, giá) khi rê chuột / chạm lần đầu. |
-| **Aesthetics** | **Điểm mạnh**<br><br>Ảnh bìa trang chủ 3 khung màu pastel (tím, xanh bạc hà, vàng) hợp chủ đề "Seoul mood"; chữ đen trắng, phông chữ đậm, gọn gàng.<br><br>Trang sản phẩm trình bày rõ: dáng, chất liệu, hợp dịp, phong cách; nút "Mua ngay" nền đen nổi hơn nút "Thêm vào giỏ". | **Đề xuất cải thiện**<br><br>Lúc mở web hiện khung xám khá lâu: lần đầu mở trang chủ, nhóm thấy toàn khung xám (skeleton) khoảng 5 giây rồi mới hiện ảnh. Đề xuất nén / giảm cỡ ảnh bìa và tải trước ảnh đầu tiên.<br><br>Ảnh trang chủ và ảnh trang sản phẩm khác kiểu: trang chủ dùng ảnh người mẫu, trang sản phẩm dùng ảnh dựng 3D. Đề xuất có thêm ảnh người mẫu trong trang sản phẩm để đồng nhất. |
-| **User-Friendliness** | **Điểm mạnh**<br><br>Smart Studio gom 5 công cụ (Outfit Builder, Size Advisor, AI Stylist, Visual Search, Virtual Try-On), mỗi công cụ có 1 dòng giải thích dễ hiểu.<br><br>Trang sản phẩm có sẵn "Tìm size hợp với tôi", "Phối trong Outfit Builder" và gợi ý "Hoàn thiện set đồ" với các món đi kèm.<br><br>Ghi rõ chính sách ngay dưới nút mua: miễn phí giao từ 1.500.000₫, đổi size 7 ngày, kiểm tra hàng trước khi nhận. | **Đề xuất cải thiện**<br><br>Thông báo "Hãy chọn size" nhỏ: dòng chữ đỏ nằm dưới hàng size, chữ nhỏ, dễ bỏ qua. Đề xuất viền đỏ hàng nút size hoặc rung nhẹ để người dùng thấy ngay. |
+| **Usability** | Thanh điều hướng dưới cùng có 5 mục kèm cả biểu tượng lẫn chữ (Trang chủ, Cửa hàng, Studio, Yêu thích, Giỏ hàng), dễ bấm bằng ngón cái.<br><br>Các nút trên đầu trang (Tìm kiếm, Thông báo, Đăng nhập, Menu) có vùng bấm 44×44px và nhãn cho trình đọc màn hình; bấm logo là về trang chủ.<br><br>Trang sản phẩm bấm "Thêm vào giỏ" khi chưa chọn size thì báo đỏ "Hãy chọn size trước khi tiếp tục."; size sắp hết có ghi "Còn 2". | Thêm vào giỏ chưa có thông báo rõ: sau khi chọn size M và bấm "Thêm vào giỏ", nhóm chỉ thấy số 1 nhỏ hiện trên biểu tượng Giỏ hàng ở thanh dưới. Đề xuất hiện thông báo ngắn "Đã thêm vào giỏ" kèm nút "Xem giỏ".<br><br>Nút "+" trên ảnh trang chủ chưa có gợi ý: bấm vào là mở thẳng trang sản phẩm, nhưng trước khi bấm người dùng không biết nút để làm gì. Đề xuất thêm nhãn nhỏ (tên sản phẩm, giá) khi rê chuột / chạm lần đầu. |
+| **Aesthetics** | Ảnh bìa trang chủ 3 khung màu pastel (tím, xanh bạc hà, vàng) hợp chủ đề "Seoul mood"; chữ đen trắng, phông chữ đậm, gọn gàng.<br><br>Trang sản phẩm trình bày rõ: dáng, chất liệu, hợp dịp, phong cách; nút "Mua ngay" nền đen nổi hơn nút "Thêm vào giỏ". | Lúc mở web hiện khung xám khá lâu: lần đầu mở trang chủ, nhóm thấy toàn khung xám (skeleton) khoảng 5 giây rồi mới hiện ảnh. Đề xuất nén / giảm cỡ ảnh bìa và tải trước ảnh đầu tiên.<br><br>Ảnh trang chủ và ảnh trang sản phẩm khác kiểu: trang chủ dùng ảnh người mẫu, trang sản phẩm dùng ảnh dựng 3D. Đề xuất có thêm ảnh người mẫu trong trang sản phẩm để đồng nhất. |
+| **User-Friendliness** | Smart Studio gom 5 công cụ (Outfit Builder, Size Advisor, AI Stylist, Visual Search, Virtual Try-On), mỗi công cụ có 1 dòng giải thích dễ hiểu.<br><br>Trang sản phẩm có sẵn "Tìm size hợp với tôi", "Phối trong Outfit Builder" và gợi ý "Hoàn thiện set đồ" với các món đi kèm.<br><br>Ghi rõ chính sách ngay dưới nút mua: miễn phí giao từ 1.500.000₫, đổi size 7 ngày, kiểm tra hàng trước khi nhận. | Thông báo "Hãy chọn size" nhỏ: dòng chữ đỏ nằm dưới hàng size, chữ nhỏ, dễ bỏ qua. Đề xuất viền đỏ hàng nút size hoặc rung nhẹ để người dùng thấy ngay. |
 
-**Góp ý chi tiết (27/11/2026):** [`docs/reviews/given/nhom-5-thai-tu-fashion.md`](docs/reviews/given/nhom-5-thai-tu-fashion.md) — dùng thử bản Thai Tu Fashion trên mạng, góp ý theo 3 tiêu chí, bảng tổng hợp 5 đề xuất kèm mức độ và 5 ảnh minh họa; đã gửi cho nhóm 5 (Issue [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10), PR [#18](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/18), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20)).
+**Góp ý chi tiết (27/11/2026):** [`docs/reviews/given/nhom-5-thai-tu-fashion.md`](docs/reviews/given/nhom-5-thai-tu-fashion.md) — dùng thử bản Thai Tu Fashion trên mạng, góp ý theo 3 tiêu chí, bảng tổng hợp 5 đề xuất kèm mức độ và 5 ảnh minh họa; đã gửi cho nhóm 5 qua Issue [thai_tu_fashion #53](https://github.com/huynhsy986-droid/thai_tu_fashion/issues/53) (theo dõi trong repo nhóm mình: Issue [#10](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/10), PR [#18](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/18), [#20](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/20)).
 
 ### (b) Xử lý feedback nhận được
 
 | Feedback | Nguồn (nhóm nào) | Quyết định | Lý do / Commit |
 |---|---|---|---|
 | Sau màn hình chờ, trang chính vẫn phải đợi một lúc mới hiện thông tin | Nhóm 2 | Đã implement | Cho trang chính tải dữ liệu và ảnh **ở nền, bên dưới màn hình chờ**; màn hình chờ chỉ tắt khi đã tải xong, nên người dùng không phải đợi thêm — [`c5c5461`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/c5c5461), [`6058e8a`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/6058e8a) |
-| Bấm F5 ở một trang thì giao diện bị giật: nhảy qua trang đăng ký / đăng nhập rồi mới về trang đang xem | Nhóm 2 | Đã implement | Ghi nhớ trang người dùng đang ở và phiên đăng nhập, F5 mở lại đúng trang đó ngay — [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) |
+| Bấm F5 ở một trang thì giao diện bị giật: nhảy qua trang đăng ký / đăng nhập rồi mới về trang đang xem (góp ý lại trong [#16](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/16): đã có sẵn) | Nhóm 2 | Đã implement | Ghi nhớ trang người dùng đang ở và phiên đăng nhập, F5 mở lại đúng trang đó ngay — [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) |
 | Chú mèo quá to, ảnh lớn khi chuyển động làm giảm điểm Lighthouse | Nhóm 2 | Không implement | Chú mèo là **linh vật** của PawPass, được nhóm tổng hợp từ nhiều bản thiết kế để tạo cảm giác gần gũi với người dùng, nên nhóm giữ nguyên kích thước. Nhóm giảm ảnh hưởng tới tốc độ theo cách khác: ảnh WebP, chuyển động bằng `transform` (Lighthouse hiện đạt 100 ở cả 4 mục) |
-| F5 / vừa đăng nhập bị đưa về trang đăng nhập ([#16](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/16)) | Nhóm 2 | Đã có sẵn | Đã sửa từ đợt góp ý đầu — [`9725d89`](https://github.com/iceruychi-netizen/PawPass-Hosothucung/commit/9725d89) |
-| Logo "PawPass" lúc bấm được lúc không (#16) | Nhóm 2 | Không implement | Thanh điều hướng luôn có nút **Trang chủ** cạnh logo; giữ logo theo thiết kế đã duyệt |
+| Logo "PawPass" lúc bấm được lúc không ([#16](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/16)) | Nhóm 2 | Không implement | Thanh điều hướng luôn có nút **Trang chủ** cạnh logo; giữ logo theo thiết kế đã duyệt |
 | Tên / ảnh đại diện trông như bấm được (#16) | Nhóm 2 | Không implement | Đã có nút **Tài khoản** trên thanh điều hướng; tên / ảnh chỉ cho biết ai đang đăng nhập |
 | Chọn loài "Khác" không có ô nhập loài cụ thể (#16) | Nhóm 2 | Không implement | Cần thêm cột vào bảng `pets` (ERD đã duyệt 27/11); ô **Giống** đã dùng để ghi cụ thể |
 | Sửa email trực tiếp dễ làm hỏng đăng nhập (#16) | Nhóm 2 | Không implement | Xác minh email (thư xác nhận / OTP) vượt phạm vi môn Basic Web; máy chủ đã kiểm tra định dạng và trùng email (409) |

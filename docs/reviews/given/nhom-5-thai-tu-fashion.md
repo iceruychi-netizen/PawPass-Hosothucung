@@ -7,6 +7,7 @@
 - **Link repo:** https://github.com/huynhsy986-droid/thai_tu_fashion
 - **Ngày review:** 27/11/2026
 - **Người review:** Nguyễn Hữu Triết (Nhóm 4 – PawPass)
+- **Đã gửi cho nhóm 5:** Issue [thai_tu_fashion #53](https://github.com/huynhsy986-droid/thai_tu_fashion/issues/53)
 - **Cách review:** dùng thử trên Chrome (cửa sổ hẹp, bố cục điện thoại), đi qua Trang chủ, trang sản phẩm Hoodie oversize Cloud, thêm vào giỏ, Smart Studio.
 
 ## 1. Usability (Tính khả dụng)

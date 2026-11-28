@@ -12,7 +12,7 @@ Giao diện giữ nguyên prototype Step 1. API, database và quy tắc đúng t
 | 1 | Hữu Triết | Giao diện: các màn hình & hình ảnh | `public/index.html`, `public/assets/` |
 | 2 | Duy Huy | Phong cách CSS, cấu hình deploy & test giao diện | `public/css/app.css`, `tests/ui/run-ui.js`, `vercel.json`, `package.json`, `.gitignore`, `.env.example` |
 | 3 | Thế Dũng | Logic frontend | `public/js/app.js`, `public/js/runtime.js` |
-| 4 | Thành Đạt | Backend API, bảo mật & README | `server/app.js`, `server/http.js`, `server/security.js`, `server/storage.js`, `server/local.js`, `api/index.js`, `README.md` |
+| 4 | Thành Đạt | Backend API, bảo mật & lưu tệp | `server/app.js`, `server/http.js`, `server/security.js`, `server/storage.js`, `server/local.js`, `api/index.js` |
 | 5 | Duy Quang | Database, kiểm tra dữ liệu & test API | `db/schema.sql`, `server/schema.js`, `server/db.js`, `server/env.js`, `scripts/`, `public/js/validators.js`, `tests/api.test.js` |
 
 Việc cần làm tiếp và quy trình làm việc nhóm: xem [PHAN-CONG.md](../PHAN-CONG.md).
@@ -166,6 +166,8 @@ Test giao diện kiểm tra toàn bộ luồng chính, không có lỗi console 
 | Trang chính tải chậm vì phải gọi máy chủ 1 + 3 lần cho mỗi bé | Thêm `GET /api/overview` (`server/app.js`): cả trang chính trong **1 lần gọi**. Đây là endpoint **bổ sung** so với tài liệu Step 2 (các endpoint cũ giữ nguyên). `public/js/app.js`: dùng endpoint này, quá 20 giây thì hiện nút **Thử lại**; `vercel.json`: bỏ nhớ tạm CSS/JS để bản mới hiện ngay sau deploy |
 | Lighthouse: "Yêu cầu chặn hiển thị" (app.css) | `public/index.html`: tải `app.css` không chặn hiển thị, giữ màu nền trong lúc chờ; `public/css/app.css`: hiện giao diện khi CSS đã tải |
 | Đề bài yêu cầu Tailwind CSS, trang Giới thiệu/Liên hệ, Google Analytics, Sentry | `tailwind.config.js`, `src/tailwind.css` → `public/css/tailwind.css` (`npm run build:css`, Vercel tự build); `public/gioi-thieu.html`, `public/lien-he.html`, `public/js/site.js`; `public/js/monitoring.js`, `server/monitor.js`, `GET /api/config` |
+| Góp ý nhận được (28/11): ô mật khẩu chưa ẩn / hiện được (#23); form sai không đưa tới ô lỗi (#26) | `public/index.html`, `public/js/app.js`: ô "Hiện mật khẩu" (PR #27); tự cuộn và focus ô lỗi đầu tiên (PR #28); test E2E trong `tests/ui/run-ui.js` |
+| Tích "Hiện mật khẩu" làm mất ô mật khẩu (#31) | `public/js/runtime.js`: khi `<input>` đổi `type`, cập nhật tại chỗ thay vì để vòng dọn xóa mất (PR #32) |
 
 Kiểm thử bản cuối: 17 unit test, 41 integration test API và toàn bộ test giao diện (E2E) đều qua.
 
