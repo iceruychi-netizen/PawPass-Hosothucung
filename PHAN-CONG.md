@@ -35,8 +35,17 @@ Ngoài phần 1, Hữu Triết:
 
 ## 3. Cách nhóm đã làm việc trên GitHub
 
-- Cả nhóm làm trực tiếp trên nhánh `main`, **không dùng nhánh riêng, Issue hay Pull Request**.
+**Đến 20/11/2026 (trước bản chấm thử)**
+
+- Cả nhóm làm trực tiếp trên nhánh `main`, không dùng nhánh riêng, Issue hay Pull Request.
 - Mỗi người đưa phần của mình lên bằng "Add files via upload" trên giao diện web GitHub, tối 13/11/2026 (19:49 – 19:58).
 - Các bản sửa sau đó do Hữu Triết đưa lên bằng GitHub Desktop.
+
+**Từ 25/11/2026 (sau bản chấm thử)**
+
+- Mỗi việc là một **Issue** có người phụ trách, gắn vào một **Milestone** có hạn riêng (M1–M6, xem [README](README.md) Task 1c).
+- Mỗi Issue làm trên **nhánh riêng**, mở **Pull Request** ghi `Closes #số`, có người khác **Approve** rồi mới merge.
+- Commit đặt tên theo quy ước `feat:` / `fix:` / `docs:` kèm số Issue.
+- Danh sách Issue → nhánh → PR: README Task 1(e).
 
 **Rút kinh nghiệm cho lần sau:** tạo Issue cho từng việc, mỗi người làm trên nhánh riêng, mở Pull Request để người khác review trước khi gộp, đặt tên commit rõ ràng theo quy ước `feat:` / `fix:` / `docs:`, và commit đều trong suốt dự án thay vì dồn vào một buổi.
