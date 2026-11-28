@@ -72,6 +72,16 @@
   /* Google Analytics (public/js/monitoring.js): chỉ gửi tên sự kiện, không gửi dữ liệu hồ sơ. */
   function ppTrack(name, params) { if (window.ppTrack) window.ppTrack(name, params); }
 
+  /* Sau khi hiện lỗi: cuộn ô lỗi đầu tiên ra giữa màn hình (không bị thông báo che) và đặt con trỏ vào đó. */
+  function ppFocusFirstErr() {
+    setTimeout(function () {
+      var el = document.querySelector('.modal .bad, #app .bad');
+      if (!el) return;
+      el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      el.focus({ preventScroll: true });
+    }, 0);
+  }
+
   class Component extends window.PawPassRuntime.DCLogic {
     constructor(props) {
       super(props);
@@ -236,7 +246,7 @@
     setField(k, v) { this.setState(function (s) { var f = Object.assign({}, s.form); f[k] = v; var e = Object.assign({}, s.errors); e[k] = ''; return { form: f, errors: e, formError: '' }; }); }
     setErr(k, msg) { this.setState(function (s) { var e = Object.assign({}, s.errors); e[k] = msg; return { errors: e }; }); }
     failed(r) {
-      if (r.status === 422 || r.status === 409 || r.status === 413) { this.setState({ errors: r.errors || {} }); this.toast('err', r.error); }
+      if (r.status === 422 || r.status === 409 || r.status === 413) { this.setState({ errors: r.errors || {} }); this.toast('err', r.error); ppFocusFirstErr(); }
       else if (r.status === 401) { this.toast('err', r.error); this.resetSession(); }
       else this.toast('err', r.error || 'Có lỗi xảy ra.');
     }
@@ -325,7 +335,7 @@
     }
     doLogin() {
       var self = this, f = this.state.form, body = { email: (f.email || '').trim(), password: f.password || '' };
-      var e = PP_V.login(body); if (ppHasErr(e)) { this.setState({ errors: e, formError: '' }); return; }
+      var e = PP_V.login(body); if (ppHasErr(e)) { this.setState({ errors: e, formError: '' }); ppFocusFirstErr(); return; }
       this.setState({ saving: true, formError: '' });
       this.api('POST', '/auth/login', body).then(function (r) {
         self.setState({ saving: false });
@@ -334,7 +344,7 @@
     }
     doRegister() {
       var self = this, f = this.state.form, body = { name: f.name || '', email: (f.email || '').trim(), password: f.password || '', confirm: f.confirm || '' };
-      var e = PP_V.register(body); if (ppHasErr(e)) { this.setState({ errors: e, formError: '' }); return; }
+      var e = PP_V.register(body); if (ppHasErr(e)) { this.setState({ errors: e, formError: '' }); ppFocusFirstErr(); return; }
       this.setState({ saving: true, formError: '' });
       this.api('POST', '/auth/register', { name: body.name, email: body.email, password: body.password }).then(function (r) {
         self.setState({ saving: false });
@@ -403,7 +413,7 @@
 
     save(validator, body, method, path, done, payload) {
       var self = this, errs = validator(body), form = this.state.modal || 'form';
-      if (ppHasErr(errs)) { this.setState({ errors: errs }); this.toast('err', 'Vui lòng kiểm tra lại các ô được đánh dấu.'); ppTrack('form_invalid', { form: form }); return; }
+      if (ppHasErr(errs)) { this.setState({ errors: errs }); this.toast('err', 'Vui lòng kiểm tra lại các ô được đánh dấu.'); ppTrack('form_invalid', { form: form }); ppFocusFirstErr(); return; }
       this.setState({ saving: true });
       this.api(method, path, payload || body).then(function (r) {
         self.setState({ saving: false });
@@ -445,7 +455,7 @@
         });
       } else if (m === 'password') {
         var body = { current_password: txt('current_password'), new_password: txt('new_password'), confirm: txt('confirm') };
-        var errs = PP_V.password(body); if (ppHasErr(errs)) { this.setState({ errors: errs }); return; }
+        var errs = PP_V.password(body); if (ppHasErr(errs)) { this.setState({ errors: errs }); ppFocusFirstErr(); return; }
         this.save(PP_V.password, body, 'PUT', '/auth/me', function () {
           self.closeModal(); self.toast('ok', 'Đã đổi mật khẩu.');
         }, { current_password: body.current_password, new_password: body.new_password });
