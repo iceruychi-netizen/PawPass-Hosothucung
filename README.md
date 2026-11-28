@@ -222,7 +222,7 @@ Ngày hoàn thành lấy từ ngày tạo prototype, ảnh chụp màn hình khi
 | Góp ý #26 (nhóm ThaiTuFashion): tự focus ô lỗi đầu tiên | [#26](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/26) | `fix/focus-o-loi-26` | [#28](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/28) (Thế Dũng duyệt, đã merge) |
 | Ghi quyết định góp ý #16, #23, #26 vào README | [#29](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/29) | `docs/phan-hoi-gop-y-29` | [#30](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/30) (Thế Dũng duyệt, đã merge) |
 | Lỗi phát hiện khi thử lại web thật sau #27: tích "Hiện mật khẩu" làm mất ô | [#31](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/31) | `fix/runtime-doi-type-31` | [#32](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/32) (Thế Dũng duyệt, đã merge) |
-| README: ghi milestone M5, M6 và các PR trên | [#33](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/33) | `docs/readme-m5-m6-33` | PR này |
+| README: ghi milestone M5, M6 và các PR trên | [#33](https://github.com/iceruychi-netizen/PawPass-Hosothucung/issues/33) | `docs/readme-m5-m6-33` | [#34](https://github.com/iceruychi-netizen/PawPass-Hosothucung/pull/34) |
 
 - Commit đặt tên theo quy ước `perf:` / `fix:` / `docs:` kèm số Issue, ví dụ `perf: dùng font-display optional cho trang ứng dụng (#1)`.
 - Mỗi Pull Request ghi `Closes #số` để Issue tự đóng khi merge, kèm nguyên nhân, cách sửa và kết quả trước / sau; Vercel tạo link Preview cho từng nhánh để đo lại trước khi merge.
